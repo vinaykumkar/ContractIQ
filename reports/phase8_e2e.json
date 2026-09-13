@@ -1,0 +1,79 @@
+{
+  "journey": {
+    "upload": true,
+    "metadata": {
+      "chars": 720,
+      "type": "txt",
+      "status": "READY"
+    },
+    "risk_orb": "Overall risk score 60 of 100, level MEDIUM, 5 findings",
+    "clause_map": false,
+    "entities": true,
+    "clause_cards": true,
+    "risk_findings_panel": true,
+    "highlight_1": "exact",
+    "highlight_2_moved": "moved correctly",
+    "refresh_restores": true,
+    "delete_updates_stats": true
+  },
+  "fileMatrix": {
+    "note": "DOCX generated programmatically; PDF bytes handcrafted.",
+    "txt_upload": true,
+    "txt_analysis_ms": 3635,
+    "txt_evidence_ok": true,
+    "txt_reopen": true,
+    "pdf_upload": true,
+    "pdf_analysis_ms": 3666,
+    "pdf_evidence_ok": true,
+    "pdf_text_extracted": true
+  },
+  "edgeCases": {
+    "empty_file": true,
+    "unsupported": true,
+    "traversal": true,
+    "corrupt_pdf": true,
+    "duplicate_flagged": true,
+    "oversized": "covered by backend unit tests (413 FILE_TOO_LARGE)",
+    "unicode_txt": true
+  },
+  "largeContract": {
+    "chars": 197160,
+    "analysis_ms": 16878,
+    "scroll_responsive_ms": 384,
+    "highlight_deep": "exact",
+    "dom_mark_nodes": 3
+  },
+  "evidenceInvariant": {
+    "checked": 14,
+    "mismatches": []
+  },
+  "routes": {
+    "/": "renders",
+    "/analyze": "renders",
+    "/contracts": "renders",
+    "/intelligence": "renders",
+    "/no-such-route": "renders"
+  },
+  "responsive": {
+    "1920x1080": "ok",
+    "1440x900": "ok",
+    "1366x768": "ok",
+    "1024x768": "ok",
+    "768x1024": "ok",
+    "390x844": "ok"
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "timings": {
+    "upload_ms": 159,
+    "analyze_ms": 36299,
+    "reopen_after_refresh_ms": 1616
+  },
+  "gpu": {},
+  "a11y": {
+    "dropzone_keyboard": true,
+    "nav_labels": true
+  },
+  "consoleErrorCount": 0,
+  "pageErrorCount": 0
+}

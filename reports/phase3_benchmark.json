@@ -1,0 +1,149 @@
+{
+  "generated_at": "2026-08-30T14:51:32.686339+00:00",
+  "device": "cpu",
+  "cpu": {
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "physical_cores": 8,
+    "logical_cores": 12,
+    "torch_threads": 8,
+    "total_ram_gb": 16.8
+  },
+  "torch_version": "2.13.0+cpu",
+  "sample_windows": 128,
+  "variants": {
+    "distilbert-squad-fp32": {
+      "model_id": "distilbert/distilbert-base-uncased-distilled-squad",
+      "tokenizer_max_len": 512,
+      "results": [
+        {
+          "batch_size": 1,
+          "wall_seconds": 106.57,
+          "windows_per_second": 1.2,
+          "ms_per_window": 832.6
+        },
+        {
+          "batch_size": 2,
+          "wall_seconds": 171.12,
+          "windows_per_second": 0.75,
+          "ms_per_window": 1336.9
+        },
+        {
+          "batch_size": 4,
+          "wall_seconds": 152.38,
+          "windows_per_second": 0.84,
+          "ms_per_window": 1190.5
+        },
+        {
+          "batch_size": 8,
+          "wall_seconds": 108.2,
+          "windows_per_second": 1.18,
+          "ms_per_window": 845.3
+        },
+        {
+          "batch_size": 16,
+          "wall_seconds": 37.52,
+          "windows_per_second": 3.41,
+          "ms_per_window": 293.2
+        }
+      ],
+      "best": {
+        "batch_size": 16,
+        "wall_seconds": 37.52,
+        "windows_per_second": 3.41,
+        "ms_per_window": 293.2
+      }
+    },
+    "minilm-squad2-fp32": {
+      "model_id": "deepset/minilm-uncased-squad2",
+      "tokenizer_max_len": 1000000000000000019884624838656,
+      "results": [
+        {
+          "batch_size": 1,
+          "wall_seconds": 31.88,
+          "windows_per_second": 4.02,
+          "ms_per_window": 249.1
+        },
+        {
+          "batch_size": 2,
+          "wall_seconds": 30.87,
+          "windows_per_second": 4.15,
+          "ms_per_window": 241.2
+        },
+        {
+          "batch_size": 4,
+          "wall_seconds": 32.0,
+          "windows_per_second": 4.0,
+          "ms_per_window": 250.0
+        },
+        {
+          "batch_size": 8,
+          "wall_seconds": 28.89,
+          "windows_per_second": 4.43,
+          "ms_per_window": 225.7
+        },
+        {
+          "batch_size": 16,
+          "wall_seconds": 29.05,
+          "windows_per_second": 4.41,
+          "ms_per_window": 227.0
+        }
+      ],
+      "best": {
+        "batch_size": 8,
+        "wall_seconds": 28.89,
+        "windows_per_second": 4.43,
+        "ms_per_window": 225.7
+      }
+    },
+    "minilm-squad2-int8": {
+      "model_id": "deepset/minilm-uncased-squad2 (dynamic INT8)",
+      "tokenizer_max_len": 1000000000000000019884624838656,
+      "results": [
+        {
+          "batch_size": 1,
+          "wall_seconds": 24.5,
+          "windows_per_second": 5.23,
+          "ms_per_window": 191.4
+        },
+        {
+          "batch_size": 2,
+          "wall_seconds": 23.34,
+          "windows_per_second": 5.48,
+          "ms_per_window": 182.4
+        },
+        {
+          "batch_size": 4,
+          "wall_seconds": 32.56,
+          "windows_per_second": 3.93,
+          "ms_per_window": 254.4
+        },
+        {
+          "batch_size": 8,
+          "wall_seconds": 28.36,
+          "windows_per_second": 4.51,
+          "ms_per_window": 221.6
+        },
+        {
+          "batch_size": 16,
+          "wall_seconds": 27.61,
+          "windows_per_second": 4.64,
+          "ms_per_window": 215.7
+        }
+      ],
+      "best": {
+        "batch_size": 2,
+        "wall_seconds": 23.34,
+        "windows_per_second": 5.48,
+        "ms_per_window": 182.4
+      }
+    }
+  },
+  "int8_output_diff": {
+    "windows_compared": 128,
+    "identical_best_spans": 56,
+    "identical_rate": 0.4375,
+    "mean_abs_confidence_delta": 0.012585,
+    "max_abs_confidence_delta": 0.24523
+  },
+  "peak_rss_gb_during_benchmark": 1.15
+}

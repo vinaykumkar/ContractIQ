@@ -1,0 +1,4162 @@
+{
+  "generated_at": "2026-08-30T13:50:55.475596+00:00",
+  "source": "CUAD v1 (Henriksson et al., 2021) supplied via data.zip",
+  "version_stored_in_files": "aok_v1.0",
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "tokenizer": "distilbert-base-uncased",
+    "question_token_overhead_median": 34,
+    "torch_cuda_available": false
+  },
+  "window_config": {
+    "max_seq_len": 512,
+    "doc_stride": 128
+  },
+  "files": {
+    "CUADv1.json": {
+      "contracts": 510,
+      "total_qas": 20910,
+      "n_categories": 41,
+      "issues": {
+        "missing_fields": 0,
+        "empty_context": 0,
+        "answer_out_of_bounds": 0,
+        "answer_text_mismatch": 0,
+        "answer_text_mismatch_normalized": 0,
+        "impossible_with_answers": 0,
+        "possible_without_answers": 0,
+        "duplicate_qa_ids": 0,
+        "duplicate_contract_titles": 0,
+        "category_parse_failures": 0
+      },
+      "contract_char_lengths": {
+        "min": 645,
+        "p25": 16402,
+        "median": 33143,
+        "mean": 52563.0,
+        "p75": 66442,
+        "p90": 122054,
+        "p95": 163199,
+        "p99": 272018,
+        "max": 338211
+      },
+      "contract_token_lengths": {
+        "min": 172,
+        "p25": 3338,
+        "median": 6736,
+        "mean": 10841.5,
+        "p75": 13547,
+        "p90": 24848,
+        "p95": 35681,
+        "p99": 60094,
+        "max": 78591
+      }
+    },
+    "train_separate_questions.json": {
+      "contracts": 408,
+      "total_qas": 22450,
+      "n_categories": 41,
+      "issues": {
+        "missing_fields": 0,
+        "empty_context": 0,
+        "answer_out_of_bounds": 0,
+        "answer_text_mismatch": 0,
+        "answer_text_mismatch_normalized": 0,
+        "impossible_with_answers": 0,
+        "possible_without_answers": 0,
+        "duplicate_qa_ids": 0,
+        "duplicate_contract_titles": 0,
+        "category_parse_failures": 0
+      },
+      "contract_char_lengths": {
+        "min": 1081,
+        "p25": 16590,
+        "median": 35960,
+        "mean": 53991.7,
+        "p75": 68204,
+        "p90": 127205,
+        "p95": 163199,
+        "p99": 272018,
+        "max": 338211
+      },
+      "contract_token_lengths": {
+        "min": 224,
+        "p25": 3452,
+        "median": 7301,
+        "mean": 11146.6,
+        "p75": 14052,
+        "p90": 25764,
+        "p95": 35681,
+        "p99": 60094,
+        "max": 78591
+      }
+    },
+    "test.json": {
+      "contracts": 102,
+      "total_qas": 4182,
+      "n_categories": 41,
+      "issues": {
+        "missing_fields": 0,
+        "empty_context": 0,
+        "answer_out_of_bounds": 0,
+        "answer_text_mismatch": 0,
+        "answer_text_mismatch_normalized": 0,
+        "impossible_with_answers": 0,
+        "possible_without_answers": 0,
+        "duplicate_qa_ids": 0,
+        "duplicate_contract_titles": 0,
+        "category_parse_failures": 0
+      },
+      "contract_char_lengths": {
+        "min": 645,
+        "p25": 14384,
+        "median": 25657,
+        "mean": 46848.2,
+        "p75": 62272,
+        "p90": 112447,
+        "p95": 145168,
+        "p99": 249551,
+        "max": 300768
+      },
+      "contract_token_lengths": {
+        "min": 172,
+        "p25": 2949,
+        "median": 5106,
+        "mean": 9621.1,
+        "p75": 12977,
+        "p90": 22169,
+        "p95": 31063,
+        "p99": 54619,
+        "max": 61674
+      }
+    }
+  },
+  "split_integrity": {
+    "cuadv1_contracts": 510,
+    "train_contracts": 408,
+    "test_contracts": 102,
+    "sum_matches_full": true
+  },
+  "categories": {
+    "count": 41,
+    "per_category_cuadv1": {
+      "Affiliate License-Licensee": {
+        "questions": 510,
+        "positive": 59,
+        "no_answer": 451,
+        "positivity_rate": 0.1157,
+        "answer_char_len": {
+          "min": 29,
+          "p25": 331,
+          "median": 484,
+          "mean": 555.0,
+          "p75": 677,
+          "p90": 972,
+          "p95": 1146,
+          "p99": 1791,
+          "max": 2457
+        },
+        "question_token_len": {
+          "min": 60,
+          "p25": 60,
+          "median": 60,
+          "mean": 60,
+          "p75": 60,
+          "p90": 60,
+          "p95": 60,
+          "p99": 60,
+          "max": 60
+        },
+        "detail_variants": 1
+      },
+      "Affiliate License-Licensor": {
+        "questions": 510,
+        "positive": 23,
+        "no_answer": 487,
+        "positivity_rate": 0.0451,
+        "answer_char_len": {
+          "min": 147,
+          "p25": 330,
+          "median": 491,
+          "mean": 616.6,
+          "p75": 746,
+          "p90": 1088,
+          "p95": 1608,
+          "p99": 2066,
+          "max": 2457
+        },
+        "question_token_len": {
+          "min": 57,
+          "p25": 57,
+          "median": 57,
+          "mean": 57,
+          "p75": 57,
+          "p90": 57,
+          "p95": 57,
+          "p99": 57,
+          "max": 57
+        },
+        "detail_variants": 1
+      },
+      "Agreement Date": {
+        "questions": 510,
+        "positive": 470,
+        "no_answer": 40,
+        "positivity_rate": 0.9216,
+        "answer_char_len": {
+          "min": 3,
+          "p25": 13,
+          "median": 16,
+          "mean": 18.2,
+          "p75": 22,
+          "p90": 26,
+          "p95": 28,
+          "p99": 63,
+          "max": 104
+        },
+        "question_token_len": {
+          "min": 31,
+          "p25": 31,
+          "median": 31,
+          "mean": 31,
+          "p75": 31,
+          "p90": 31,
+          "p95": 31,
+          "p99": 31,
+          "max": 31
+        },
+        "detail_variants": 1
+      },
+      "Anti-Assignment": {
+        "questions": 510,
+        "positive": 374,
+        "no_answer": 136,
+        "positivity_rate": 0.7333,
+        "answer_char_len": {
+          "min": 1,
+          "p25": 138,
+          "median": 218,
+          "mean": 293.1,
+          "p75": 384,
+          "p90": 585,
+          "p95": 711,
+          "p99": 1149,
+          "max": 2242
+        },
+        "question_token_len": {
+          "min": 45,
+          "p25": 45,
+          "median": 45,
+          "mean": 45,
+          "p75": 45,
+          "p90": 45,
+          "p95": 45,
+          "p99": 45,
+          "max": 45
+        },
+        "detail_variants": 1
+      },
+      "Audit Rights": {
+        "questions": 510,
+        "positive": 214,
+        "no_answer": 296,
+        "positivity_rate": 0.4196,
+        "answer_char_len": {
+          "min": 8,
+          "p25": 169,
+          "median": 253,
+          "mean": 310.0,
+          "p75": 386,
+          "p90": 556,
+          "p95": 689,
+          "p99": 1234,
+          "max": 1884
+        },
+        "question_token_len": {
+          "min": 53,
+          "p25": 53,
+          "median": 53,
+          "mean": 53,
+          "p75": 53,
+          "p90": 53,
+          "p95": 53,
+          "p99": 53,
+          "max": 53
+        },
+        "detail_variants": 1
+      },
+      "Cap On Liability": {
+        "questions": 510,
+        "positive": 275,
+        "no_answer": 235,
+        "positivity_rate": 0.5392,
+        "answer_char_len": {
+          "min": 33,
+          "p25": 201,
+          "median": 306,
+          "mean": 376.8,
+          "p75": 483,
+          "p90": 705,
+          "p95": 858,
+          "p99": 1275,
+          "max": 1887
+        },
+        "question_token_len": {
+          "min": 62,
+          "p25": 62,
+          "median": 62,
+          "mean": 62,
+          "p75": 62,
+          "p90": 62,
+          "p95": 62,
+          "p99": 62,
+          "max": 62
+        },
+        "detail_variants": 1
+      },
+      "Change Of Control": {
+        "questions": 510,
+        "positive": 121,
+        "no_answer": 389,
+        "positivity_rate": 0.2373,
+        "answer_char_len": {
+          "min": 17,
+          "p25": 187,
+          "median": 304,
+          "mean": 382.4,
+          "p75": 459,
+          "p90": 776,
+          "p95": 977,
+          "p99": 1389,
+          "max": 2139
+        },
+        "question_token_len": {
+          "min": 81,
+          "p25": 81,
+          "median": 81,
+          "mean": 81,
+          "p75": 81,
+          "p90": 81,
+          "p95": 81,
+          "p99": 81,
+          "max": 81
+        },
+        "detail_variants": 1
+      },
+      "Competitive Restriction Exception": {
+        "questions": 510,
+        "positive": 76,
+        "no_answer": 434,
+        "positivity_rate": 0.149,
+        "answer_char_len": {
+          "min": 12,
+          "p25": 224,
+          "median": 366,
+          "mean": 451.8,
+          "p75": 530,
+          "p90": 892,
+          "p95": 1206,
+          "p99": 1791,
+          "max": 2820
+        },
+        "question_token_len": {
+          "min": 55,
+          "p25": 55,
+          "median": 55,
+          "mean": 55,
+          "p75": 55,
+          "p90": 55,
+          "p95": 55,
+          "p99": 55,
+          "max": 55
+        },
+        "detail_variants": 1
+      },
+      "Covenant Not To Sue": {
+        "questions": 510,
+        "positive": 100,
+        "no_answer": 410,
+        "positivity_rate": 0.1961,
+        "answer_char_len": {
+          "min": 44,
+          "p25": 192,
+          "median": 335,
+          "mean": 396.6,
+          "p75": 516,
+          "p90": 731,
+          "p95": 1028,
+          "p99": 1717,
+          "max": 2263
+        },
+        "question_token_len": {
+          "min": 63,
+          "p25": 63,
+          "median": 63,
+          "mean": 63,
+          "p75": 63,
+          "p90": 63,
+          "p95": 63,
+          "p99": 63,
+          "max": 63
+        },
+        "detail_variants": 1
+      },
+      "Document Name": {
+        "questions": 510,
+        "positive": 510,
+        "no_answer": 0,
+        "positivity_rate": 1.0,
+        "answer_char_len": {
+          "min": 10,
+          "p25": 21,
+          "median": 25,
+          "mean": 29.8,
+          "p75": 33,
+          "p90": 47,
+          "p95": 57,
+          "p99": 78,
+          "max": 285
+        },
+        "question_token_len": {
+          "min": 31,
+          "p25": 31,
+          "median": 31,
+          "mean": 31,
+          "p75": 31,
+          "p90": 31,
+          "p95": 31,
+          "p99": 31,
+          "max": 31
+        },
+        "detail_variants": 1
+      },
+      "Effective Date": {
+        "questions": 510,
+        "positive": 390,
+        "no_answer": 120,
+        "positivity_rate": 0.7647,
+        "answer_char_len": {
+          "min": 1,
+          "p25": 15,
+          "median": 20,
+          "mean": 62.2,
+          "p75": 69,
+          "p90": 181,
+          "p95": 255,
+          "p99": 434,
+          "max": 717
+        },
+        "question_token_len": {
+          "min": 33,
+          "p25": 33,
+          "median": 33,
+          "mean": 33,
+          "p75": 33,
+          "p90": 33,
+          "p95": 33,
+          "p99": 33,
+          "max": 33
+        },
+        "detail_variants": 1
+      },
+      "Exclusivity": {
+        "questions": 510,
+        "positive": 180,
+        "no_answer": 330,
+        "positivity_rate": 0.3529,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 196,
+          "median": 300,
+          "mean": 361.5,
+          "p75": 440,
+          "p90": 665,
+          "p95": 890,
+          "p99": 1348,
+          "max": 1999
+        },
+        "question_token_len": {
+          "min": 103,
+          "p25": 103,
+          "median": 103,
+          "mean": 103,
+          "p75": 103,
+          "p90": 103,
+          "p95": 103,
+          "p99": 103,
+          "max": 103
+        },
+        "detail_variants": 1
+      },
+      "Expiration Date": {
+        "questions": 510,
+        "positive": 413,
+        "no_answer": 97,
+        "positivity_rate": 0.8098,
+        "answer_char_len": {
+          "min": 12,
+          "p25": 138,
+          "median": 195,
+          "mean": 230.7,
+          "p75": 287,
+          "p90": 407,
+          "p95": 499,
+          "p99": 705,
+          "max": 1478
+        },
+        "question_token_len": {
+          "min": 40,
+          "p25": 40,
+          "median": 40,
+          "mean": 40,
+          "p75": 40,
+          "p90": 40,
+          "p95": 40,
+          "p99": 40,
+          "max": 40
+        },
+        "detail_variants": 1
+      },
+      "Governing Law": {
+        "questions": 510,
+        "positive": 437,
+        "no_answer": 73,
+        "positivity_rate": 0.8569,
+        "answer_char_len": {
+          "min": 6,
+          "p25": 132,
+          "median": 178,
+          "mean": 206.2,
+          "p75": 250,
+          "p90": 331,
+          "p95": 401,
+          "p99": 617,
+          "max": 856
+        },
+        "question_token_len": {
+          "min": 41,
+          "p25": 41,
+          "median": 41,
+          "mean": 41,
+          "p75": 41,
+          "p90": 41,
+          "p95": 41,
+          "p99": 41,
+          "max": 41
+        },
+        "detail_variants": 1
+      },
+      "Insurance": {
+        "questions": 510,
+        "positive": 166,
+        "no_answer": 344,
+        "positivity_rate": 0.3255,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 144,
+          "median": 244,
+          "mean": 318.8,
+          "p75": 384,
+          "p90": 610,
+          "p95": 787,
+          "p99": 1563,
+          "max": 2380
+        },
+        "question_token_len": {
+          "min": 46,
+          "p25": 46,
+          "median": 46,
+          "mean": 46,
+          "p75": 46,
+          "p90": 46,
+          "p95": 46,
+          "p99": 46,
+          "max": 46
+        },
+        "detail_variants": 1
+      },
+      "Ip Ownership Assignment": {
+        "questions": 510,
+        "positive": 124,
+        "no_answer": 386,
+        "positivity_rate": 0.2431,
+        "answer_char_len": {
+          "min": 3,
+          "p25": 205,
+          "median": 337,
+          "mean": 406.0,
+          "p75": 515,
+          "p90": 799,
+          "p95": 950,
+          "p99": 1275,
+          "max": 1965
+        },
+        "question_token_len": {
+          "min": 57,
+          "p25": 57,
+          "median": 57,
+          "mean": 57,
+          "p75": 57,
+          "p90": 57,
+          "p95": 57,
+          "p99": 57,
+          "max": 57
+        },
+        "detail_variants": 1
+      },
+      "Irrevocable Or Perpetual License": {
+        "questions": 510,
+        "positive": 70,
+        "no_answer": 440,
+        "positivity_rate": 0.1373,
+        "answer_char_len": {
+          "min": 75,
+          "p25": 297,
+          "median": 489,
+          "mean": 565.8,
+          "p75": 677,
+          "p90": 1069,
+          "p95": 1238,
+          "p99": 1791,
+          "max": 2457
+        },
+        "question_token_len": {
+          "min": 47,
+          "p25": 47,
+          "median": 47,
+          "mean": 47,
+          "p75": 47,
+          "p90": 47,
+          "p95": 47,
+          "p99": 47,
+          "max": 47
+        },
+        "detail_variants": 1
+      },
+      "Joint Ip Ownership": {
+        "questions": 510,
+        "positive": 46,
+        "no_answer": 464,
+        "positivity_rate": 0.0902,
+        "answer_char_len": {
+          "min": 26,
+          "p25": 199,
+          "median": 299,
+          "mean": 339.2,
+          "p75": 438,
+          "p90": 617,
+          "p95": 670,
+          "p99": 1289,
+          "max": 1298
+        },
+        "question_token_len": {
+          "min": 47,
+          "p25": 47,
+          "median": 47,
+          "mean": 47,
+          "p75": 47,
+          "p90": 47,
+          "p95": 47,
+          "p99": 47,
+          "max": 47
+        },
+        "detail_variants": 1
+      },
+      "License Grant": {
+        "questions": 510,
+        "positive": 255,
+        "no_answer": 255,
+        "positivity_rate": 0.5,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 241,
+          "median": 356,
+          "mean": 432.1,
+          "p75": 531,
+          "p90": 758,
+          "p95": 1011,
+          "p99": 1729,
+          "max": 2457
+        },
+        "question_token_len": {
+          "min": 41,
+          "p25": 41,
+          "median": 41,
+          "mean": 41,
+          "p75": 41,
+          "p90": 41,
+          "p95": 41,
+          "p99": 41,
+          "max": 41
+        },
+        "detail_variants": 1
+      },
+      "Liquidated Damages": {
+        "questions": 510,
+        "positive": 61,
+        "no_answer": 449,
+        "positivity_rate": 0.1196,
+        "answer_char_len": {
+          "min": 70,
+          "p25": 204,
+          "median": 289,
+          "mean": 364.5,
+          "p75": 448,
+          "p90": 633,
+          "p95": 750,
+          "p99": 1422,
+          "max": 1474
+        },
+        "question_token_len": {
+          "min": 57,
+          "p25": 57,
+          "median": 57,
+          "mean": 57,
+          "p75": 57,
+          "p90": 57,
+          "p95": 57,
+          "p99": 57,
+          "max": 57
+        },
+        "detail_variants": 1
+      },
+      "Minimum Commitment": {
+        "questions": 510,
+        "positive": 165,
+        "no_answer": 345,
+        "positivity_rate": 0.3235,
+        "answer_char_len": {
+          "min": 15,
+          "p25": 163,
+          "median": 275,
+          "mean": 353.0,
+          "p75": 417,
+          "p90": 637,
+          "p95": 833,
+          "p99": 1869,
+          "max": 3546
+        },
+        "question_token_len": {
+          "min": 54,
+          "p25": 54,
+          "median": 54,
+          "mean": 54,
+          "p75": 54,
+          "p90": 54,
+          "p95": 54,
+          "p99": 54,
+          "max": 54
+        },
+        "detail_variants": 1
+      },
+      "Most Favored Nation": {
+        "questions": 510,
+        "positive": 28,
+        "no_answer": 482,
+        "positivity_rate": 0.0549,
+        "answer_char_len": {
+          "min": 26,
+          "p25": 303,
+          "median": 379,
+          "mean": 453.7,
+          "p75": 555,
+          "p90": 812,
+          "p95": 918,
+          "p99": 1136,
+          "max": 1136
+        },
+        "question_token_len": {
+          "min": 75,
+          "p25": 75,
+          "median": 75,
+          "mean": 75,
+          "p75": 75,
+          "p90": 75,
+          "p95": 75,
+          "p99": 75,
+          "max": 75
+        },
+        "detail_variants": 1
+      },
+      "No-Solicit Of Customers": {
+        "questions": 510,
+        "positive": 34,
+        "no_answer": 476,
+        "positivity_rate": 0.0667,
+        "answer_char_len": {
+          "min": 95,
+          "p25": 155,
+          "median": 258,
+          "mean": 315.4,
+          "p75": 399,
+          "p90": 549,
+          "p95": 594,
+          "p99": 874,
+          "max": 1206
+        },
+        "question_token_len": {
+          "min": 63,
+          "p25": 63,
+          "median": 63,
+          "mean": 63,
+          "p75": 63,
+          "p90": 63,
+          "p95": 63,
+          "p99": 63,
+          "max": 63
+        },
+        "detail_variants": 1
+      },
+      "No-Solicit Of Employees": {
+        "questions": 510,
+        "positive": 59,
+        "no_answer": 451,
+        "positivity_rate": 0.1157,
+        "answer_char_len": {
+          "min": 34,
+          "p25": 242,
+          "median": 350,
+          "mean": 391.8,
+          "p75": 519,
+          "p90": 690,
+          "p95": 810,
+          "p99": 1082,
+          "max": 1357
+        },
+        "question_token_len": {
+          "min": 69,
+          "p25": 69,
+          "median": 69,
+          "mean": 69,
+          "p75": 69,
+          "p90": 69,
+          "p95": 69,
+          "p99": 69,
+          "max": 69
+        },
+        "detail_variants": 1
+      },
+      "Non-Compete": {
+        "questions": 510,
+        "positive": 119,
+        "no_answer": 391,
+        "positivity_rate": 0.2333,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 203,
+          "median": 309,
+          "mean": 392.0,
+          "p75": 479,
+          "p90": 714,
+          "p95": 1138,
+          "p99": 1436,
+          "max": 2780
+        },
+        "question_token_len": {
+          "min": 55,
+          "p25": 55,
+          "median": 55,
+          "mean": 55,
+          "p75": 55,
+          "p90": 55,
+          "p95": 55,
+          "p99": 55,
+          "max": 55
+        },
+        "detail_variants": 1
+      },
+      "Non-Disparagement": {
+        "questions": 510,
+        "positive": 38,
+        "no_answer": 472,
+        "positivity_rate": 0.0745,
+        "answer_char_len": {
+          "min": 13,
+          "p25": 142,
+          "median": 226,
+          "mean": 402.0,
+          "p75": 347,
+          "p90": 1334,
+          "p95": 1453,
+          "p99": 1690,
+          "max": 2030
+        },
+        "question_token_len": {
+          "min": 46,
+          "p25": 46,
+          "median": 46,
+          "mean": 46,
+          "p75": 46,
+          "p90": 46,
+          "p95": 46,
+          "p99": 46,
+          "max": 46
+        },
+        "detail_variants": 1
+      },
+      "Non-Transferable License": {
+        "questions": 510,
+        "positive": 138,
+        "no_answer": 372,
+        "positivity_rate": 0.2706,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 236,
+          "median": 351,
+          "mean": 421.4,
+          "p75": 510,
+          "p90": 737,
+          "p95": 947,
+          "p99": 1729,
+          "max": 2246
+        },
+        "question_token_len": {
+          "min": 49,
+          "p25": 49,
+          "median": 49,
+          "mean": 49,
+          "p75": 49,
+          "p90": 49,
+          "p95": 49,
+          "p99": 49,
+          "max": 49
+        },
+        "detail_variants": 1
+      },
+      "Notice Period To Terminate Renewal": {
+        "questions": 510,
+        "positive": 111,
+        "no_answer": 399,
+        "positivity_rate": 0.2176,
+        "answer_char_len": {
+          "min": 13,
+          "p25": 211,
+          "median": 298,
+          "mean": 306.8,
+          "p75": 358,
+          "p90": 443,
+          "p95": 538,
+          "p99": 705,
+          "max": 961
+        },
+        "question_token_len": {
+          "min": 39,
+          "p25": 39,
+          "median": 39,
+          "mean": 39,
+          "p75": 39,
+          "p90": 39,
+          "p95": 39,
+          "p99": 39,
+          "max": 39
+        },
+        "detail_variants": 1
+      },
+      "Parties": {
+        "questions": 510,
+        "positive": 509,
+        "no_answer": 1,
+        "positivity_rate": 0.998,
+        "answer_char_len": {
+          "min": 2,
+          "p25": 8,
+          "median": 17,
+          "mean": 23.6,
+          "p75": 29,
+          "p90": 44,
+          "p95": 76,
+          "p99": 119,
+          "max": 533
+        },
+        "question_token_len": {
+          "min": 34,
+          "p25": 34,
+          "median": 34,
+          "mean": 34,
+          "p75": 34,
+          "p90": 34,
+          "p95": 34,
+          "p99": 34,
+          "max": 34
+        },
+        "detail_variants": 1
+      },
+      "Post-Termination Services": {
+        "questions": 510,
+        "positive": 182,
+        "no_answer": 328,
+        "positivity_rate": 0.3569,
+        "answer_char_len": {
+          "min": 12,
+          "p25": 235,
+          "median": 368,
+          "mean": 449.1,
+          "p75": 578,
+          "p90": 864,
+          "p95": 1100,
+          "p99": 1564,
+          "max": 1778
+        },
+        "question_token_len": {
+          "min": 69,
+          "p25": 69,
+          "median": 69,
+          "mean": 69,
+          "p75": 69,
+          "p90": 69,
+          "p95": 69,
+          "p99": 69,
+          "max": 69
+        },
+        "detail_variants": 1
+      },
+      "Price Restrictions": {
+        "questions": 510,
+        "positive": 15,
+        "no_answer": 495,
+        "positivity_rate": 0.0294,
+        "answer_char_len": {
+          "min": 33,
+          "p25": 204,
+          "median": 282,
+          "mean": 369.7,
+          "p75": 445,
+          "p90": 829,
+          "p95": 1048,
+          "p99": 1095,
+          "max": 1095
+        },
+        "question_token_len": {
+          "min": 50,
+          "p25": 50,
+          "median": 50,
+          "mean": 50,
+          "p75": 50,
+          "p90": 50,
+          "p95": 50,
+          "p99": 50,
+          "max": 50
+        },
+        "detail_variants": 1
+      },
+      "Renewal Term": {
+        "questions": 510,
+        "positive": 176,
+        "no_answer": 334,
+        "positivity_rate": 0.3451,
+        "answer_char_len": {
+          "min": 13,
+          "p25": 189,
+          "median": 270,
+          "mean": 317.4,
+          "p75": 354,
+          "p90": 459,
+          "p95": 642,
+          "p99": 1722,
+          "max": 2783
+        },
+        "question_token_len": {
+          "min": 53,
+          "p25": 53,
+          "median": 53,
+          "mean": 53,
+          "p75": 53,
+          "p90": 53,
+          "p95": 53,
+          "p99": 53,
+          "max": 53
+        },
+        "detail_variants": 1
+      },
+      "Revenue/Profit Sharing": {
+        "questions": 510,
+        "positive": 166,
+        "no_answer": 344,
+        "positivity_rate": 0.3255,
+        "answer_char_len": {
+          "min": 7,
+          "p25": 165,
+          "median": 267,
+          "mean": 350.9,
+          "p75": 443,
+          "p90": 631,
+          "p95": 950,
+          "p99": 1464,
+          "max": 2563
+        },
+        "question_token_len": {
+          "min": 50,
+          "p25": 50,
+          "median": 50,
+          "mean": 50,
+          "p75": 50,
+          "p90": 50,
+          "p95": 50,
+          "p99": 50,
+          "max": 50
+        },
+        "detail_variants": 1
+      },
+      "Rofr/Rofo/Rofn": {
+        "questions": 510,
+        "positive": 85,
+        "no_answer": 425,
+        "positivity_rate": 0.1667,
+        "answer_char_len": {
+          "min": 30,
+          "p25": 211,
+          "median": 328,
+          "mean": 393.8,
+          "p75": 487,
+          "p90": 711,
+          "p95": 839,
+          "p99": 1366,
+          "max": 2152
+        },
+        "question_token_len": {
+          "min": 75,
+          "p25": 75,
+          "median": 75,
+          "mean": 75,
+          "p75": 75,
+          "p90": 75,
+          "p95": 75,
+          "p99": 75,
+          "max": 75
+        },
+        "detail_variants": 1
+      },
+      "Source Code Escrow": {
+        "questions": 510,
+        "positive": 13,
+        "no_answer": 497,
+        "positivity_rate": 0.0255,
+        "answer_char_len": {
+          "min": 4,
+          "p25": 187,
+          "median": 252,
+          "mean": 477.4,
+          "p75": 519,
+          "p90": 832,
+          "p95": 1242,
+          "p99": 3393,
+          "max": 3884
+        },
+        "question_token_len": {
+          "min": 71,
+          "p25": 71,
+          "median": 71,
+          "mean": 71,
+          "p75": 71,
+          "p90": 71,
+          "p95": 71,
+          "p99": 71,
+          "max": 71
+        },
+        "detail_variants": 1
+      },
+      "Termination For Convenience": {
+        "questions": 510,
+        "positive": 183,
+        "no_answer": 327,
+        "positivity_rate": 0.3588,
+        "answer_char_len": {
+          "min": 34,
+          "p25": 112,
+          "median": 163,
+          "mean": 221.9,
+          "p75": 251,
+          "p90": 407,
+          "p95": 547,
+          "p99": 1003,
+          "max": 2063
+        },
+        "question_token_len": {
+          "min": 51,
+          "p25": 51,
+          "median": 51,
+          "mean": 51,
+          "p75": 51,
+          "p90": 51,
+          "p95": 51,
+          "p99": 51,
+          "max": 51
+        },
+        "detail_variants": 1
+      },
+      "Third Party Beneficiary": {
+        "questions": 510,
+        "positive": 32,
+        "no_answer": 478,
+        "positivity_rate": 0.0627,
+        "answer_char_len": {
+          "min": 64,
+          "p25": 158,
+          "median": 205,
+          "mean": 234,
+          "p75": 271,
+          "p90": 368,
+          "p95": 392,
+          "p99": 765,
+          "max": 765
+        },
+        "question_token_len": {
+          "min": 65,
+          "p25": 65,
+          "median": 65,
+          "mean": 65,
+          "p75": 65,
+          "p90": 65,
+          "p95": 65,
+          "p99": 65,
+          "max": 65
+        },
+        "detail_variants": 1
+      },
+      "Uncapped Liability": {
+        "questions": 510,
+        "positive": 111,
+        "no_answer": 399,
+        "positivity_rate": 0.2176,
+        "answer_char_len": {
+          "min": 33,
+          "p25": 264,
+          "median": 423,
+          "mean": 452.4,
+          "p75": 576,
+          "p90": 756,
+          "p95": 891,
+          "p99": 1083,
+          "max": 1624
+        },
+        "question_token_len": {
+          "min": 70,
+          "p25": 70,
+          "median": 70,
+          "mean": 70,
+          "p75": 70,
+          "p90": 70,
+          "p95": 70,
+          "p99": 70,
+          "max": 70
+        },
+        "detail_variants": 1
+      },
+      "Unlimited/All-You-Can-Eat-License": {
+        "questions": 510,
+        "positive": 17,
+        "no_answer": 493,
+        "positivity_rate": 0.0333,
+        "answer_char_len": {
+          "min": 20,
+          "p25": 170,
+          "median": 342,
+          "mean": 378.4,
+          "p75": 467,
+          "p90": 689,
+          "p95": 813,
+          "p99": 1238,
+          "max": 1238
+        },
+        "question_token_len": {
+          "min": 58,
+          "p25": 58,
+          "median": 58,
+          "mean": 58,
+          "p75": 58,
+          "p90": 58,
+          "p95": 58,
+          "p99": 58,
+          "max": 58
+        },
+        "detail_variants": 1
+      },
+      "Volume Restriction": {
+        "questions": 510,
+        "positive": 82,
+        "no_answer": 428,
+        "positivity_rate": 0.1608,
+        "answer_char_len": {
+          "min": 17,
+          "p25": 154,
+          "median": 233,
+          "mean": 273.6,
+          "p75": 326,
+          "p90": 527,
+          "p95": 618,
+          "p99": 801,
+          "max": 967
+        },
+        "question_token_len": {
+          "min": 52,
+          "p25": 52,
+          "median": 52,
+          "mean": 52,
+          "p75": 52,
+          "p90": 52,
+          "p95": 52,
+          "p99": 52,
+          "max": 52
+        },
+        "detail_variants": 1
+      },
+      "Warranty Duration": {
+        "questions": 510,
+        "positive": 75,
+        "no_answer": 435,
+        "positivity_rate": 0.1471,
+        "answer_char_len": {
+          "min": 8,
+          "p25": 166,
+          "median": 261,
+          "mean": 310.9,
+          "p75": 399,
+          "p90": 571,
+          "p95": 628,
+          "p99": 974,
+          "max": 2265
+        },
+        "question_token_len": {
+          "min": 51,
+          "p25": 51,
+          "median": 51,
+          "mean": 51,
+          "p75": 51,
+          "p90": 51,
+          "p95": 51,
+          "p99": 51,
+          "max": 51
+        },
+        "detail_variants": 1
+      }
+    },
+    "per_category_train": {
+      "Affiliate License-Licensee": {
+        "questions": 449,
+        "positive": 88,
+        "no_answer": 361,
+        "positivity_rate": 0.196,
+        "answer_char_len": {
+          "min": 76,
+          "p25": 360,
+          "median": 505,
+          "mean": 565.9,
+          "p75": 685,
+          "p90": 947,
+          "p95": 1146,
+          "p99": 1532,
+          "max": 2457
+        },
+        "question_token_len": {
+          "min": 60,
+          "p25": 60,
+          "median": 60,
+          "mean": 60,
+          "p75": 60,
+          "p90": 60,
+          "p95": 60,
+          "p99": 60,
+          "max": 60
+        },
+        "detail_variants": 1
+      },
+      "Affiliate License-Licensor": {
+        "questions": 440,
+        "positive": 49,
+        "no_answer": 391,
+        "positivity_rate": 0.1114,
+        "answer_char_len": {
+          "min": 171,
+          "p25": 284,
+          "median": 489,
+          "mean": 601.4,
+          "p75": 752,
+          "p90": 1065,
+          "p95": 1426,
+          "p99": 2457,
+          "max": 2457
+        },
+        "question_token_len": {
+          "min": 57,
+          "p25": 57,
+          "median": 57,
+          "mean": 57,
+          "p75": 57,
+          "p90": 57,
+          "p95": 57,
+          "p99": 57,
+          "max": 57
+        },
+        "detail_variants": 1
+      },
+      "Agreement Date": {
+        "questions": 414,
+        "positive": 383,
+        "no_answer": 31,
+        "positivity_rate": 0.9251,
+        "answer_char_len": {
+          "min": 3,
+          "p25": 13,
+          "median": 16,
+          "mean": 18.4,
+          "p75": 22,
+          "p90": 26,
+          "p95": 29,
+          "p99": 64,
+          "max": 104
+        },
+        "question_token_len": {
+          "min": 31,
+          "p25": 31,
+          "median": 31,
+          "mean": 31,
+          "p75": 31,
+          "p90": 31,
+          "p95": 31,
+          "p99": 31,
+          "max": 31
+        },
+        "detail_variants": 1
+      },
+      "Anti-Assignment": {
+        "questions": 623,
+        "positive": 517,
+        "no_answer": 106,
+        "positivity_rate": 0.8299,
+        "answer_char_len": {
+          "min": 1,
+          "p25": 141,
+          "median": 219,
+          "mean": 299.6,
+          "p75": 386,
+          "p90": 605,
+          "p95": 732,
+          "p99": 1206,
+          "max": 2242
+        },
+        "question_token_len": {
+          "min": 45,
+          "p25": 45,
+          "median": 45,
+          "mean": 45,
+          "p75": 45,
+          "p90": 45,
+          "p95": 45,
+          "p99": 45,
+          "max": 45
+        },
+        "detail_variants": 1
+      },
+      "Audit Rights": {
+        "questions": 770,
+        "positive": 538,
+        "no_answer": 232,
+        "positivity_rate": 0.6987,
+        "answer_char_len": {
+          "min": 8,
+          "p25": 169,
+          "median": 254,
+          "mean": 308.7,
+          "p75": 390,
+          "p90": 538,
+          "p95": 672,
+          "p99": 1301,
+          "max": 1884
+        },
+        "question_token_len": {
+          "min": 53,
+          "p25": 53,
+          "median": 53,
+          "mean": 53,
+          "p75": 53,
+          "p90": 53,
+          "p95": 53,
+          "p99": 53,
+          "max": 53
+        },
+        "detail_variants": 1
+      },
+      "Cap On Liability": {
+        "questions": 731,
+        "positive": 554,
+        "no_answer": 177,
+        "positivity_rate": 0.7579,
+        "answer_char_len": {
+          "min": 33,
+          "p25": 201,
+          "median": 312,
+          "mean": 379.9,
+          "p75": 491,
+          "p90": 700,
+          "p95": 849,
+          "p99": 1258,
+          "max": 1887
+        },
+        "question_token_len": {
+          "min": 62,
+          "p25": 62,
+          "median": 62,
+          "mean": 62,
+          "p75": 62,
+          "p90": 62,
+          "p95": 62,
+          "p99": 62,
+          "max": 62
+        },
+        "detail_variants": 1
+      },
+      "Change Of Control": {
+        "questions": 504,
+        "positive": 191,
+        "no_answer": 313,
+        "positivity_rate": 0.379,
+        "answer_char_len": {
+          "min": 17,
+          "p25": 176,
+          "median": 307,
+          "mean": 378.3,
+          "p75": 459,
+          "p90": 742,
+          "p95": 942,
+          "p99": 1389,
+          "max": 1569
+        },
+        "question_token_len": {
+          "min": 81,
+          "p25": 81,
+          "median": 81,
+          "mean": 81,
+          "p75": 81,
+          "p90": 81,
+          "p95": 81,
+          "p99": 81,
+          "max": 81
+        },
+        "detail_variants": 1
+      },
+      "Competitive Restriction Exception": {
+        "questions": 446,
+        "positive": 98,
+        "no_answer": 348,
+        "positivity_rate": 0.2197,
+        "answer_char_len": {
+          "min": 62,
+          "p25": 231,
+          "median": 373,
+          "mean": 468.9,
+          "p75": 531,
+          "p90": 913,
+          "p95": 1219,
+          "p99": 1791,
+          "max": 2820
+        },
+        "question_token_len": {
+          "min": 55,
+          "p25": 55,
+          "median": 55,
+          "mean": 55,
+          "p75": 55,
+          "p90": 55,
+          "p95": 55,
+          "p99": 55,
+          "max": 55
+        },
+        "detail_variants": 1
+      },
+      "Covenant Not To Sue": {
+        "questions": 461,
+        "positive": 129,
+        "no_answer": 332,
+        "positivity_rate": 0.2798,
+        "answer_char_len": {
+          "min": 45,
+          "p25": 182,
+          "median": 315,
+          "mean": 387.0,
+          "p75": 501,
+          "p90": 730,
+          "p95": 1028,
+          "p99": 1330,
+          "max": 2263
+        },
+        "question_token_len": {
+          "min": 63,
+          "p25": 63,
+          "median": 63,
+          "mean": 63,
+          "p75": 63,
+          "p90": 63,
+          "p95": 63,
+          "p99": 63,
+          "max": 63
+        },
+        "detail_variants": 1
+      },
+      "Document Name": {
+        "questions": 419,
+        "positive": 419,
+        "no_answer": 0,
+        "positivity_rate": 1.0,
+        "answer_char_len": {
+          "min": 10,
+          "p25": 21,
+          "median": 25,
+          "mean": 29.6,
+          "p75": 33,
+          "p90": 46,
+          "p95": 57,
+          "p99": 79,
+          "max": 285
+        },
+        "question_token_len": {
+          "min": 31,
+          "p25": 31,
+          "median": 31,
+          "mean": 31,
+          "p75": 31,
+          "p90": 31,
+          "p95": 31,
+          "p99": 31,
+          "max": 31
+        },
+        "detail_variants": 1
+      },
+      "Effective Date": {
+        "questions": 451,
+        "positive": 363,
+        "no_answer": 88,
+        "positivity_rate": 0.8049,
+        "answer_char_len": {
+          "min": 1,
+          "p25": 15,
+          "median": 20,
+          "mean": 60.2,
+          "p75": 64,
+          "p90": 175,
+          "p95": 255,
+          "p99": 429,
+          "max": 717
+        },
+        "question_token_len": {
+          "min": 33,
+          "p25": 33,
+          "median": 33,
+          "mean": 33,
+          "p75": 33,
+          "p90": 33,
+          "p95": 33,
+          "p99": 33,
+          "max": 33
+        },
+        "detail_variants": 1
+      },
+      "Exclusivity": {
+        "questions": 593,
+        "positive": 332,
+        "no_answer": 261,
+        "positivity_rate": 0.5599,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 196,
+          "median": 299,
+          "mean": 356.4,
+          "p75": 442,
+          "p90": 665,
+          "p95": 773,
+          "p99": 1311,
+          "max": 1999
+        },
+        "question_token_len": {
+          "min": 103,
+          "p25": 103,
+          "median": 103,
+          "mean": 103,
+          "p75": 103,
+          "p90": 103,
+          "p95": 103,
+          "p99": 103,
+          "max": 103
+        },
+        "detail_variants": 1
+      },
+      "Expiration Date": {
+        "questions": 457,
+        "positive": 384,
+        "no_answer": 73,
+        "positivity_rate": 0.8403,
+        "answer_char_len": {
+          "min": 12,
+          "p25": 137,
+          "median": 194,
+          "mean": 232.3,
+          "p75": 289,
+          "p90": 422,
+          "p95": 507,
+          "p99": 705,
+          "max": 1478
+        },
+        "question_token_len": {
+          "min": 40,
+          "p25": 40,
+          "median": 40,
+          "mean": 40,
+          "p75": 40,
+          "p90": 40,
+          "p95": 40,
+          "p99": 40,
+          "max": 40
+        },
+        "detail_variants": 1
+      },
+      "Governing Law": {
+        "questions": 428,
+        "positive": 374,
+        "no_answer": 54,
+        "positivity_rate": 0.8738,
+        "answer_char_len": {
+          "min": 6,
+          "p25": 135,
+          "median": 179,
+          "mean": 204.8,
+          "p75": 246,
+          "p90": 327,
+          "p95": 388,
+          "p99": 574,
+          "max": 856
+        },
+        "question_token_len": {
+          "min": 41,
+          "p25": 41,
+          "median": 41,
+          "mean": 41,
+          "p75": 41,
+          "p90": 41,
+          "p95": 41,
+          "p99": 41,
+          "max": 41
+        },
+        "detail_variants": 1
+      },
+      "Insurance": {
+        "questions": 717,
+        "positive": 443,
+        "no_answer": 274,
+        "positivity_rate": 0.6179,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 144,
+          "median": 248,
+          "mean": 325.1,
+          "p75": 395,
+          "p90": 614,
+          "p95": 808,
+          "p99": 1627,
+          "max": 2380
+        },
+        "question_token_len": {
+          "min": 46,
+          "p25": 46,
+          "median": 46,
+          "mean": 46,
+          "p75": 46,
+          "p90": 46,
+          "p95": 46,
+          "p99": 46,
+          "max": 46
+        },
+        "detail_variants": 1
+      },
+      "Ip Ownership Assignment": {
+        "questions": 564,
+        "positive": 257,
+        "no_answer": 307,
+        "positivity_rate": 0.4557,
+        "answer_char_len": {
+          "min": 44,
+          "p25": 202,
+          "median": 331,
+          "mean": 392.5,
+          "p75": 485,
+          "p90": 707,
+          "p95": 893,
+          "p99": 1123,
+          "max": 1965
+        },
+        "question_token_len": {
+          "min": 57,
+          "p25": 57,
+          "median": 57,
+          "mean": 57,
+          "p75": 57,
+          "p90": 57,
+          "p95": 57,
+          "p99": 57,
+          "max": 57
+        },
+        "detail_variants": 1
+      },
+      "Irrevocable Or Perpetual License": {
+        "questions": 493,
+        "positive": 142,
+        "no_answer": 351,
+        "positivity_rate": 0.288,
+        "answer_char_len": {
+          "min": 75,
+          "p25": 284,
+          "median": 483,
+          "mean": 540.3,
+          "p75": 664,
+          "p90": 991,
+          "p95": 1215,
+          "p99": 2015,
+          "max": 2457
+        },
+        "question_token_len": {
+          "min": 47,
+          "p25": 47,
+          "median": 47,
+          "mean": 47,
+          "p75": 47,
+          "p90": 47,
+          "p95": 47,
+          "p99": 47,
+          "max": 47
+        },
+        "detail_variants": 1
+      },
+      "Joint Ip Ownership": {
+        "questions": 470,
+        "positive": 101,
+        "no_answer": 369,
+        "positivity_rate": 0.2149,
+        "answer_char_len": {
+          "min": 26,
+          "p25": 203,
+          "median": 297,
+          "mean": 339.4,
+          "p75": 438,
+          "p90": 600,
+          "p95": 670,
+          "p99": 1289,
+          "max": 1298
+        },
+        "question_token_len": {
+          "min": 47,
+          "p25": 47,
+          "median": 47,
+          "mean": 47,
+          "p75": 47,
+          "p90": 47,
+          "p95": 47,
+          "p99": 47,
+          "max": 47
+        },
+        "detail_variants": 1
+      },
+      "License Grant": {
+        "questions": 845,
+        "positive": 642,
+        "no_answer": 203,
+        "positivity_rate": 0.7598,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 240,
+          "median": 358,
+          "mean": 431.5,
+          "p75": 525,
+          "p90": 757,
+          "p95": 978,
+          "p99": 1754,
+          "max": 2457
+        },
+        "question_token_len": {
+          "min": 41,
+          "p25": 41,
+          "median": 41,
+          "mean": 41,
+          "p75": 41,
+          "p90": 41,
+          "p95": 41,
+          "p99": 41,
+          "max": 41
+        },
+        "detail_variants": 1
+      },
+      "Liquidated Damages": {
+        "questions": 459,
+        "positive": 98,
+        "no_answer": 361,
+        "positivity_rate": 0.2135,
+        "answer_char_len": {
+          "min": 89,
+          "p25": 196,
+          "median": 287,
+          "mean": 361.3,
+          "p75": 446,
+          "p90": 630,
+          "p95": 819,
+          "p99": 1422,
+          "max": 1474
+        },
+        "question_token_len": {
+          "min": 57,
+          "p25": 57,
+          "median": 57,
+          "mean": 57,
+          "p75": 57,
+          "p90": 57,
+          "p95": 57,
+          "p99": 57,
+          "max": 57
+        },
+        "detail_variants": 1
+      },
+      "Minimum Commitment": {
+        "questions": 611,
+        "positive": 336,
+        "no_answer": 275,
+        "positivity_rate": 0.5499,
+        "answer_char_len": {
+          "min": 15,
+          "p25": 163,
+          "median": 273,
+          "mean": 366.6,
+          "p75": 431,
+          "p90": 679,
+          "p95": 872,
+          "p99": 1969,
+          "max": 3546
+        },
+        "question_token_len": {
+          "min": 54,
+          "p25": 54,
+          "median": 54,
+          "mean": 54,
+          "p75": 54,
+          "p90": 54,
+          "p95": 54,
+          "p99": 54,
+          "max": 54
+        },
+        "detail_variants": 1
+      },
+      "Most Favored Nation": {
+        "questions": 418,
+        "positive": 35,
+        "no_answer": 383,
+        "positivity_rate": 0.0837,
+        "answer_char_len": {
+          "min": 26,
+          "p25": 303,
+          "median": 371,
+          "mean": 452.1,
+          "p75": 555,
+          "p90": 912,
+          "p95": 918,
+          "p99": 1136,
+          "max": 1136
+        },
+        "question_token_len": {
+          "min": 75,
+          "p25": 75,
+          "median": 75,
+          "mean": 75,
+          "p75": 75,
+          "p90": 75,
+          "p95": 75,
+          "p99": 75,
+          "max": 75
+        },
+        "detail_variants": 1
+      },
+      "No-Solicit Of Customers": {
+        "questions": 424,
+        "positive": 43,
+        "no_answer": 381,
+        "positivity_rate": 0.1014,
+        "answer_char_len": {
+          "min": 104,
+          "p25": 149,
+          "median": 232,
+          "mean": 299.7,
+          "p75": 423,
+          "p90": 549,
+          "p95": 570,
+          "p99": 1206,
+          "max": 1206
+        },
+        "question_token_len": {
+          "min": 63,
+          "p25": 63,
+          "median": 63,
+          "mean": 63,
+          "p75": 63,
+          "p90": 63,
+          "p95": 63,
+          "p99": 63,
+          "max": 63
+        },
+        "detail_variants": 1
+      },
+      "No-Solicit Of Employees": {
+        "questions": 432,
+        "positive": 73,
+        "no_answer": 359,
+        "positivity_rate": 0.169,
+        "answer_char_len": {
+          "min": 34,
+          "p25": 227,
+          "median": 339,
+          "mean": 372.6,
+          "p75": 457,
+          "p90": 690,
+          "p95": 777,
+          "p99": 859,
+          "max": 1357
+        },
+        "question_token_len": {
+          "min": 69,
+          "p25": 69,
+          "median": 69,
+          "mean": 69,
+          "p75": 69,
+          "p90": 69,
+          "p95": 69,
+          "p99": 69,
+          "max": 69
+        },
+        "detail_variants": 1
+      },
+      "Non-Compete": {
+        "questions": 512,
+        "positive": 200,
+        "no_answer": 312,
+        "positivity_rate": 0.3906,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 192,
+          "median": 293,
+          "mean": 385.3,
+          "p75": 473,
+          "p90": 681,
+          "p95": 1173,
+          "p99": 1635,
+          "max": 2780
+        },
+        "question_token_len": {
+          "min": 55,
+          "p25": 55,
+          "median": 55,
+          "mean": 55,
+          "p75": 55,
+          "p90": 55,
+          "p95": 55,
+          "p99": 55,
+          "max": 55
+        },
+        "detail_variants": 1
+      },
+      "Non-Disparagement": {
+        "questions": 430,
+        "positive": 53,
+        "no_answer": 377,
+        "positivity_rate": 0.1233,
+        "answer_char_len": {
+          "min": 13,
+          "p25": 142,
+          "median": 221,
+          "mean": 396.5,
+          "p75": 385,
+          "p90": 1334,
+          "p95": 1420,
+          "p99": 1654,
+          "max": 1690
+        },
+        "question_token_len": {
+          "min": 46,
+          "p25": 46,
+          "median": 46,
+          "mean": 46,
+          "p75": 46,
+          "p90": 46,
+          "p95": 46,
+          "p99": 46,
+          "max": 46
+        },
+        "detail_variants": 1
+      },
+      "Non-Transferable License": {
+        "questions": 547,
+        "positive": 255,
+        "no_answer": 292,
+        "positivity_rate": 0.4662,
+        "answer_char_len": {
+          "min": 9,
+          "p25": 246,
+          "median": 361,
+          "mean": 435.3,
+          "p75": 529,
+          "p90": 757,
+          "p95": 1069,
+          "p99": 1729,
+          "max": 2246
+        },
+        "question_token_len": {
+          "min": 49,
+          "p25": 49,
+          "median": 49,
+          "mean": 49,
+          "p75": 49,
+          "p90": 49,
+          "p95": 49,
+          "p99": 49,
+          "max": 49
+        },
+        "detail_variants": 1
+      },
+      "Notice Period To Terminate Renewal": {
+        "questions": 417,
+        "positive": 104,
+        "no_answer": 313,
+        "positivity_rate": 0.2494,
+        "answer_char_len": {
+          "min": 13,
+          "p25": 214,
+          "median": 298,
+          "mean": 308.7,
+          "p75": 357,
+          "p90": 443,
+          "p95": 642,
+          "p99": 705,
+          "max": 961
+        },
+        "question_token_len": {
+          "min": 39,
+          "p25": 39,
+          "median": 39,
+          "mean": 39,
+          "p75": 39,
+          "p90": 39,
+          "p95": 39,
+          "p99": 39,
+          "max": 39
+        },
+        "detail_variants": 1
+      },
+      "Parties": {
+        "questions": 2012,
+        "positive": 2011,
+        "no_answer": 1,
+        "positivity_rate": 0.9995,
+        "answer_char_len": {
+          "min": 2,
+          "p25": 8,
+          "median": 16,
+          "mean": 22.8,
+          "p75": 29,
+          "p90": 43,
+          "p95": 71,
+          "p99": 117,
+          "max": 279
+        },
+        "question_token_len": {
+          "min": 34,
+          "p25": 34,
+          "median": 34,
+          "mean": 34,
+          "p75": 34,
+          "p90": 34,
+          "p95": 34,
+          "p99": 34,
+          "max": 34
+        },
+        "detail_variants": 1
+      },
+      "Post-Termination Services": {
+        "questions": 623,
+        "positive": 368,
+        "no_answer": 255,
+        "positivity_rate": 0.5907,
+        "answer_char_len": {
+          "min": 12,
+          "p25": 240,
+          "median": 378,
+          "mean": 464.8,
+          "p75": 606,
+          "p90": 878,
+          "p95": 1104,
+          "p99": 1564,
+          "max": 1778
+        },
+        "question_token_len": {
+          "min": 69,
+          "p25": 69,
+          "median": 69,
+          "mean": 69,
+          "p75": 69,
+          "p90": 69,
+          "p95": 69,
+          "p99": 69,
+          "max": 69
+        },
+        "detail_variants": 1
+      },
+      "Price Restrictions": {
+        "questions": 420,
+        "positive": 27,
+        "no_answer": 393,
+        "positivity_rate": 0.0643,
+        "answer_char_len": {
+          "min": 33,
+          "p25": 204,
+          "median": 282,
+          "mean": 369.7,
+          "p75": 445,
+          "p90": 829,
+          "p95": 1048,
+          "p99": 1095,
+          "max": 1095
+        },
+        "question_token_len": {
+          "min": 50,
+          "p25": 50,
+          "median": 50,
+          "mean": 50,
+          "p75": 50,
+          "p90": 50,
+          "p95": 50,
+          "p99": 50,
+          "max": 50
+        },
+        "detail_variants": 1
+      },
+      "Renewal Term": {
+        "questions": 437,
+        "positive": 179,
+        "no_answer": 258,
+        "positivity_rate": 0.4096,
+        "answer_char_len": {
+          "min": 13,
+          "p25": 189,
+          "median": 273,
+          "mean": 305.9,
+          "p75": 354,
+          "p90": 447,
+          "p95": 610,
+          "p99": 796,
+          "max": 2586
+        },
+        "question_token_len": {
+          "min": 53,
+          "p25": 53,
+          "median": 53,
+          "mean": 53,
+          "p75": 53,
+          "p90": 53,
+          "p95": 53,
+          "p99": 53,
+          "max": 53
+        },
+        "detail_variants": 1
+      },
+      "Revenue/Profit Sharing": {
+        "questions": 608,
+        "positive": 331,
+        "no_answer": 277,
+        "positivity_rate": 0.5444,
+        "answer_char_len": {
+          "min": 7,
+          "p25": 169,
+          "median": 270,
+          "mean": 355.7,
+          "p75": 443,
+          "p90": 637,
+          "p95": 950,
+          "p99": 1492,
+          "max": 2563
+        },
+        "question_token_len": {
+          "min": 50,
+          "p25": 50,
+          "median": 50,
+          "mean": 50,
+          "p75": 50,
+          "p90": 50,
+          "p95": 50,
+          "p99": 50,
+          "max": 50
+        },
+        "detail_variants": 1
+      },
+      "Rofr/Rofo/Rofn": {
+        "questions": 639,
+        "positive": 299,
+        "no_answer": 340,
+        "positivity_rate": 0.4679,
+        "answer_char_len": {
+          "min": 55,
+          "p25": 205,
+          "median": 325,
+          "mean": 389.4,
+          "p75": 477,
+          "p90": 711,
+          "p95": 839,
+          "p99": 1404,
+          "max": 2152
+        },
+        "question_token_len": {
+          "min": 75,
+          "p25": 75,
+          "median": 75,
+          "mean": 75,
+          "p75": 75,
+          "p90": 75,
+          "p95": 75,
+          "p99": 75,
+          "max": 75
+        },
+        "detail_variants": 1
+      },
+      "Source Code Escrow": {
+        "questions": 457,
+        "positive": 61,
+        "no_answer": 396,
+        "positivity_rate": 0.1335,
+        "answer_char_len": {
+          "min": 4,
+          "p25": 192,
+          "median": 251,
+          "mean": 480.6,
+          "p75": 450,
+          "p90": 907,
+          "p95": 1242,
+          "p99": 3393,
+          "max": 3884
+        },
+        "question_token_len": {
+          "min": 71,
+          "p25": 71,
+          "median": 71,
+          "mean": 71,
+          "p75": 71,
+          "p90": 71,
+          "p95": 71,
+          "p99": 71,
+          "max": 71
+        },
+        "detail_variants": 1
+      },
+      "Termination For Convenience": {
+        "questions": 459,
+        "positive": 205,
+        "no_answer": 254,
+        "positivity_rate": 0.4466,
+        "answer_char_len": {
+          "min": 34,
+          "p25": 111,
+          "median": 160,
+          "mean": 222.7,
+          "p75": 251,
+          "p90": 407,
+          "p95": 497,
+          "p99": 1003,
+          "max": 2063
+        },
+        "question_token_len": {
+          "min": 51,
+          "p25": 51,
+          "median": 51,
+          "mean": 51,
+          "p75": 51,
+          "p90": 51,
+          "p95": 51,
+          "p99": 51,
+          "max": 51
+        },
+        "detail_variants": 1
+      },
+      "Third Party Beneficiary": {
+        "questions": 410,
+        "positive": 28,
+        "no_answer": 382,
+        "positivity_rate": 0.0683,
+        "answer_char_len": {
+          "min": 64,
+          "p25": 145,
+          "median": 186,
+          "mean": 217.9,
+          "p75": 230,
+          "p90": 368,
+          "p95": 392,
+          "p99": 578,
+          "max": 578
+        },
+        "question_token_len": {
+          "min": 65,
+          "p25": 65,
+          "median": 65,
+          "mean": 65,
+          "p75": 65,
+          "p90": 65,
+          "p95": 65,
+          "p99": 65,
+          "max": 65
+        },
+        "detail_variants": 1
+      },
+      "Uncapped Liability": {
+        "questions": 461,
+        "positive": 151,
+        "no_answer": 310,
+        "positivity_rate": 0.3275,
+        "answer_char_len": {
+          "min": 33,
+          "p25": 262,
+          "median": 427,
+          "mean": 447.7,
+          "p75": 576,
+          "p90": 745,
+          "p95": 875,
+          "p99": 1083,
+          "max": 1624
+        },
+        "question_token_len": {
+          "min": 70,
+          "p25": 70,
+          "median": 70,
+          "mean": 70,
+          "p75": 70,
+          "p90": 70,
+          "p95": 70,
+          "p99": 70,
+          "max": 70
+        },
+        "detail_variants": 1
+      },
+      "Unlimited/All-You-Can-Eat-License": {
+        "questions": 420,
+        "positive": 26,
+        "no_answer": 394,
+        "positivity_rate": 0.0619,
+        "answer_char_len": {
+          "min": 20,
+          "p25": 150,
+          "median": 315,
+          "mean": 358.3,
+          "p75": 458,
+          "p90": 656,
+          "p95": 813,
+          "p99": 1238,
+          "max": 1238
+        },
+        "question_token_len": {
+          "min": 58,
+          "p25": 58,
+          "median": 58,
+          "mean": 58,
+          "p75": 58,
+          "p90": 58,
+          "p95": 58,
+          "p99": 58,
+          "max": 58
+        },
+        "detail_variants": 1
+      },
+      "Volume Restriction": {
+        "questions": 479,
+        "positive": 136,
+        "no_answer": 343,
+        "positivity_rate": 0.2839,
+        "answer_char_len": {
+          "min": 41,
+          "p25": 163,
+          "median": 237,
+          "mean": 277.9,
+          "p75": 332,
+          "p90": 527,
+          "p95": 604,
+          "p99": 801,
+          "max": 954
+        },
+        "question_token_len": {
+          "min": 52,
+          "p25": 52,
+          "median": 52,
+          "mean": 52,
+          "p75": 52,
+          "p90": 52,
+          "p95": 52,
+          "p99": 52,
+          "max": 52
+        },
+        "detail_variants": 1
+      },
+      "Warranty Duration": {
+        "questions": 500,
+        "positive": 157,
+        "no_answer": 343,
+        "positivity_rate": 0.314,
+        "answer_char_len": {
+          "min": 8,
+          "p25": 160,
+          "median": 257,
+          "mean": 302.1,
+          "p75": 397,
+          "p90": 515,
+          "p95": 613,
+          "p99": 877,
+          "max": 2265
+        },
+        "question_token_len": {
+          "min": 51,
+          "p25": 51,
+          "median": 51,
+          "mean": 51,
+          "p75": 51,
+          "p90": 51,
+          "p95": 51,
+          "p99": 51,
+          "max": 51
+        },
+        "detail_variants": 1
+      }
+    },
+    "per_category_test": {
+      "Affiliate License-Licensee": {
+        "questions": 102,
+        "positive": 12,
+        "no_answer": 90,
+        "positivity_rate": 0.1176,
+        "answer_char_len": {
+          "min": 29,
+          "p25": 318,
+          "median": 417,
+          "mean": 519.4,
+          "p75": 543,
+          "p90": 677,
+          "p95": 1608,
+          "p99": 1791,
+          "max": 1791
+        },
+        "question_token_len": {
+          "min": 60,
+          "p25": 60,
+          "median": 60,
+          "mean": 60,
+          "p75": 60,
+          "p90": 60,
+          "p95": 60,
+          "p99": 60,
+          "max": 60
+        },
+        "detail_variants": 1
+      },
+      "Affiliate License-Licensor": {
+        "questions": 102,
+        "positive": 6,
+        "no_answer": 96,
+        "positivity_rate": 0.0588,
+        "answer_char_len": {
+          "min": 147,
+          "p25": 437,
+          "median": 522,
+          "mean": 653.9,
+          "p75": 677,
+          "p90": 1090,
+          "p95": 1608,
+          "p99": 1791,
+          "max": 1791
+        },
+        "question_token_len": {
+          "min": 57,
+          "p25": 57,
+          "median": 57,
+          "mean": 57,
+          "p75": 57,
+          "p90": 57,
+          "p95": 57,
+          "p99": 57,
+          "max": 57
+        },
+        "detail_variants": 1
+      },
+      "Agreement Date": {
+        "questions": 102,
+        "positive": 93,
+        "no_answer": 9,
+        "positivity_rate": 0.9118,
+        "answer_char_len": {
+          "min": 4,
+          "p25": 13,
+          "median": 16,
+          "mean": 17.4,
+          "p75": 22,
+          "p90": 25,
+          "p95": 26,
+          "p99": 35,
+          "max": 37
+        },
+        "question_token_len": {
+          "min": 31,
+          "p25": 31,
+          "median": 31,
+          "mean": 31,
+          "p75": 31,
+          "p90": 31,
+          "p95": 31,
+          "p99": 31,
+          "max": 31
+        },
+        "detail_variants": 1
+      },
+      "Anti-Assignment": {
+        "questions": 102,
+        "positive": 72,
+        "no_answer": 30,
+        "positivity_rate": 0.7059,
+        "answer_char_len": {
+          "min": 23,
+          "p25": 124,
+          "median": 216,
+          "mean": 268.9,
+          "p75": 353,
+          "p90": 509,
+          "p95": 629,
+          "p99": 921,
+          "max": 1279
+        },
+        "question_token_len": {
+          "min": 45,
+          "p25": 45,
+          "median": 45,
+          "mean": 45,
+          "p75": 45,
+          "p90": 45,
+          "p95": 45,
+          "p99": 45,
+          "max": 45
+        },
+        "detail_variants": 1
+      },
+      "Audit Rights": {
+        "questions": 102,
+        "positive": 38,
+        "no_answer": 64,
+        "positivity_rate": 0.3725,
+        "answer_char_len": {
+          "min": 37,
+          "p25": 172,
+          "median": 253,
+          "mean": 316.4,
+          "p75": 375,
+          "p90": 571,
+          "p95": 784,
+          "p99": 1159,
+          "max": 1212
+        },
+        "question_token_len": {
+          "min": 53,
+          "p25": 53,
+          "median": 53,
+          "mean": 53,
+          "p75": 53,
+          "p90": 53,
+          "p95": 53,
+          "p99": 53,
+          "max": 53
+        },
+        "detail_variants": 1
+      },
+      "Cap On Liability": {
+        "questions": 102,
+        "positive": 44,
+        "no_answer": 58,
+        "positivity_rate": 0.4314,
+        "answer_char_len": {
+          "min": 73,
+          "p25": 198,
+          "median": 283,
+          "mean": 362.3,
+          "p75": 420,
+          "p90": 725,
+          "p95": 866,
+          "p99": 1288,
+          "max": 1606
+        },
+        "question_token_len": {
+          "min": 62,
+          "p25": 62,
+          "median": 62,
+          "mean": 62,
+          "p75": 62,
+          "p90": 62,
+          "p95": 62,
+          "p99": 62,
+          "max": 62
+        },
+        "detail_variants": 1
+      },
+      "Change Of Control": {
+        "questions": 102,
+        "positive": 26,
+        "no_answer": 76,
+        "positivity_rate": 0.2549,
+        "answer_char_len": {
+          "min": 54,
+          "p25": 207,
+          "median": 291,
+          "mean": 395.1,
+          "p75": 444,
+          "p90": 788,
+          "p95": 985,
+          "p99": 1155,
+          "max": 2139
+        },
+        "question_token_len": {
+          "min": 81,
+          "p25": 81,
+          "median": 81,
+          "mean": 81,
+          "p75": 81,
+          "p90": 81,
+          "p95": 81,
+          "p99": 81,
+          "max": 81
+        },
+        "detail_variants": 1
+      },
+      "Competitive Restriction Exception": {
+        "questions": 102,
+        "positive": 16,
+        "no_answer": 86,
+        "positivity_rate": 0.1569,
+        "answer_char_len": {
+          "min": 12,
+          "p25": 196,
+          "median": 318,
+          "mean": 389.7,
+          "p75": 530,
+          "p90": 661,
+          "p95": 892,
+          "p99": 1194,
+          "max": 1194
+        },
+        "question_token_len": {
+          "min": 55,
+          "p25": 55,
+          "median": 55,
+          "mean": 55,
+          "p75": 55,
+          "p90": 55,
+          "p95": 55,
+          "p99": 55,
+          "max": 55
+        },
+        "detail_variants": 1
+      },
+      "Covenant Not To Sue": {
+        "questions": 102,
+        "positive": 24,
+        "no_answer": 78,
+        "positivity_rate": 0.2353,
+        "answer_char_len": {
+          "min": 44,
+          "p25": 200,
+          "median": 341,
+          "mean": 424.8,
+          "p75": 529,
+          "p90": 824,
+          "p95": 1340,
+          "p99": 1717,
+          "max": 1717
+        },
+        "question_token_len": {
+          "min": 63,
+          "p25": 63,
+          "median": 63,
+          "mean": 63,
+          "p75": 63,
+          "p90": 63,
+          "p95": 63,
+          "p99": 63,
+          "max": 63
+        },
+        "detail_variants": 1
+      },
+      "Document Name": {
+        "questions": 102,
+        "positive": 102,
+        "no_answer": 0,
+        "positivity_rate": 1.0,
+        "answer_char_len": {
+          "min": 11,
+          "p25": 21,
+          "median": 26,
+          "mean": 30.5,
+          "p75": 35,
+          "p90": 52,
+          "p95": 59,
+          "p99": 69,
+          "max": 78
+        },
+        "question_token_len": {
+          "min": 31,
+          "p25": 31,
+          "median": 31,
+          "mean": 31,
+          "p75": 31,
+          "p90": 31,
+          "p95": 31,
+          "p99": 31,
+          "max": 31
+        },
+        "detail_variants": 1
+      },
+      "Effective Date": {
+        "questions": 102,
+        "positive": 70,
+        "no_answer": 32,
+        "positivity_rate": 0.6863,
+        "answer_char_len": {
+          "min": 4,
+          "p25": 15,
+          "median": 22,
+          "mean": 70.7,
+          "p75": 84,
+          "p90": 200,
+          "p95": 273,
+          "p99": 365,
+          "max": 651
+        },
+        "question_token_len": {
+          "min": 33,
+          "p25": 33,
+          "median": 33,
+          "mean": 33,
+          "p75": 33,
+          "p90": 33,
+          "p95": 33,
+          "p99": 33,
+          "max": 33
+        },
+        "detail_variants": 1
+      },
+      "Exclusivity": {
+        "questions": 102,
+        "positive": 33,
+        "no_answer": 69,
+        "positivity_rate": 0.3235,
+        "answer_char_len": {
+          "min": 63,
+          "p25": 196,
+          "median": 308,
+          "mean": 383.0,
+          "p75": 428,
+          "p90": 585,
+          "p95": 1011,
+          "p99": 1608,
+          "max": 1791
+        },
+        "question_token_len": {
+          "min": 103,
+          "p25": 103,
+          "median": 103,
+          "mean": 103,
+          "p75": 103,
+          "p90": 103,
+          "p95": 103,
+          "p99": 103,
+          "max": 103
+        },
+        "detail_variants": 1
+      },
+      "Expiration Date": {
+        "questions": 102,
+        "positive": 78,
+        "no_answer": 24,
+        "positivity_rate": 0.7647,
+        "answer_char_len": {
+          "min": 35,
+          "p25": 141,
+          "median": 195,
+          "mean": 223.2,
+          "p75": 281,
+          "p90": 365,
+          "p95": 475,
+          "p99": 651,
+          "max": 748
+        },
+        "question_token_len": {
+          "min": 40,
+          "p25": 40,
+          "median": 40,
+          "mean": 40,
+          "p75": 40,
+          "p90": 40,
+          "p95": 40,
+          "p99": 40,
+          "max": 40
+        },
+        "detail_variants": 1
+      },
+      "Governing Law": {
+        "questions": 102,
+        "positive": 83,
+        "no_answer": 19,
+        "positivity_rate": 0.8137,
+        "answer_char_len": {
+          "min": 12,
+          "p25": 124,
+          "median": 177,
+          "mean": 212.1,
+          "p75": 252,
+          "p90": 375,
+          "p95": 468,
+          "p99": 705,
+          "max": 726
+        },
+        "question_token_len": {
+          "min": 41,
+          "p25": 41,
+          "median": 41,
+          "mean": 41,
+          "p75": 41,
+          "p90": 41,
+          "p95": 41,
+          "p99": 41,
+          "max": 41
+        },
+        "detail_variants": 1
+      },
+      "Insurance": {
+        "questions": 102,
+        "positive": 32,
+        "no_answer": 70,
+        "positivity_rate": 0.3137,
+        "answer_char_len": {
+          "min": 33,
+          "p25": 150,
+          "median": 236,
+          "mean": 294.8,
+          "p75": 338,
+          "p90": 519,
+          "p95": 729,
+          "p99": 1366,
+          "max": 2219
+        },
+        "question_token_len": {
+          "min": 46,
+          "p25": 46,
+          "median": 46,
+          "mean": 46,
+          "p75": 46,
+          "p90": 46,
+          "p95": 46,
+          "p99": 46,
+          "max": 46
+        },
+        "detail_variants": 1
+      },
+      "Ip Ownership Assignment": {
+        "questions": 102,
+        "positive": 23,
+        "no_answer": 79,
+        "positivity_rate": 0.2255,
+        "answer_char_len": {
+          "min": 3,
+          "p25": 220,
+          "median": 388,
+          "mean": 463.0,
+          "p75": 626,
+          "p90": 942,
+          "p95": 1021,
+          "p99": 1123,
+          "max": 1275
+        },
+        "question_token_len": {
+          "min": 57,
+          "p25": 57,
+          "median": 57,
+          "mean": 57,
+          "p75": 57,
+          "p90": 57,
+          "p95": 57,
+          "p99": 57,
+          "max": 57
+        },
+        "detail_variants": 1
+      },
+      "Irrevocable Or Perpetual License": {
+        "questions": 102,
+        "positive": 13,
+        "no_answer": 89,
+        "positivity_rate": 0.1275,
+        "answer_char_len": {
+          "min": 197,
+          "p25": 391,
+          "median": 677,
+          "mean": 723.3,
+          "p75": 985,
+          "p90": 1090,
+          "p95": 1608,
+          "p99": 1791,
+          "max": 1791
+        },
+        "question_token_len": {
+          "min": 47,
+          "p25": 47,
+          "median": 47,
+          "mean": 47,
+          "p75": 47,
+          "p90": 47,
+          "p95": 47,
+          "p99": 47,
+          "max": 47
+        },
+        "detail_variants": 1
+      },
+      "Joint Ip Ownership": {
+        "questions": 102,
+        "positive": 7,
+        "no_answer": 95,
+        "positivity_rate": 0.0686,
+        "answer_char_len": {
+          "min": 87,
+          "p25": 172,
+          "median": 314,
+          "mean": 337.4,
+          "p75": 433,
+          "p90": 639,
+          "p95": 639,
+          "p99": 838,
+          "max": 838
+        },
+        "question_token_len": {
+          "min": 47,
+          "p25": 47,
+          "median": 47,
+          "mean": 47,
+          "p75": 47,
+          "p90": 47,
+          "p95": 47,
+          "p99": 47,
+          "max": 47
+        },
+        "detail_variants": 1
+      },
+      "License Grant": {
+        "questions": 102,
+        "positive": 50,
+        "no_answer": 52,
+        "positivity_rate": 0.4902,
+        "answer_char_len": {
+          "min": 10,
+          "p25": 246,
+          "median": 356,
+          "mean": 435.0,
+          "p75": 547,
+          "p90": 832,
+          "p95": 1019,
+          "p99": 1608,
+          "max": 1791
+        },
+        "question_token_len": {
+          "min": 41,
+          "p25": 41,
+          "median": 41,
+          "mean": 41,
+          "p75": 41,
+          "p90": 41,
+          "p95": 41,
+          "p99": 41,
+          "max": 41
+        },
+        "detail_variants": 1
+      },
+      "Liquidated Damages": {
+        "questions": 102,
+        "positive": 14,
+        "no_answer": 88,
+        "positivity_rate": 0.1373,
+        "answer_char_len": {
+          "min": 70,
+          "p25": 263,
+          "median": 316,
+          "mean": 378.2,
+          "p75": 468,
+          "p90": 662,
+          "p95": 717,
+          "p99": 750,
+          "max": 750
+        },
+        "question_token_len": {
+          "min": 57,
+          "p25": 57,
+          "median": 57,
+          "mean": 57,
+          "p75": 57,
+          "p90": 57,
+          "p95": 57,
+          "p99": 57,
+          "max": 57
+        },
+        "detail_variants": 1
+      },
+      "Minimum Commitment": {
+        "questions": 102,
+        "positive": 32,
+        "no_answer": 70,
+        "positivity_rate": 0.3137,
+        "answer_char_len": {
+          "min": 44,
+          "p25": 182,
+          "median": 278,
+          "mean": 300.8,
+          "p75": 364,
+          "p90": 539,
+          "p95": 642,
+          "p99": 741,
+          "max": 1656
+        },
+        "question_token_len": {
+          "min": 54,
+          "p25": 54,
+          "median": 54,
+          "mean": 54,
+          "p75": 54,
+          "p90": 54,
+          "p95": 54,
+          "p99": 54,
+          "max": 54
+        },
+        "detail_variants": 1
+      },
+      "Most Favored Nation": {
+        "questions": 102,
+        "positive": 3,
+        "no_answer": 99,
+        "positivity_rate": 0.0294,
+        "answer_char_len": {
+          "min": 208,
+          "p25": 208,
+          "median": 454,
+          "mean": 472,
+          "p75": 754,
+          "p90": 754,
+          "p95": 754,
+          "p99": 754,
+          "max": 754
+        },
+        "question_token_len": {
+          "min": 75,
+          "p25": 75,
+          "median": 75,
+          "mean": 75,
+          "p75": 75,
+          "p90": 75,
+          "p95": 75,
+          "p99": 75,
+          "max": 75
+        },
+        "detail_variants": 1
+      },
+      "No-Solicit Of Customers": {
+        "questions": 102,
+        "positive": 7,
+        "no_answer": 95,
+        "positivity_rate": 0.0686,
+        "answer_char_len": {
+          "min": 95,
+          "p25": 253,
+          "median": 303,
+          "mean": 360.4,
+          "p75": 384,
+          "p90": 829,
+          "p95": 829,
+          "p99": 874,
+          "max": 874
+        },
+        "question_token_len": {
+          "min": 63,
+          "p25": 63,
+          "median": 63,
+          "mean": 63,
+          "p75": 63,
+          "p90": 63,
+          "p95": 63,
+          "p99": 63,
+          "max": 63
+        },
+        "detail_variants": 1
+      },
+      "No-Solicit Of Employees": {
+        "questions": 102,
+        "positive": 10,
+        "no_answer": 92,
+        "positivity_rate": 0.098,
+        "answer_char_len": {
+          "min": 161,
+          "p25": 298,
+          "median": 465,
+          "mean": 469.4,
+          "p75": 556,
+          "p90": 663,
+          "p95": 749,
+          "p99": 1082,
+          "max": 1082
+        },
+        "question_token_len": {
+          "min": 69,
+          "p25": 69,
+          "median": 69,
+          "mean": 69,
+          "p75": 69,
+          "p90": 69,
+          "p95": 69,
+          "p99": 69,
+          "max": 69
+        },
+        "detail_variants": 1
+      },
+      "Non-Compete": {
+        "questions": 102,
+        "positive": 23,
+        "no_answer": 79,
+        "positivity_rate": 0.2255,
+        "answer_char_len": {
+          "min": 113,
+          "p25": 248,
+          "median": 359,
+          "mean": 414.9,
+          "p75": 512,
+          "p90": 748,
+          "p95": 841,
+          "p99": 1194,
+          "max": 1206
+        },
+        "question_token_len": {
+          "min": 55,
+          "p25": 55,
+          "median": 55,
+          "mean": 55,
+          "p75": 55,
+          "p90": 55,
+          "p95": 55,
+          "p99": 55,
+          "max": 55
+        },
+        "detail_variants": 1
+      },
+      "Non-Disparagement": {
+        "questions": 102,
+        "positive": 7,
+        "no_answer": 95,
+        "positivity_rate": 0.0686,
+        "answer_char_len": {
+          "min": 66,
+          "p25": 134,
+          "median": 284,
+          "mean": 426.6,
+          "p75": 343,
+          "p90": 874,
+          "p95": 874,
+          "p99": 2030,
+          "max": 2030
+        },
+        "question_token_len": {
+          "min": 46,
+          "p25": 46,
+          "median": 46,
+          "mean": 46,
+          "p75": 46,
+          "p90": 46,
+          "p95": 46,
+          "p99": 46,
+          "max": 46
+        },
+        "detail_variants": 1
+      },
+      "Non-Transferable License": {
+        "questions": 102,
+        "positive": 22,
+        "no_answer": 80,
+        "positivity_rate": 0.2157,
+        "answer_char_len": {
+          "min": 10,
+          "p25": 212,
+          "median": 304,
+          "mean": 338.9,
+          "p75": 418,
+          "p90": 588,
+          "p95": 684,
+          "p99": 832,
+          "max": 832
+        },
+        "question_token_len": {
+          "min": 49,
+          "p25": 49,
+          "median": 49,
+          "mean": 49,
+          "p75": 49,
+          "p90": 49,
+          "p95": 49,
+          "p99": 49,
+          "max": 49
+        },
+        "detail_variants": 1
+      },
+      "Notice Period To Terminate Renewal": {
+        "questions": 102,
+        "positive": 16,
+        "no_answer": 86,
+        "positivity_rate": 0.1569,
+        "answer_char_len": {
+          "min": 127,
+          "p25": 202,
+          "median": 294,
+          "mean": 295.6,
+          "p75": 385,
+          "p90": 396,
+          "p95": 485,
+          "p99": 534,
+          "max": 534
+        },
+        "question_token_len": {
+          "min": 39,
+          "p25": 39,
+          "median": 39,
+          "mean": 39,
+          "p75": 39,
+          "p90": 39,
+          "p95": 39,
+          "p99": 39,
+          "max": 39
+        },
+        "detail_variants": 1
+      },
+      "Parties": {
+        "questions": 102,
+        "positive": 102,
+        "no_answer": 0,
+        "positivity_rate": 1.0,
+        "answer_char_len": {
+          "min": 2,
+          "p25": 8,
+          "median": 19,
+          "mean": 26.5,
+          "p75": 30,
+          "p90": 48,
+          "p95": 86,
+          "p99": 146,
+          "max": 533
+        },
+        "question_token_len": {
+          "min": 34,
+          "p25": 34,
+          "median": 34,
+          "mean": 34,
+          "p75": 34,
+          "p90": 34,
+          "p95": 34,
+          "p99": 34,
+          "max": 34
+        },
+        "detail_variants": 1
+      },
+      "Post-Termination Services": {
+        "questions": 102,
+        "positive": 29,
+        "no_answer": 73,
+        "positivity_rate": 0.2843,
+        "answer_char_len": {
+          "min": 35,
+          "p25": 225,
+          "median": 313,
+          "mean": 378.5,
+          "p75": 456,
+          "p90": 717,
+          "p95": 898,
+          "p99": 1138,
+          "max": 1171
+        },
+        "question_token_len": {
+          "min": 69,
+          "p25": 69,
+          "median": 69,
+          "mean": 69,
+          "p75": 69,
+          "p90": 69,
+          "p95": 69,
+          "p99": 69,
+          "max": 69
+        },
+        "detail_variants": 1
+      },
+      "Price Restrictions": {
+        "questions": 102,
+        "positive": 0,
+        "no_answer": 102,
+        "positivity_rate": 0.0,
+        "answer_char_len": {
+          "min": 0,
+          "p25": 0,
+          "median": 0,
+          "mean": 0,
+          "p75": 0,
+          "p90": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "question_token_len": {
+          "min": 50,
+          "p25": 50,
+          "median": 50,
+          "mean": 50,
+          "p75": 50,
+          "p90": 50,
+          "p95": 50,
+          "p99": 50,
+          "max": 50
+        },
+        "detail_variants": 1
+      },
+      "Renewal Term": {
+        "questions": 102,
+        "positive": 26,
+        "no_answer": 76,
+        "positivity_rate": 0.2549,
+        "answer_char_len": {
+          "min": 111,
+          "p25": 188,
+          "median": 234,
+          "mean": 383.9,
+          "p75": 352,
+          "p90": 534,
+          "p95": 911,
+          "p99": 2783,
+          "max": 2783
+        },
+        "question_token_len": {
+          "min": 53,
+          "p25": 53,
+          "median": 53,
+          "mean": 53,
+          "p75": 53,
+          "p90": 53,
+          "p95": 53,
+          "p99": 53,
+          "max": 53
+        },
+        "detail_variants": 1
+      },
+      "Revenue/Profit Sharing": {
+        "questions": 102,
+        "positive": 35,
+        "no_answer": 67,
+        "positivity_rate": 0.3431,
+        "answer_char_len": {
+          "min": 26,
+          "p25": 161,
+          "median": 264,
+          "mean": 332.7,
+          "p75": 451,
+          "p90": 600,
+          "p95": 970,
+          "p99": 1065,
+          "max": 1074
+        },
+        "question_token_len": {
+          "min": 50,
+          "p25": 50,
+          "median": 50,
+          "mean": 50,
+          "p75": 50,
+          "p90": 50,
+          "p95": 50,
+          "p99": 50,
+          "max": 50
+        },
+        "detail_variants": 1
+      },
+      "Rofr/Rofo/Rofn": {
+        "questions": 102,
+        "positive": 17,
+        "no_answer": 85,
+        "positivity_rate": 0.1667,
+        "answer_char_len": {
+          "min": 30,
+          "p25": 257,
+          "median": 348,
+          "mean": 413.2,
+          "p75": 606,
+          "p90": 707,
+          "p95": 809,
+          "p99": 1053,
+          "max": 1319
+        },
+        "question_token_len": {
+          "min": 75,
+          "p25": 75,
+          "median": 75,
+          "mean": 75,
+          "p75": 75,
+          "p90": 75,
+          "p95": 75,
+          "p99": 75,
+          "max": 75
+        },
+        "detail_variants": 1
+      },
+      "Source Code Escrow": {
+        "questions": 102,
+        "positive": 1,
+        "no_answer": 101,
+        "positivity_rate": 0.0098,
+        "answer_char_len": {
+          "min": 131,
+          "p25": 159,
+          "median": 266,
+          "mean": 437.4,
+          "p75": 799,
+          "p90": 832,
+          "p95": 832,
+          "p99": 832,
+          "max": 832
+        },
+        "question_token_len": {
+          "min": 71,
+          "p25": 71,
+          "median": 71,
+          "mean": 71,
+          "p75": 71,
+          "p90": 71,
+          "p95": 71,
+          "p99": 71,
+          "max": 71
+        },
+        "detail_variants": 1
+      },
+      "Termination For Convenience": {
+        "questions": 102,
+        "positive": 29,
+        "no_answer": 73,
+        "positivity_rate": 0.2843,
+        "answer_char_len": {
+          "min": 35,
+          "p25": 116,
+          "median": 177,
+          "mean": 218.3,
+          "p75": 236,
+          "p90": 424,
+          "p95": 579,
+          "p99": 676,
+          "max": 676
+        },
+        "question_token_len": {
+          "min": 51,
+          "p25": 51,
+          "median": 51,
+          "mean": 51,
+          "p75": 51,
+          "p90": 51,
+          "p95": 51,
+          "p99": 51,
+          "max": 51
+        },
+        "detail_variants": 1
+      },
+      "Third Party Beneficiary": {
+        "questions": 102,
+        "positive": 6,
+        "no_answer": 96,
+        "positivity_rate": 0.0588,
+        "answer_char_len": {
+          "min": 125,
+          "p25": 186,
+          "median": 224,
+          "mean": 274.9,
+          "p75": 278,
+          "p90": 365,
+          "p95": 765,
+          "p99": 765,
+          "max": 765
+        },
+        "question_token_len": {
+          "min": 65,
+          "p25": 65,
+          "median": 65,
+          "mean": 65,
+          "p75": 65,
+          "p90": 65,
+          "p95": 65,
+          "p99": 65,
+          "max": 65
+        },
+        "detail_variants": 1
+      },
+      "Uncapped Liability": {
+        "questions": 102,
+        "positive": 13,
+        "no_answer": 89,
+        "positivity_rate": 0.1275,
+        "answer_char_len": {
+          "min": 245,
+          "p25": 315,
+          "median": 388,
+          "mean": 497.1,
+          "p75": 574,
+          "p90": 872,
+          "p95": 872,
+          "p99": 1078,
+          "max": 1078
+        },
+        "question_token_len": {
+          "min": 70,
+          "p25": 70,
+          "median": 70,
+          "mean": 70,
+          "p75": 70,
+          "p90": 70,
+          "p95": 70,
+          "p99": 70,
+          "max": 70
+        },
+        "detail_variants": 1
+      },
+      "Unlimited/All-You-Can-Eat-License": {
+        "questions": 102,
+        "positive": 3,
+        "no_answer": 99,
+        "positivity_rate": 0.0294,
+        "answer_char_len": {
+          "min": 29,
+          "p25": 197,
+          "median": 463,
+          "mean": 465.5,
+          "p75": 653,
+          "p90": 653,
+          "p95": 988,
+          "p99": 988,
+          "max": 988
+        },
+        "question_token_len": {
+          "min": 58,
+          "p25": 58,
+          "median": 58,
+          "mean": 58,
+          "p75": 58,
+          "p90": 58,
+          "p95": 58,
+          "p99": 58,
+          "max": 58
+        },
+        "detail_variants": 1
+      },
+      "Volume Restriction": {
+        "questions": 102,
+        "positive": 17,
+        "no_answer": 85,
+        "positivity_rate": 0.1667,
+        "answer_char_len": {
+          "min": 17,
+          "p25": 129,
+          "median": 212,
+          "mean": 257.0,
+          "p75": 291,
+          "p90": 547,
+          "p95": 604,
+          "p99": 967,
+          "max": 967
+        },
+        "question_token_len": {
+          "min": 52,
+          "p25": 52,
+          "median": 52,
+          "mean": 52,
+          "p75": 52,
+          "p90": 52,
+          "p95": 52,
+          "p99": 52,
+          "max": 52
+        },
+        "detail_variants": 1
+      },
+      "Warranty Duration": {
+        "questions": 102,
+        "positive": 10,
+        "no_answer": 92,
+        "positivity_rate": 0.098,
+        "answer_char_len": {
+          "min": 94,
+          "p25": 198,
+          "median": 293,
+          "mean": 384.3,
+          "p75": 473,
+          "p90": 661,
+          "p95": 974,
+          "p99": 1142,
+          "max": 1142
+        },
+        "question_token_len": {
+          "min": 51,
+          "p25": 51,
+          "median": 51,
+          "mean": 51,
+          "p75": 51,
+          "p90": 51,
+          "p95": 51,
+          "p99": 51,
+          "max": 51
+        },
+        "detail_variants": 1
+      }
+    },
+    "train_test_split": {
+      "Affiliate License-Licensee": {
+        "train_positive": 88,
+        "test_positive": 12,
+        "train_questions": 449,
+        "test_questions": 102
+      },
+      "Affiliate License-Licensor": {
+        "train_positive": 49,
+        "test_positive": 6,
+        "train_questions": 440,
+        "test_questions": 102
+      },
+      "Agreement Date": {
+        "train_positive": 383,
+        "test_positive": 93,
+        "train_questions": 414,
+        "test_questions": 102
+      },
+      "Anti-Assignment": {
+        "train_positive": 517,
+        "test_positive": 72,
+        "train_questions": 623,
+        "test_questions": 102
+      },
+      "Audit Rights": {
+        "train_positive": 538,
+        "test_positive": 38,
+        "train_questions": 770,
+        "test_questions": 102
+      },
+      "Cap On Liability": {
+        "train_positive": 554,
+        "test_positive": 44,
+        "train_questions": 731,
+        "test_questions": 102
+      },
+      "Change Of Control": {
+        "train_positive": 191,
+        "test_positive": 26,
+        "train_questions": 504,
+        "test_questions": 102
+      },
+      "Competitive Restriction Exception": {
+        "train_positive": 98,
+        "test_positive": 16,
+        "train_questions": 446,
+        "test_questions": 102
+      },
+      "Covenant Not To Sue": {
+        "train_positive": 129,
+        "test_positive": 24,
+        "train_questions": 461,
+        "test_questions": 102
+      },
+      "Document Name": {
+        "train_positive": 419,
+        "test_positive": 102,
+        "train_questions": 419,
+        "test_questions": 102
+      },
+      "Effective Date": {
+        "train_positive": 363,
+        "test_positive": 70,
+        "train_questions": 451,
+        "test_questions": 102
+      },
+      "Exclusivity": {
+        "train_positive": 332,
+        "test_positive": 33,
+        "train_questions": 593,
+        "test_questions": 102
+      },
+      "Expiration Date": {
+        "train_positive": 384,
+        "test_positive": 78,
+        "train_questions": 457,
+        "test_questions": 102
+      },
+      "Governing Law": {
+        "train_positive": 374,
+        "test_positive": 83,
+        "train_questions": 428,
+        "test_questions": 102
+      },
+      "Insurance": {
+        "train_positive": 443,
+        "test_positive": 32,
+        "train_questions": 717,
+        "test_questions": 102
+      },
+      "Ip Ownership Assignment": {
+        "train_positive": 257,
+        "test_positive": 23,
+        "train_questions": 564,
+        "test_questions": 102
+      },
+      "Irrevocable Or Perpetual License": {
+        "train_positive": 142,
+        "test_positive": 13,
+        "train_questions": 493,
+        "test_questions": 102
+      },
+      "Joint Ip Ownership": {
+        "train_positive": 101,
+        "test_positive": 7,
+        "train_questions": 470,
+        "test_questions": 102
+      },
+      "License Grant": {
+        "train_positive": 642,
+        "test_positive": 50,
+        "train_questions": 845,
+        "test_questions": 102
+      },
+      "Liquidated Damages": {
+        "train_positive": 98,
+        "test_positive": 14,
+        "train_questions": 459,
+        "test_questions": 102
+      },
+      "Minimum Commitment": {
+        "train_positive": 336,
+        "test_positive": 32,
+        "train_questions": 611,
+        "test_questions": 102
+      },
+      "Most Favored Nation": {
+        "train_positive": 35,
+        "test_positive": 3,
+        "train_questions": 418,
+        "test_questions": 102
+      },
+      "No-Solicit Of Customers": {
+        "train_positive": 43,
+        "test_positive": 7,
+        "train_questions": 424,
+        "test_questions": 102
+      },
+      "No-Solicit Of Employees": {
+        "train_positive": 73,
+        "test_positive": 10,
+        "train_questions": 432,
+        "test_questions": 102
+      },
+      "Non-Compete": {
+        "train_positive": 200,
+        "test_positive": 23,
+        "train_questions": 512,
+        "test_questions": 102
+      },
+      "Non-Disparagement": {
+        "train_positive": 53,
+        "test_positive": 7,
+        "train_questions": 430,
+        "test_questions": 102
+      },
+      "Non-Transferable License": {
+        "train_positive": 255,
+        "test_positive": 22,
+        "train_questions": 547,
+        "test_questions": 102
+      },
+      "Notice Period To Terminate Renewal": {
+        "train_positive": 104,
+        "test_positive": 16,
+        "train_questions": 417,
+        "test_questions": 102
+      },
+      "Parties": {
+        "train_positive": 2011,
+        "test_positive": 102,
+        "train_questions": 2012,
+        "test_questions": 102
+      },
+      "Post-Termination Services": {
+        "train_positive": 368,
+        "test_positive": 29,
+        "train_questions": 623,
+        "test_questions": 102
+      },
+      "Price Restrictions": {
+        "train_positive": 27,
+        "test_positive": 0,
+        "train_questions": 420,
+        "test_questions": 102
+      },
+      "Renewal Term": {
+        "train_positive": 179,
+        "test_positive": 26,
+        "train_questions": 437,
+        "test_questions": 102
+      },
+      "Revenue/Profit Sharing": {
+        "train_positive": 331,
+        "test_positive": 35,
+        "train_questions": 608,
+        "test_questions": 102
+      },
+      "Rofr/Rofo/Rofn": {
+        "train_positive": 299,
+        "test_positive": 17,
+        "train_questions": 639,
+        "test_questions": 102
+      },
+      "Source Code Escrow": {
+        "train_positive": 61,
+        "test_positive": 1,
+        "train_questions": 457,
+        "test_questions": 102
+      },
+      "Termination For Convenience": {
+        "train_positive": 205,
+        "test_positive": 29,
+        "train_questions": 459,
+        "test_questions": 102
+      },
+      "Third Party Beneficiary": {
+        "train_positive": 28,
+        "test_positive": 6,
+        "train_questions": 410,
+        "test_questions": 102
+      },
+      "Uncapped Liability": {
+        "train_positive": 151,
+        "test_positive": 13,
+        "train_questions": 461,
+        "test_questions": 102
+      },
+      "Unlimited/All-You-Can-Eat-License": {
+        "train_positive": 26,
+        "test_positive": 3,
+        "train_questions": 420,
+        "test_questions": 102
+      },
+      "Volume Restriction": {
+        "train_positive": 136,
+        "test_positive": 17,
+        "train_questions": 479,
+        "test_questions": 102
+      },
+      "Warranty Duration": {
+        "train_positive": 157,
+        "test_positive": 10,
+        "train_questions": 500,
+        "test_questions": 102
+      }
+    }
+  },
+  "longest_contracts_top10": [
+    {
+      "file": "CUADv1.json",
+      "title": "CERES,INC_01_25_2012-EX-10.20-Collaboration Agreement",
+      "tokens": 78591,
+      "chars": 335282
+    },
+    {
+      "file": "CUADv1.json",
+      "title": "MANUFACTURERSSERVICESLTD_06_05_2000-EX-10.14-OUTSOURCING AGREEMENT",
+      "tokens": 71266,
+      "chars": 338211
+    },
+    {
+      "file": "CUADv1.json",
+      "title": "PhasebioPharmaceuticalsInc_20200330_10-K_EX-10.21_12086810_EX-10.21_Development Agreement",
+      "tokens": 63425,
+      "chars": 291873
+    },
+    {
+      "file": "CUADv1.json",
+      "title": "VerizonAbsLlc_20200123_8-K_EX-10.4_11952335_EX-10.4_Service Agreement",
+      "tokens": 61826,
+      "chars": 289615
+    },
+    {
+      "file": "CUADv1.json",
+      "title": "GOOSEHEADINSURANCE,INC_04_02_2018-EX-10.6-Franchise Agreement",
+      "tokens": 61674,
+      "chars": 300768
+    },
+    {
+      "file": "CUADv1.json",
+      "title": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement1",
+      "tokens": 60094,
+      "chars": 233248
+    },
+    {
+      "file": "CUADv1.json",
+      "title": "RevolutionMedicinesInc_20200117_S-1_EX-10.1_11948417_EX-10.1_Development Agreement",
+      "tokens": 57395,
+      "chars": 266213
+    },
+    {
+      "file": "CUADv1.json",
+      "title": "Array BioPharma Inc. - LICENSE, DEVELOPMENT AND COMMERCIALIZATION AGREEMENT",
+      "tokens": 55217,
+      "chars": 272018
+    },
+    {
+      "file": "CUADv1.json",
+      "title": "HarpoonTherapeuticsInc_20200312_10-K_EX-10.18_12051356_EX-10.18_Development Agreement",
+      "tokens": 54619,
+      "chars": 249551
+    },
+    {
+      "file": "CUADv1.json",
+      "title": "MRSFIELDSORIGINALCOOKIESINC_01_29_1998-EX-10-FRANCHISE AGREEMENT",
+      "tokens": 50471,
+      "chars": 249359
+    }
+  ],
+  "enabled_clauses_v1": {
+    "document_name": {
+      "cuad_category": "Document Name",
+      "question_tokens_median": 31,
+      "train_windows": 34614,
+      "test_windows": 7440
+    },
+    "parties": {
+      "cuad_category": "Parties",
+      "question_tokens_median": 34,
+      "train_windows": 34622,
+      "test_windows": 7442
+    },
+    "agreement_date": {
+      "cuad_category": "Agreement Date",
+      "question_tokens_median": 31,
+      "train_windows": 34614,
+      "test_windows": 7440
+    },
+    "effective_date": {
+      "cuad_category": "Effective Date",
+      "question_tokens_median": 33,
+      "train_windows": 34616,
+      "test_windows": 7441
+    },
+    "expiration_date": {
+      "cuad_category": "Expiration Date",
+      "question_tokens_median": 40,
+      "train_windows": 34655,
+      "test_windows": 7448
+    },
+    "renewal_term": {
+      "cuad_category": "Renewal Term",
+      "question_tokens_median": 53,
+      "train_windows": 34697,
+      "test_windows": 7459
+    },
+    "governing_law": {
+      "cuad_category": "Governing Law",
+      "question_tokens_median": 41,
+      "train_windows": 34664,
+      "test_windows": 7448
+    },
+    "termination_for_convenience": {
+      "cuad_category": "Termination For Convenience",
+      "question_tokens_median": 51,
+      "train_windows": 34693,
+      "test_windows": 7458
+    },
+    "non_compete": {
+      "cuad_category": "Non-Compete",
+      "question_tokens_median": 55,
+      "train_windows": 34700,
+      "test_windows": 7462
+    },
+    "exclusivity": {
+      "cuad_category": "Exclusivity",
+      "question_tokens_median": 103,
+      "train_windows": 34842,
+      "test_windows": 7501
+    },
+    "anti_assignment": {
+      "cuad_category": "Anti-Assignment",
+      "question_tokens_median": 45,
+      "train_windows": 34678,
+      "test_windows": 7453
+    },
+    "license_grant": {
+      "cuad_category": "License Grant",
+      "question_tokens_median": 41,
+      "train_windows": 34664,
+      "test_windows": 7448
+    },
+    "audit_rights": {
+      "cuad_category": "Audit Rights",
+      "question_tokens_median": 53,
+      "train_windows": 34697,
+      "test_windows": 7459
+    },
+    "cap_on_liability": {
+      "cuad_category": "Cap On Liability",
+      "question_tokens_median": 62,
+      "train_windows": 34728,
+      "test_windows": 7464
+    },
+    "insurance": {
+      "cuad_category": "Insurance",
+      "question_tokens_median": 46,
+      "train_windows": 34681,
+      "test_windows": 7455
+    }
+  },
+  "inference_cost_projection": {
+    "total_train_windows_15clauses": 520165,
+    "total_test_windows_15clauses": 111818,
+    "note": "Windows = sliding-window chunks per contract per clause at max_seq_len=512, stride=128."
+  },
+  "data_quality": {
+    "cuadv1_issues": {
+      "missing_fields": 0,
+      "empty_context": 0,
+      "answer_out_of_bounds": 0,
+      "answer_text_mismatch": 0,
+      "answer_text_mismatch_normalized": 0,
+      "impossible_with_answers": 0,
+      "possible_without_answers": 0,
+      "duplicate_qa_ids": 0,
+      "duplicate_contract_titles": 0,
+      "category_parse_failures": 0
+    },
+    "train_issues": {
+      "missing_fields": 0,
+      "empty_context": 0,
+      "answer_out_of_bounds": 0,
+      "answer_text_mismatch": 0,
+      "answer_text_mismatch_normalized": 0,
+      "impossible_with_answers": 0,
+      "possible_without_answers": 0,
+      "duplicate_qa_ids": 0,
+      "duplicate_contract_titles": 0,
+      "category_parse_failures": 0
+    },
+    "test_issues": {
+      "missing_fields": 0,
+      "empty_context": 0,
+      "answer_out_of_bounds": 0,
+      "answer_text_mismatch": 0,
+      "answer_text_mismatch_normalized": 0,
+      "impossible_with_answers": 0,
+      "possible_without_answers": 0,
+      "duplicate_qa_ids": 0,
+      "duplicate_contract_titles": 0,
+      "category_parse_failures": 0
+    }
+  }
+}

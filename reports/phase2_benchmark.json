@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-08-30T14:41:43.267163+00:00",
+  "model": {
+    "id": "distilbert/distilbert-base-uncased-distilled-squad",
+    "license": "apache-2.0",
+    "parameters": "~66.4M fp32"
+  },
+  "device": "cpu",
+  "torch_version": "2.13.0+cpu",
+  "cpu": {
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "machine": "AMD64",
+    "physical_cores": 8,
+    "logical_cores": 12,
+    "torch_default_threads": 8,
+    "total_ram_gb": 16.8
+  },
+  "sample": {
+    "windows": 128,
+    "source": "val_eval_features shard 0"
+  },
+  "batch_results": [
+    {
+      "batch_size": 1,
+      "windows": 128,
+      "wall_seconds": 62.82,
+      "windows_per_second": 2.04,
+      "ms_per_window": 490.8
+    },
+    {
+      "batch_size": 2,
+      "windows": 128,
+      "wall_seconds": 64.337,
+      "windows_per_second": 1.99,
+      "ms_per_window": 502.6
+    },
+    {
+      "batch_size": 4,
+      "windows": 128,
+      "wall_seconds": 59.699,
+      "windows_per_second": 2.14,
+      "ms_per_window": 466.4
+    },
+    {
+      "batch_size": 8,
+      "windows": 128,
+      "wall_seconds": 60.082,
+      "windows_per_second": 2.13,
+      "ms_per_window": 469.4
+    }
+  ],
+  "thread_experiment": [
+    {
+      "torch_threads": 4,
+      "batch_size": 4,
+      "windows_per_second": 2.68
+    },
+    {
+      "torch_threads": 8,
+      "batch_size": 4,
+      "windows_per_second": 2.99
+    }
+  ],
+  "contract_scenarios_windows": {
+    "median_windows_per_contract": 436,
+    "p95_windows_per_contract": 1456,
+    "max_windows_per_contract": 2266,
+    "contracts_observed": 41
+  },
+  "whole_contract_estimates": {
+    "median": {
+      "windows": 436,
+      "estimated_seconds_at_best_batch": 203.7
+    },
+    "p95": {
+      "windows": 1456,
+      "estimated_seconds_at_best_batch": 680.4
+    },
+    "longest": {
+      "windows": 2266,
+      "estimated_seconds_at_best_batch": 1058.9
+    }
+  },
+  "peak_rss_gb_during_benchmark": 0.88,
+  "notes": [
+    "Forward pass only: tokenization is a one-time cost per contract (context tokenized once per contract, reused across all clauses).",
+    "Estimates extrapolate the measured windows/second linearly; real analysis adds span decoding (small) and Python overhead.",
+    "These are SMOKE/benchmark numbers, not model quality metrics."
+  ]
+}

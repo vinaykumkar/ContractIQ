@@ -1,0 +1,42 @@
+{
+  "steps": {
+    "upload_analyze": "ok",
+    "workspace_opened": true,
+    "riskOrb": "Overall risk score 30 of 100, level LOW, 2 findings",
+    "evidence_highlight": "exact",
+    "reopen_without_reanalysis": true,
+    "refresh_survives": true,
+    "delete_removes_row": true,
+    "deleted_route_clean": true,
+    "second_upload_analyzed": true,
+    "pending_contract_ready": true,
+    "offline_ui_shown": true,
+    "page_survives_offline": true,
+    "online_recovered_without_reload": true,
+    "detail_page_analyze_action": "ok",
+    "consoleErrorCount": 13,
+    "pageErrorCount": 0
+  },
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+  ],
+  "pageErrors": [],
+  "timings": {
+    "analyze_total_ms": 3588,
+    "backend_restart_ms": 20698,
+    "ui_analyze_ms": 55149
+  },
+  "apiTimings": {}
+}

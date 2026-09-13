@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-08-30T16:46:54.566540+00:00",
+  "model": {
+    "id": "deepset/minilm-uncased-squad2",
+    "license": "cc-by-4.0",
+    "parameters": "~33.4M fp32"
+  },
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 2050",
+    "total_vram_gb": 4.29,
+    "cuda_runtime": "13.0"
+  },
+  "torch_version": "2.13.0+cu130",
+  "sample_windows": 128,
+  "batch_results": [
+    {
+      "batch_size": 8,
+      "wall_seconds": 2.423,
+      "windows_per_second": 52.8,
+      "ms_per_window": 18.93,
+      "peak_vram_gb": 0.21
+    },
+    {
+      "batch_size": 16,
+      "wall_seconds": 5.182,
+      "windows_per_second": 24.7,
+      "ms_per_window": 40.48,
+      "peak_vram_gb": 0.28
+    },
+    {
+      "batch_size": 32,
+      "wall_seconds": 7.172,
+      "windows_per_second": 17.8,
+      "ms_per_window": 56.03,
+      "peak_vram_gb": 0.43
+    },
+    {
+      "batch_size": 64,
+      "wall_seconds": 4.327,
+      "windows_per_second": 29.6,
+      "ms_per_window": 33.8,
+      "peak_vram_gb": 0.71
+    }
+  ],
+  "best": {
+    "batch_size": 8,
+    "wall_seconds": 2.423,
+    "windows_per_second": 52.8,
+    "ms_per_window": 18.93,
+    "peak_vram_gb": 0.21
+  },
+  "cpu_reference": {
+    "source": "reports/phase3_benchmark.json (same 128-window sample)",
+    "minilm_fp32_best_windows_per_second": 4.43
+  },
+  "notes": [
+    "Timings include host->device transfer and CUDA synchronization.",
+    "Whole-contract estimates include CPU-side tokenization/retrieval overhead that GPU speedups do not remove."
+  ],
+  "median_contract_estimate_seconds": 8.3,
+  "p95_contract_estimate_seconds": 27.6,
+  "longest_contract_estimate_seconds": 42.9
+}

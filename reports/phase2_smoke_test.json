@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-08-30T14:34:43.556863+00:00",
+  "model": {
+    "id": "distilbert/distilbert-base-uncased-distilled-squad",
+    "task": "question-answering (extractive)",
+    "license": "apache-2.0",
+    "parameters": "~66.4M (fp32, ~253 MB)"
+  },
+  "device": "cpu",
+  "torch_version": "2.13.0+cpu",
+  "note": "SMOKE TEST ONLY - proves the inference plumbing end to end. Confidence numbers are zero-shot proxy scores, NOT model performance.",
+  "examples": [
+    {
+      "contract_id": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT",
+      "clause": "governing_law",
+      "windows": 23,
+      "forward_seconds": 6.923,
+      "confidence": 0.017,
+      "char_offsets": [
+        2038,
+        2115
+      ],
+      "extracted_text": ". The termination of this Agreement shall terminate the obligations of either"
+    },
+    {
+      "contract_id": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT",
+      "clause": "renewal_term",
+      "windows": 24,
+      "forward_seconds": 6.62,
+      "confidence": 0.0101,
+      "char_offsets": [
+        392,
+        511
+      ],
+      "extracted_text": "EDGE\"), and FTE Networks, Inc. with its principal place of business at 999 Vanderbilt Beach Road, Suite 601, Naples, FL"
+    },
+    {
+      "contract_id": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT",
+      "clause": "non_compete",
+      "windows": 24,
+      "forward_seconds": 6.691,
+      "confidence": 0.0371,
+      "char_offsets": [
+        1875,
+        1948
+      ],
+      "extracted_text": "The termination of any Purchase Order shall not affect the obligations of"
+    },
+    {
+      "contract_id": "ON2TECHNOLOGIES,INC_11_17_2006-EX-10.3-SUPPORT AND MAINTENANCE AGREEMENT",
+      "clause": "governing_law",
+      "windows": 35,
+      "forward_seconds": 9.16,
+      "confidence": 0.0135,
+      "char_offsets": [
+        899,
+        945
+      ],
+      "extracted_text": "for Wildform to provide certain services to On"
+    },
+    {
+      "contract_id": "ON2TECHNOLOGIES,INC_11_17_2006-EX-10.3-SUPPORT AND MAINTENANCE AGREEMENT",
+      "clause": "renewal_term",
+      "windows": 36,
+      "forward_seconds": 9.519,
+      "confidence": 0.0159,
+      "char_offsets": [
+        2148,
+        2215
+      ],
+      "extracted_text": "an evaluation basis hereunder (whether source code, executable code"
+    },
+    {
+      "contract_id": "ON2TECHNOLOGIES,INC_11_17_2006-EX-10.3-SUPPORT AND MAINTENANCE AGREEMENT",
+      "clause": "non_compete",
+      "windows": 36,
+      "forward_seconds": 9.418,
+      "confidence": 0.0298,
+      "char_offsets": [
+        2125,
+        2199
+      ],
+      "extracted_text": ", software licensed on an evaluation basis hereunder (whether source code,"
+    }
+  ]
+}

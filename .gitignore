@@ -1,0 +1,88 @@
+# ---- ContractIQ .gitignore ----
+
+# Immutable source data & extracted copies
+data.zip
+data/raw/
+data/processed/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ML artifacts - the BUNDLED FINAL MODEL (ml/models/final) is intentionally
+# tracked: it is required for offline inference (see FINAL_STATUS.md).
+# Note: model.safetensors (~133 MB) exceeds GitHub's 100 MB file limit -
+# use Git LFS or a GitHub Release asset when publishing (docs/DEPLOYMENT.md).
+ml/checkpoints/
+ml/models/*
+!ml/models/final/
+!ml/models/final/**
+ml/artifacts/
+*.pt
+*.bin
+*.onnx
+!ml/models/final/*.safetensors
+
+# Hugging Face cache
+.cache/
+hf_cache/
+models--/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+
+# Secrets & environment
+.env
+.env.*
+!.env.example
+
+# Uploads / runtime artifacts
+uploads/
+backend/uploads/
+storage/uploads/
+storage/temp/
+storage/*.db
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs
+logs/
+*.log
+
+# ---- GitHub publishing: keep the repo free of large files ----
+# The fine-tuned weights (model.safetensors, ~127 MB) exceed GitHub's 100 MB
+# limit. The app falls back to the public deepset/minilm-uncased-squad2
+# baseline (auto-downloaded from Hugging Face on first run). To publish the
+# fine-tuned model, attach it to a GitHub Release or use Git LFS
+# (see docs/DEPLOYMENT.md).
+ml/models/final/model.safetensors
+
+# Presentation deliverables & QA renders (live outside the repo)
+reports/deck_assets/
+
+# Runtime demo leftover
+storage/demo_services_agreement.docx

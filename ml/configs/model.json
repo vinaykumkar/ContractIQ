@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "description": "ContractIQ ML model configuration. All paths are project-relative. The inference layer resolves the model in this order: final (fine-tuned) -> baseline (pretrained) and clearly reports which one is active.",
+    "created": "2026-08-30",
+    "phase": 3,
+    "disclaimer": "AI-assisted analysis. Results should be reviewed by a qualified professional."
+  },
+  "baseline_model": {
+    "model_id": "deepset/minilm-uncased-squad2",
+    "type": "extractive_qa_squad2",
+    "architecture": "MiniLM (6-layer BERT, 384 hidden)",
+    "parameters": 33360770,
+    "approx_size_mb": 127,
+    "license": "cc-by-4.0",
+    "license_note": "Attribution required; recorded here and in reports/phase3_model_selection.md",
+    "tokenizer_max_len": 512,
+    "no_answer_aware": true,
+    "selection_reason": "Best CPU throughput of the candidates (4.43 win/s vs 3.41 for DistilBERT-squad), half the size, trained for SQuAD2 no-answer behaviour, and uses the same BERT-uncased wordpiece vocabulary as the Phase 2 prepared features."
+  },
+  "final_model": {
+    "path": "ml/models/final",
+    "expected_origin": "GPU fine-tune of the baseline model via ml/src/train.py (see README commands)",
+    "trained_on": "CUAD train split (367 contracts), 15 enabled clauses",
+    "status": "trained_locally_gpu_1epoch",
+    "trained_at": "2026-08-30",
+    "training": {
+      "model_id": "deepset/minilm-uncased-squad2",
+      "data": "Phase 2 train features: 5,105 positive + 15,315 sampled no-answer windows (ratio 1:3)",
+      "steps": 1277,
+      "batch_size": 16,
+      "epochs": 1,
+      "lr": 3e-05,
+      "amp": true,
+      "seed": 42,
+      "wall_seconds": 838.3,
+      "device": "cuda (RTX 2050)"
+    }
+  },
+  "checkpoints_dir": "ml/checkpoints",
+  "windowing": {
+    "max_seq_len": 512,
+    "doc_stride": 128,
+    "max_answer_tokens": 64
+  },
+  "decoding": {
+    "no_answer_delta": 0.0,
+    "min_confidence": 0.0,
+    "note": "Calibrated on the validation split (41 contracts, fine_tuned); never tuned on the official test set."
+  },
+  "retrieval": {
+    "enabled": true,
+    "top_k": 15,
+    "max_block_chars": 1200,
+    "overlap_chars": 200,
+    "boost_first_blocks": 2,
+    "method": "tfidf_cosine_with_clause_keyword_lexicon",
+    "measured_recall_note": "Aggregate gold-answer recall 95.2% at K=15 on validation (reports/phase3_retrieval_recall.*).",
+    "full_document_clauses": [
+      "non_compete",
+      "exclusivity",
+      "cap_on_liability",
+      "license_grant"
+    ],
+    "full_document_reason": "TF-IDF gold-answer recall below the 95% acceptance bar for these clauses (62-93%); they fall back to full-document inference to avoid answer loss."
+  },
+  "quantization": {
+    "enabled": false,
+    "rejected_because": "Dynamic INT8 measured only 1.24x faster than FP32 and changed the argmax best span on 56% of benchmark windows (mean |delta confidence| = 0.0126); correctness risk outweighs the modest gain."
+  },
+  "performance": {
+    "torch_threads": 8,
+    "batch_size": 8,
+    "measured_windows_per_second_fp32": 4.43
+  },
+  "model_version": "phase3-finetuned-minilm-squad2-1epoch"
+}

@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/* ============================================================
+   ContractIQ design tokens — "Fluid Legal Intelligence"
+   Dark ink base; warm ivory, mint/aqua, coral, lavender accents.
+   Tokens only — components never use raw color values.
+   (A light theme can be added later by overriding these vars.)
+   ============================================================ */
+@theme {
+  --color-ink-950: #08090d;
+  --color-ink-900: #0d0f14;
+  --color-ink-850: #12151c;
+  --color-ink-800: #181c25;
+  --color-ink-700: #222835;
+  --color-ink-600: #2e3543;
+
+  --color-ivory: #ece6d9;
+  --color-ivory-dim: #b9b3a6;
+  --color-mist: #8b92a3;
+
+  --color-mint: #86dcc0;
+  --color-mint-deep: #3aa88b;
+  --color-aqua: #56c4c9;
+  --color-coral: #ff7264;
+  --color-coral-deep: #d94f42;
+  --color-lavender: #b7a7e8;
+  --color-amber: #e8b566;
+
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, ui-serif, serif;
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-legal: "Iowan Old Style", "Palatino Linotype", Georgia, ui-serif, serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Menlo, monospace;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink-950 text-ivory font-sans antialiased;
+  min-height: 100vh;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-aqua) 35%, transparent);
+  color: var(--color-ivory);
+}
+
+/* focus visibility (accessibility) */
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-aqua) 70%, transparent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* thin luminous scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-600) transparent;
+}
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb {
+  background: var(--color-ink-600);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* ---------- signature background: aurora mesh + grain ---------- */
+.ci-aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 15% 0%, #101722 0%, var(--color-ink-950) 60%),
+    var(--color-ink-950);
+}
+.ci-aurora::before,
+.ci-aurora::after {
+  content: "";
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.16;
+  animation: ci-drift 26s ease-in-out infinite alternate;
+}
+.ci-aurora::before {
+  background: radial-gradient(circle, var(--color-aqua) 0%, transparent 65%);
+  top: -25vmax; left: -15vmax;
+}
+.ci-aurora::after {
+  background: radial-gradient(circle, var(--color-coral) 0%, transparent 60%);
+  bottom: -30vmax; right: -20vmax;
+  animation-delay: -12s;
+}
+.ci-aurora-blob {
+  position: absolute;
+  width: 45vmax; height: 45vmax;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.10;
+  background: radial-gradient(circle, var(--color-lavender) 0%, transparent 60%);
+  top: 10vmax; right: 5vmax;
+  animation: ci-drift 34s ease-in-out infinite alternate-reverse;
+}
+@keyframes ci-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(4vmax, 3vmax, 0) scale(1.15); }
+}
+.ci-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce) {
+  .ci-aurora::before, .ci-aurora::after, .ci-aurora-blob { animation: none; }
+}
+
+/* ---------- glass surfaces (used sparingly) ---------- */
+.ci-glass {
+  background: color-mix(in srgb, var(--color-ink-850) 72%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in srgb, var(--color-ink-600) 55%, transparent);
+}
+.ci-glass-strong {
+  background: color-mix(in srgb, var(--color-ink-850) 88%, transparent);
+  backdrop-filter: blur(18px);
+  border: 1px solid color-mix(in srgb, var(--color-ink-600) 70%, transparent);
+}
+
+/* ---------- document text (legal evidence) ---------- */
+.ci-doc {
+  @apply font-legal text-[15.5px] leading-[1.85] text-ivory/85;
+}
+.ci-doc p { margin-bottom: 1.1em; }
+
+.ci-evidence {
+  background: linear-gradient(120deg,
+    color-mix(in srgb, var(--color-aqua) 26%, transparent),
+    color-mix(in srgb, var(--color-mint) 22%, transparent));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-aqua) 45%, transparent),
+              0 0 24px color-mix(in srgb, var(--color-aqua) 18%, transparent);
+  border-radius: 4px;
+  padding: 0.5px 0;
+  color: var(--color-ivory);
+  transition: box-shadow 0.6s ease, background 0.6s ease;
+}
+.ci-evidence-dim {
+  background: color-mix(in srgb, var(--color-ink-600) 55%, transparent);
+  border-radius: 4px;
+  padding: 0.5px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

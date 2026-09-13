@@ -1,0 +1,1493 @@
+{
+  "generated_at": "2026-08-30T15:15:31.251323+00:00",
+  "val_contracts": 41,
+  "block_config": {
+    "max_block_chars": 1200,
+    "overlap_chars": 200
+  },
+  "k_values": [
+    2,
+    3,
+    5,
+    8,
+    10,
+    15
+  ],
+  "variants": [
+    "plain_question",
+    "keywords",
+    "keywords_plus_title_boost"
+  ],
+  "per_clause": {
+    "agreement_date": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 36,
+          "covered": 7,
+          "recall": 0.1944
+        },
+        "3": {
+          "gold_spans": 36,
+          "covered": 11,
+          "recall": 0.3056
+        },
+        "5": {
+          "gold_spans": 36,
+          "covered": 13,
+          "recall": 0.3611
+        },
+        "8": {
+          "gold_spans": 36,
+          "covered": 17,
+          "recall": 0.4722
+        },
+        "10": {
+          "gold_spans": 36,
+          "covered": 20,
+          "recall": 0.5556
+        },
+        "15": {
+          "gold_spans": 36,
+          "covered": 25,
+          "recall": 0.6944
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 36,
+          "covered": 20,
+          "recall": 0.5556
+        },
+        "3": {
+          "gold_spans": 36,
+          "covered": 25,
+          "recall": 0.6944
+        },
+        "5": {
+          "gold_spans": 36,
+          "covered": 27,
+          "recall": 0.75
+        },
+        "8": {
+          "gold_spans": 36,
+          "covered": 30,
+          "recall": 0.8333
+        },
+        "10": {
+          "gold_spans": 36,
+          "covered": 31,
+          "recall": 0.8611
+        },
+        "15": {
+          "gold_spans": 36,
+          "covered": 33,
+          "recall": 0.9167
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 36,
+          "covered": 33,
+          "recall": 0.9167
+        },
+        "3": {
+          "gold_spans": 36,
+          "covered": 33,
+          "recall": 0.9167
+        },
+        "5": {
+          "gold_spans": 36,
+          "covered": 34,
+          "recall": 0.9444
+        },
+        "8": {
+          "gold_spans": 36,
+          "covered": 35,
+          "recall": 0.9722
+        },
+        "10": {
+          "gold_spans": 36,
+          "covered": 35,
+          "recall": 0.9722
+        },
+        "15": {
+          "gold_spans": 36,
+          "covered": 36,
+          "recall": 1.0
+        }
+      }
+    },
+    "anti_assignment": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 64,
+          "covered": 42,
+          "recall": 0.6562
+        },
+        "3": {
+          "gold_spans": 64,
+          "covered": 43,
+          "recall": 0.6719
+        },
+        "5": {
+          "gold_spans": 64,
+          "covered": 49,
+          "recall": 0.7656
+        },
+        "8": {
+          "gold_spans": 64,
+          "covered": 53,
+          "recall": 0.8281
+        },
+        "10": {
+          "gold_spans": 64,
+          "covered": 55,
+          "recall": 0.8594
+        },
+        "15": {
+          "gold_spans": 64,
+          "covered": 56,
+          "recall": 0.875
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 64,
+          "covered": 49,
+          "recall": 0.7656
+        },
+        "3": {
+          "gold_spans": 64,
+          "covered": 52,
+          "recall": 0.8125
+        },
+        "5": {
+          "gold_spans": 64,
+          "covered": 57,
+          "recall": 0.8906
+        },
+        "8": {
+          "gold_spans": 64,
+          "covered": 60,
+          "recall": 0.9375
+        },
+        "10": {
+          "gold_spans": 64,
+          "covered": 62,
+          "recall": 0.9688
+        },
+        "15": {
+          "gold_spans": 64,
+          "covered": 62,
+          "recall": 0.9688
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 64,
+          "covered": 49,
+          "recall": 0.7656
+        },
+        "3": {
+          "gold_spans": 64,
+          "covered": 52,
+          "recall": 0.8125
+        },
+        "5": {
+          "gold_spans": 64,
+          "covered": 57,
+          "recall": 0.8906
+        },
+        "8": {
+          "gold_spans": 64,
+          "covered": 60,
+          "recall": 0.9375
+        },
+        "10": {
+          "gold_spans": 64,
+          "covered": 62,
+          "recall": 0.9688
+        },
+        "15": {
+          "gold_spans": 64,
+          "covered": 62,
+          "recall": 0.9688
+        }
+      }
+    },
+    "audit_rights": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 45,
+          "covered": 37,
+          "recall": 0.8222
+        },
+        "3": {
+          "gold_spans": 45,
+          "covered": 37,
+          "recall": 0.8222
+        },
+        "5": {
+          "gold_spans": 45,
+          "covered": 39,
+          "recall": 0.8667
+        },
+        "8": {
+          "gold_spans": 45,
+          "covered": 41,
+          "recall": 0.9111
+        },
+        "10": {
+          "gold_spans": 45,
+          "covered": 41,
+          "recall": 0.9111
+        },
+        "15": {
+          "gold_spans": 45,
+          "covered": 42,
+          "recall": 0.9333
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 45,
+          "covered": 35,
+          "recall": 0.7778
+        },
+        "3": {
+          "gold_spans": 45,
+          "covered": 37,
+          "recall": 0.8222
+        },
+        "5": {
+          "gold_spans": 45,
+          "covered": 45,
+          "recall": 1.0
+        },
+        "8": {
+          "gold_spans": 45,
+          "covered": 45,
+          "recall": 1.0
+        },
+        "10": {
+          "gold_spans": 45,
+          "covered": 45,
+          "recall": 1.0
+        },
+        "15": {
+          "gold_spans": 45,
+          "covered": 45,
+          "recall": 1.0
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 45,
+          "covered": 35,
+          "recall": 0.7778
+        },
+        "3": {
+          "gold_spans": 45,
+          "covered": 37,
+          "recall": 0.8222
+        },
+        "5": {
+          "gold_spans": 45,
+          "covered": 45,
+          "recall": 1.0
+        },
+        "8": {
+          "gold_spans": 45,
+          "covered": 45,
+          "recall": 1.0
+        },
+        "10": {
+          "gold_spans": 45,
+          "covered": 45,
+          "recall": 1.0
+        },
+        "15": {
+          "gold_spans": 45,
+          "covered": 45,
+          "recall": 1.0
+        }
+      }
+    },
+    "cap_on_liability": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 48,
+          "covered": 21,
+          "recall": 0.4375
+        },
+        "3": {
+          "gold_spans": 48,
+          "covered": 27,
+          "recall": 0.5625
+        },
+        "5": {
+          "gold_spans": 48,
+          "covered": 31,
+          "recall": 0.6458
+        },
+        "8": {
+          "gold_spans": 48,
+          "covered": 35,
+          "recall": 0.7292
+        },
+        "10": {
+          "gold_spans": 48,
+          "covered": 35,
+          "recall": 0.7292
+        },
+        "15": {
+          "gold_spans": 48,
+          "covered": 39,
+          "recall": 0.8125
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 48,
+          "covered": 29,
+          "recall": 0.6042
+        },
+        "3": {
+          "gold_spans": 48,
+          "covered": 32,
+          "recall": 0.6667
+        },
+        "5": {
+          "gold_spans": 48,
+          "covered": 36,
+          "recall": 0.75
+        },
+        "8": {
+          "gold_spans": 48,
+          "covered": 38,
+          "recall": 0.7917
+        },
+        "10": {
+          "gold_spans": 48,
+          "covered": 38,
+          "recall": 0.7917
+        },
+        "15": {
+          "gold_spans": 48,
+          "covered": 42,
+          "recall": 0.875
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 48,
+          "covered": 29,
+          "recall": 0.6042
+        },
+        "3": {
+          "gold_spans": 48,
+          "covered": 32,
+          "recall": 0.6667
+        },
+        "5": {
+          "gold_spans": 48,
+          "covered": 36,
+          "recall": 0.75
+        },
+        "8": {
+          "gold_spans": 48,
+          "covered": 38,
+          "recall": 0.7917
+        },
+        "10": {
+          "gold_spans": 48,
+          "covered": 38,
+          "recall": 0.7917
+        },
+        "15": {
+          "gold_spans": 48,
+          "covered": 42,
+          "recall": 0.875
+        }
+      }
+    },
+    "document_name": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 41,
+          "covered": 14,
+          "recall": 0.3415
+        },
+        "3": {
+          "gold_spans": 41,
+          "covered": 18,
+          "recall": 0.439
+        },
+        "5": {
+          "gold_spans": 41,
+          "covered": 26,
+          "recall": 0.6341
+        },
+        "8": {
+          "gold_spans": 41,
+          "covered": 31,
+          "recall": 0.7561
+        },
+        "10": {
+          "gold_spans": 41,
+          "covered": 33,
+          "recall": 0.8049
+        },
+        "15": {
+          "gold_spans": 41,
+          "covered": 38,
+          "recall": 0.9268
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 41,
+          "covered": 9,
+          "recall": 0.2195
+        },
+        "3": {
+          "gold_spans": 41,
+          "covered": 14,
+          "recall": 0.3415
+        },
+        "5": {
+          "gold_spans": 41,
+          "covered": 18,
+          "recall": 0.439
+        },
+        "8": {
+          "gold_spans": 41,
+          "covered": 23,
+          "recall": 0.561
+        },
+        "10": {
+          "gold_spans": 41,
+          "covered": 26,
+          "recall": 0.6341
+        },
+        "15": {
+          "gold_spans": 41,
+          "covered": 33,
+          "recall": 0.8049
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 41,
+          "covered": 37,
+          "recall": 0.9024
+        },
+        "3": {
+          "gold_spans": 41,
+          "covered": 37,
+          "recall": 0.9024
+        },
+        "5": {
+          "gold_spans": 41,
+          "covered": 37,
+          "recall": 0.9024
+        },
+        "8": {
+          "gold_spans": 41,
+          "covered": 38,
+          "recall": 0.9268
+        },
+        "10": {
+          "gold_spans": 41,
+          "covered": 39,
+          "recall": 0.9512
+        },
+        "15": {
+          "gold_spans": 41,
+          "covered": 39,
+          "recall": 0.9512
+        }
+      }
+    },
+    "effective_date": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 36,
+          "covered": 9,
+          "recall": 0.25
+        },
+        "3": {
+          "gold_spans": 36,
+          "covered": 16,
+          "recall": 0.4444
+        },
+        "5": {
+          "gold_spans": 36,
+          "covered": 20,
+          "recall": 0.5556
+        },
+        "8": {
+          "gold_spans": 36,
+          "covered": 31,
+          "recall": 0.8611
+        },
+        "10": {
+          "gold_spans": 36,
+          "covered": 32,
+          "recall": 0.8889
+        },
+        "15": {
+          "gold_spans": 36,
+          "covered": 34,
+          "recall": 0.9444
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 36,
+          "covered": 9,
+          "recall": 0.25
+        },
+        "3": {
+          "gold_spans": 36,
+          "covered": 15,
+          "recall": 0.4167
+        },
+        "5": {
+          "gold_spans": 36,
+          "covered": 20,
+          "recall": 0.5556
+        },
+        "8": {
+          "gold_spans": 36,
+          "covered": 26,
+          "recall": 0.7222
+        },
+        "10": {
+          "gold_spans": 36,
+          "covered": 29,
+          "recall": 0.8056
+        },
+        "15": {
+          "gold_spans": 36,
+          "covered": 31,
+          "recall": 0.8611
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 36,
+          "covered": 30,
+          "recall": 0.8333
+        },
+        "3": {
+          "gold_spans": 36,
+          "covered": 32,
+          "recall": 0.8889
+        },
+        "5": {
+          "gold_spans": 36,
+          "covered": 33,
+          "recall": 0.9167
+        },
+        "8": {
+          "gold_spans": 36,
+          "covered": 34,
+          "recall": 0.9444
+        },
+        "10": {
+          "gold_spans": 36,
+          "covered": 34,
+          "recall": 0.9444
+        },
+        "15": {
+          "gold_spans": 36,
+          "covered": 35,
+          "recall": 0.9722
+        }
+      }
+    },
+    "exclusivity": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 32,
+          "covered": 5,
+          "recall": 0.1562
+        },
+        "3": {
+          "gold_spans": 32,
+          "covered": 11,
+          "recall": 0.3438
+        },
+        "5": {
+          "gold_spans": 32,
+          "covered": 12,
+          "recall": 0.375
+        },
+        "8": {
+          "gold_spans": 32,
+          "covered": 12,
+          "recall": 0.375
+        },
+        "10": {
+          "gold_spans": 32,
+          "covered": 13,
+          "recall": 0.4062
+        },
+        "15": {
+          "gold_spans": 32,
+          "covered": 18,
+          "recall": 0.5625
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 32,
+          "covered": 11,
+          "recall": 0.3438
+        },
+        "3": {
+          "gold_spans": 32,
+          "covered": 14,
+          "recall": 0.4375
+        },
+        "5": {
+          "gold_spans": 32,
+          "covered": 18,
+          "recall": 0.5625
+        },
+        "8": {
+          "gold_spans": 32,
+          "covered": 20,
+          "recall": 0.625
+        },
+        "10": {
+          "gold_spans": 32,
+          "covered": 26,
+          "recall": 0.8125
+        },
+        "15": {
+          "gold_spans": 32,
+          "covered": 29,
+          "recall": 0.9062
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 32,
+          "covered": 12,
+          "recall": 0.375
+        },
+        "3": {
+          "gold_spans": 32,
+          "covered": 15,
+          "recall": 0.4688
+        },
+        "5": {
+          "gold_spans": 32,
+          "covered": 19,
+          "recall": 0.5938
+        },
+        "8": {
+          "gold_spans": 32,
+          "covered": 21,
+          "recall": 0.6562
+        },
+        "10": {
+          "gold_spans": 32,
+          "covered": 27,
+          "recall": 0.8438
+        },
+        "15": {
+          "gold_spans": 32,
+          "covered": 29,
+          "recall": 0.9062
+        }
+      }
+    },
+    "expiration_date": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 39,
+          "covered": 25,
+          "recall": 0.641
+        },
+        "3": {
+          "gold_spans": 39,
+          "covered": 27,
+          "recall": 0.6923
+        },
+        "5": {
+          "gold_spans": 39,
+          "covered": 32,
+          "recall": 0.8205
+        },
+        "8": {
+          "gold_spans": 39,
+          "covered": 32,
+          "recall": 0.8205
+        },
+        "10": {
+          "gold_spans": 39,
+          "covered": 34,
+          "recall": 0.8718
+        },
+        "15": {
+          "gold_spans": 39,
+          "covered": 35,
+          "recall": 0.8974
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 39,
+          "covered": 26,
+          "recall": 0.6667
+        },
+        "3": {
+          "gold_spans": 39,
+          "covered": 30,
+          "recall": 0.7692
+        },
+        "5": {
+          "gold_spans": 39,
+          "covered": 32,
+          "recall": 0.8205
+        },
+        "8": {
+          "gold_spans": 39,
+          "covered": 36,
+          "recall": 0.9231
+        },
+        "10": {
+          "gold_spans": 39,
+          "covered": 36,
+          "recall": 0.9231
+        },
+        "15": {
+          "gold_spans": 39,
+          "covered": 37,
+          "recall": 0.9487
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 39,
+          "covered": 30,
+          "recall": 0.7692
+        },
+        "3": {
+          "gold_spans": 39,
+          "covered": 33,
+          "recall": 0.8462
+        },
+        "5": {
+          "gold_spans": 39,
+          "covered": 34,
+          "recall": 0.8718
+        },
+        "8": {
+          "gold_spans": 39,
+          "covered": 36,
+          "recall": 0.9231
+        },
+        "10": {
+          "gold_spans": 39,
+          "covered": 36,
+          "recall": 0.9231
+        },
+        "15": {
+          "gold_spans": 39,
+          "covered": 37,
+          "recall": 0.9487
+        }
+      }
+    },
+    "governing_law": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 43,
+          "covered": 33,
+          "recall": 0.7674
+        },
+        "3": {
+          "gold_spans": 43,
+          "covered": 35,
+          "recall": 0.814
+        },
+        "5": {
+          "gold_spans": 43,
+          "covered": 38,
+          "recall": 0.8837
+        },
+        "8": {
+          "gold_spans": 43,
+          "covered": 38,
+          "recall": 0.8837
+        },
+        "10": {
+          "gold_spans": 43,
+          "covered": 40,
+          "recall": 0.9302
+        },
+        "15": {
+          "gold_spans": 43,
+          "covered": 42,
+          "recall": 0.9767
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 43,
+          "covered": 41,
+          "recall": 0.9535
+        },
+        "3": {
+          "gold_spans": 43,
+          "covered": 41,
+          "recall": 0.9535
+        },
+        "5": {
+          "gold_spans": 43,
+          "covered": 43,
+          "recall": 1.0
+        },
+        "8": {
+          "gold_spans": 43,
+          "covered": 43,
+          "recall": 1.0
+        },
+        "10": {
+          "gold_spans": 43,
+          "covered": 43,
+          "recall": 1.0
+        },
+        "15": {
+          "gold_spans": 43,
+          "covered": 43,
+          "recall": 1.0
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 43,
+          "covered": 41,
+          "recall": 0.9535
+        },
+        "3": {
+          "gold_spans": 43,
+          "covered": 41,
+          "recall": 0.9535
+        },
+        "5": {
+          "gold_spans": 43,
+          "covered": 43,
+          "recall": 1.0
+        },
+        "8": {
+          "gold_spans": 43,
+          "covered": 43,
+          "recall": 1.0
+        },
+        "10": {
+          "gold_spans": 43,
+          "covered": 43,
+          "recall": 1.0
+        },
+        "15": {
+          "gold_spans": 43,
+          "covered": 43,
+          "recall": 1.0
+        }
+      }
+    },
+    "insurance": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 50,
+          "covered": 42,
+          "recall": 0.84
+        },
+        "3": {
+          "gold_spans": 50,
+          "covered": 45,
+          "recall": 0.9
+        },
+        "5": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        },
+        "8": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        },
+        "10": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        },
+        "15": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 50,
+          "covered": 45,
+          "recall": 0.9
+        },
+        "3": {
+          "gold_spans": 50,
+          "covered": 49,
+          "recall": 0.98
+        },
+        "5": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        },
+        "8": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        },
+        "10": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        },
+        "15": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 50,
+          "covered": 45,
+          "recall": 0.9
+        },
+        "3": {
+          "gold_spans": 50,
+          "covered": 49,
+          "recall": 0.98
+        },
+        "5": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        },
+        "8": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        },
+        "10": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        },
+        "15": {
+          "gold_spans": 50,
+          "covered": 50,
+          "recall": 1.0
+        }
+      }
+    },
+    "license_grant": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 69,
+          "covered": 17,
+          "recall": 0.2464
+        },
+        "3": {
+          "gold_spans": 69,
+          "covered": 31,
+          "recall": 0.4493
+        },
+        "5": {
+          "gold_spans": 69,
+          "covered": 46,
+          "recall": 0.6667
+        },
+        "8": {
+          "gold_spans": 69,
+          "covered": 53,
+          "recall": 0.7681
+        },
+        "10": {
+          "gold_spans": 69,
+          "covered": 60,
+          "recall": 0.8696
+        },
+        "15": {
+          "gold_spans": 69,
+          "covered": 63,
+          "recall": 0.913
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 69,
+          "covered": 32,
+          "recall": 0.4638
+        },
+        "3": {
+          "gold_spans": 69,
+          "covered": 43,
+          "recall": 0.6232
+        },
+        "5": {
+          "gold_spans": 69,
+          "covered": 50,
+          "recall": 0.7246
+        },
+        "8": {
+          "gold_spans": 69,
+          "covered": 56,
+          "recall": 0.8116
+        },
+        "10": {
+          "gold_spans": 69,
+          "covered": 60,
+          "recall": 0.8696
+        },
+        "15": {
+          "gold_spans": 69,
+          "covered": 64,
+          "recall": 0.9275
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 69,
+          "covered": 34,
+          "recall": 0.4928
+        },
+        "3": {
+          "gold_spans": 69,
+          "covered": 43,
+          "recall": 0.6232
+        },
+        "5": {
+          "gold_spans": 69,
+          "covered": 50,
+          "recall": 0.7246
+        },
+        "8": {
+          "gold_spans": 69,
+          "covered": 56,
+          "recall": 0.8116
+        },
+        "10": {
+          "gold_spans": 69,
+          "covered": 60,
+          "recall": 0.8696
+        },
+        "15": {
+          "gold_spans": 69,
+          "covered": 64,
+          "recall": 0.9275
+        }
+      }
+    },
+    "non_compete": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 24,
+          "covered": 3,
+          "recall": 0.125
+        },
+        "3": {
+          "gold_spans": 24,
+          "covered": 3,
+          "recall": 0.125
+        },
+        "5": {
+          "gold_spans": 24,
+          "covered": 4,
+          "recall": 0.1667
+        },
+        "8": {
+          "gold_spans": 24,
+          "covered": 7,
+          "recall": 0.2917
+        },
+        "10": {
+          "gold_spans": 24,
+          "covered": 9,
+          "recall": 0.375
+        },
+        "15": {
+          "gold_spans": 24,
+          "covered": 12,
+          "recall": 0.5
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 24,
+          "covered": 4,
+          "recall": 0.1667
+        },
+        "3": {
+          "gold_spans": 24,
+          "covered": 7,
+          "recall": 0.2917
+        },
+        "5": {
+          "gold_spans": 24,
+          "covered": 9,
+          "recall": 0.375
+        },
+        "8": {
+          "gold_spans": 24,
+          "covered": 10,
+          "recall": 0.4167
+        },
+        "10": {
+          "gold_spans": 24,
+          "covered": 12,
+          "recall": 0.5
+        },
+        "15": {
+          "gold_spans": 24,
+          "covered": 15,
+          "recall": 0.625
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 24,
+          "covered": 4,
+          "recall": 0.1667
+        },
+        "3": {
+          "gold_spans": 24,
+          "covered": 7,
+          "recall": 0.2917
+        },
+        "5": {
+          "gold_spans": 24,
+          "covered": 9,
+          "recall": 0.375
+        },
+        "8": {
+          "gold_spans": 24,
+          "covered": 10,
+          "recall": 0.4167
+        },
+        "10": {
+          "gold_spans": 24,
+          "covered": 12,
+          "recall": 0.5
+        },
+        "15": {
+          "gold_spans": 24,
+          "covered": 15,
+          "recall": 0.625
+        }
+      }
+    },
+    "parties": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 200,
+          "covered": 30,
+          "recall": 0.15
+        },
+        "3": {
+          "gold_spans": 200,
+          "covered": 38,
+          "recall": 0.19
+        },
+        "5": {
+          "gold_spans": 200,
+          "covered": 51,
+          "recall": 0.255
+        },
+        "8": {
+          "gold_spans": 200,
+          "covered": 71,
+          "recall": 0.355
+        },
+        "10": {
+          "gold_spans": 200,
+          "covered": 79,
+          "recall": 0.395
+        },
+        "15": {
+          "gold_spans": 200,
+          "covered": 114,
+          "recall": 0.57
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 200,
+          "covered": 90,
+          "recall": 0.45
+        },
+        "3": {
+          "gold_spans": 200,
+          "covered": 108,
+          "recall": 0.54
+        },
+        "5": {
+          "gold_spans": 200,
+          "covered": 136,
+          "recall": 0.68
+        },
+        "8": {
+          "gold_spans": 200,
+          "covered": 152,
+          "recall": 0.76
+        },
+        "10": {
+          "gold_spans": 200,
+          "covered": 165,
+          "recall": 0.825
+        },
+        "15": {
+          "gold_spans": 200,
+          "covered": 177,
+          "recall": 0.885
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 200,
+          "covered": 191,
+          "recall": 0.955
+        },
+        "3": {
+          "gold_spans": 200,
+          "covered": 191,
+          "recall": 0.955
+        },
+        "5": {
+          "gold_spans": 200,
+          "covered": 192,
+          "recall": 0.96
+        },
+        "8": {
+          "gold_spans": 200,
+          "covered": 192,
+          "recall": 0.96
+        },
+        "10": {
+          "gold_spans": 200,
+          "covered": 192,
+          "recall": 0.96
+        },
+        "15": {
+          "gold_spans": 200,
+          "covered": 194,
+          "recall": 0.97
+        }
+      }
+    },
+    "renewal_term": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 23,
+          "covered": 20,
+          "recall": 0.8696
+        },
+        "3": {
+          "gold_spans": 23,
+          "covered": 20,
+          "recall": 0.8696
+        },
+        "5": {
+          "gold_spans": 23,
+          "covered": 20,
+          "recall": 0.8696
+        },
+        "8": {
+          "gold_spans": 23,
+          "covered": 21,
+          "recall": 0.913
+        },
+        "10": {
+          "gold_spans": 23,
+          "covered": 21,
+          "recall": 0.913
+        },
+        "15": {
+          "gold_spans": 23,
+          "covered": 23,
+          "recall": 1.0
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 23,
+          "covered": 22,
+          "recall": 0.9565
+        },
+        "3": {
+          "gold_spans": 23,
+          "covered": 22,
+          "recall": 0.9565
+        },
+        "5": {
+          "gold_spans": 23,
+          "covered": 23,
+          "recall": 1.0
+        },
+        "8": {
+          "gold_spans": 23,
+          "covered": 23,
+          "recall": 1.0
+        },
+        "10": {
+          "gold_spans": 23,
+          "covered": 23,
+          "recall": 1.0
+        },
+        "15": {
+          "gold_spans": 23,
+          "covered": 23,
+          "recall": 1.0
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 23,
+          "covered": 22,
+          "recall": 0.9565
+        },
+        "3": {
+          "gold_spans": 23,
+          "covered": 22,
+          "recall": 0.9565
+        },
+        "5": {
+          "gold_spans": 23,
+          "covered": 23,
+          "recall": 1.0
+        },
+        "8": {
+          "gold_spans": 23,
+          "covered": 23,
+          "recall": 1.0
+        },
+        "10": {
+          "gold_spans": 23,
+          "covered": 23,
+          "recall": 1.0
+        },
+        "15": {
+          "gold_spans": 23,
+          "covered": 23,
+          "recall": 1.0
+        }
+      }
+    },
+    "termination_for_convenience": {
+      "plain_question": {
+        "2": {
+          "gold_spans": 28,
+          "covered": 20,
+          "recall": 0.7143
+        },
+        "3": {
+          "gold_spans": 28,
+          "covered": 20,
+          "recall": 0.7143
+        },
+        "5": {
+          "gold_spans": 28,
+          "covered": 23,
+          "recall": 0.8214
+        },
+        "8": {
+          "gold_spans": 28,
+          "covered": 26,
+          "recall": 0.9286
+        },
+        "10": {
+          "gold_spans": 28,
+          "covered": 26,
+          "recall": 0.9286
+        },
+        "15": {
+          "gold_spans": 28,
+          "covered": 27,
+          "recall": 0.9643
+        }
+      },
+      "keywords": {
+        "2": {
+          "gold_spans": 28,
+          "covered": 21,
+          "recall": 0.75
+        },
+        "3": {
+          "gold_spans": 28,
+          "covered": 23,
+          "recall": 0.8214
+        },
+        "5": {
+          "gold_spans": 28,
+          "covered": 24,
+          "recall": 0.8571
+        },
+        "8": {
+          "gold_spans": 28,
+          "covered": 26,
+          "recall": 0.9286
+        },
+        "10": {
+          "gold_spans": 28,
+          "covered": 27,
+          "recall": 0.9643
+        },
+        "15": {
+          "gold_spans": 28,
+          "covered": 27,
+          "recall": 0.9643
+        }
+      },
+      "keywords_plus_title_boost": {
+        "2": {
+          "gold_spans": 28,
+          "covered": 22,
+          "recall": 0.7857
+        },
+        "3": {
+          "gold_spans": 28,
+          "covered": 24,
+          "recall": 0.8571
+        },
+        "5": {
+          "gold_spans": 28,
+          "covered": 25,
+          "recall": 0.8929
+        },
+        "8": {
+          "gold_spans": 28,
+          "covered": 26,
+          "recall": 0.9286
+        },
+        "10": {
+          "gold_spans": 28,
+          "covered": 27,
+          "recall": 0.9643
+        },
+        "15": {
+          "gold_spans": 28,
+          "covered": 27,
+          "recall": 0.9643
+        }
+      }
+    }
+  }
+}

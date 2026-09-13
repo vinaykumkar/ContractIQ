@@ -1,0 +1,49 @@
+{
+  "args": {
+    "model": "deepset/minilm-uncased-squad2",
+    "train_dir": "C:\\proj2\\data\\processed\\train_features",
+    "output": "C:\\proj2\\ml\\models\\final",
+    "checkpoints": "C:\\proj2\\ml\\checkpoints",
+    "epochs": 1,
+    "batch_size": 16,
+    "grad_accum": 1,
+    "learning_rate": 3e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "negative_ratio": 3.0,
+    "sample_limit": null,
+    "read_limit": null,
+    "val_rows": 512,
+    "seed": 42,
+    "amp": true,
+    "cpu": false,
+    "max_steps": null,
+    "time_limit_min": null,
+    "log_every": 25,
+    "tiny": false
+  },
+  "sampling": {
+    "seed": 42,
+    "negative_ratio": 3.0,
+    "positives_available": 5105,
+    "negatives_available": 178280,
+    "positives_kept": 5105,
+    "negatives_kept": 15315,
+    "total_rows": 20420,
+    "shuffled": true
+  },
+  "history": [
+    {
+      "token_start_accuracy": 0.92578125,
+      "token_end_accuracy": 0.509765625,
+      "rows": 512,
+      "epoch": 1,
+      "global_step": 1277,
+      "wall_seconds": 838.3
+    }
+  ],
+  "device": "cuda",
+  "best": true,
+  "saved_at": "2026-08-30T17:02:26.038619+00:00"
+}

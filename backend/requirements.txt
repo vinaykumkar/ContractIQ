@@ -1,0 +1,13 @@
+# ContractIQ backend dependencies (Phases 4-5)
+# Install with:  pip install -r backend/requirements.txt
+# (ML-layer dependencies live in ml/requirements.txt)
+
+# API layer (Phase 5)
+fastapi==0.128.0
+uvicorn==0.40.0
+python-multipart==0.0.21
+
+# persistence & parsing (Phase 4)
+sqlalchemy==2.0.49
+PyMuPDF==1.26.7
+python-docx==1.2.0

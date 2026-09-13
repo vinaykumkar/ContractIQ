@@ -1,0 +1,96 @@
+{
+  "steps": {
+    "health": {
+      "status": "ok",
+      "app": "ContractIQ",
+      "version": "0.5.0",
+      "database": "ok",
+      "model": {
+        "available": true,
+        "state": "fine_tuned",
+        "device": "cuda",
+        "final_model_present": true,
+        "baseline_model_id": "deepset/minilm-uncased-squad2",
+        "model_version": "phase3-finetuned-minilm-squad2-1epoch"
+      }
+    },
+    "upload": {
+      "id": "c637578417f142f2b974689801bace57",
+      "filename": "tiny consulting.txt",
+      "file_type": "txt",
+      "status": "READY",
+      "character_count": 432,
+      "page_count": null,
+      "parser_warnings": [],
+      "duplicate_of_id": null,
+      "created_at": "2026-09-02T16:17:58.726163",
+      "latest_analysis": null
+    },
+    "analysis": {
+      "status": "COMPLETED",
+      "overall_risk": {
+        "score": 27,
+        "level": "LOW"
+      },
+      "found_clauses": {
+        "agreement_date": 0.984,
+        "document_name": 0.395,
+        "effective_date": 0.947,
+        "expiration_date": 0.865,
+        "governing_law": 0.989,
+        "parties": 0.342,
+        "renewal_term": 0.935,
+        "termination_for_convenience": 0.984
+      },
+      "entities": {
+        "parties": "Jane Doe",
+        "agreement_date": "February 1, 2025",
+        "effective_date": "February 1, 2025",
+        "expiration_date": "This agreement runs for six months and shall automatically renew\nunless terminated with 30 days notice.",
+        "governing_law": "This agreement is governed by the laws of the State of\nTexas.",
+        "document_name": "CONSULTING AGREEMENT"
+      },
+      "risk_findings": [
+        "AUTO_RENEWAL_LANGUAGE",
+        "RENEWAL_TERM_PRESENT",
+        "CAP_ON_LIABILITY_ABSENT",
+        "GOVERNING_LAW_PRESENT",
+        "PARTIES_IDENTIFIED",
+        "AGREEMENT_DATE_IDENTIFIED"
+      ]
+    },
+    "evidence_substring_check": true,
+    "stats": {
+      "contracts_total": 1,
+      "completed_analyses": 1,
+      "failed_analyses": 0,
+      "risk_distribution": {
+        "LOW": 1,
+        "MEDIUM": 0,
+        "HIGH": 0
+      },
+      "avg_processing_ms": 18433.5,
+      "clauses_detected_total": 8
+    },
+    "delete": "ok"
+  },
+  "timings_ms": {
+    "openapi_docs": 167.3,
+    "health": 8652.5,
+    "upload": 93.4,
+    "analyze": 18502.9,
+    "analysis_fetch": 12.7,
+    "stats_and_list": 41.5
+  },
+  "openapi_paths": [
+    "/api/analyses/{analysis_id}",
+    "/api/contracts",
+    "/api/contracts/upload",
+    "/api/contracts/{contract_id}",
+    "/api/contracts/{contract_id}/analysis",
+    "/api/contracts/{contract_id}/analyze",
+    "/api/contracts/{contract_id}/text",
+    "/api/health",
+    "/api/stats"
+  ]
+}

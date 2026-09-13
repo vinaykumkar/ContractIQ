@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-08-30T14:25:24.219605+00:00",
+  "clauses": [
+    "agreement_date",
+    "anti_assignment",
+    "audit_rights",
+    "cap_on_liability",
+    "document_name"
+  ],
+  "selected_contracts": [
+    {
+      "contract_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "reason": "clause with multiple gold instances (exploded spans)"
+    },
+    {
+      "contract_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "reason": "clause with multiple gold instances (exploded spans)"
+    },
+    {
+      "contract_id": "KIROMICBIOPHARMA,INC_05_11_2020-EX-10.23-CONSULTING AGREEMENT",
+      "reason": "clause with multiple gold instances (exploded spans)"
+    },
+    {
+      "contract_id": "CerenceInc_20191002_8-K_EX-10.4_11827494_EX-10.4_Intellectual Property Agreement",
+      "reason": "clause with multiple gold instances (exploded spans)"
+    }
+  ],
+  "checks": {
+    "strict_answer_validation": true,
+    "positive_example_present": true,
+    "no_answer_example_present": true,
+    "multi_window_contract_present": true,
+    "multi_gold_span_clause_present": true,
+    "all_positive_spans_reconstructed_with_containment": true,
+    "reconstructed_spans": 15,
+    "boundary_extended_spans": 1,
+    "note": "Some CUAD gold spans cut mid-wordpiece-token; token-level decoding extends those to the containing token boundary (standard SQuAD behaviour). Precise char spans are preserved in feature metadata."
+  },
+  "per_contract": [
+    {
+      "contract_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "context_tokens": 7556,
+      "windows_total": 114
+    },
+    {
+      "contract_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "context_tokens": 14220,
+      "windows_total": 212
+    },
+    {
+      "contract_id": "KIROMICBIOPHARMA,INC_05_11_2020-EX-10.23-CONSULTING AGREEMENT",
+      "context_tokens": 3511,
+      "windows_total": 53
+    },
+    {
+      "contract_id": "CerenceInc_20191002_8-K_EX-10.4_11827494_EX-10.4_Intellectual Property Agreement",
+      "context_tokens": 12920,
+      "windows_total": 193
+    }
+  ],
+  "window_stats": {
+    "total": 572,
+    "positive": 15,
+    "no_answer": 557,
+    "max_windows_per_contract": 212
+  },
+  "question_budget": [
+    {
+      "label": "agreement_date",
+      "cuad_category": "Agreement Date",
+      "question_tokens": 31,
+      "special_tokens": 3,
+      "context_budget": 478,
+      "at_risk": false
+    },
+    {
+      "label": "anti_assignment",
+      "cuad_category": "Anti-Assignment",
+      "question_tokens": 45,
+      "special_tokens": 3,
+      "context_budget": 464,
+      "at_risk": false
+    },
+    {
+      "label": "audit_rights",
+      "cuad_category": "Audit Rights",
+      "question_tokens": 53,
+      "special_tokens": 3,
+      "context_budget": 456,
+      "at_risk": false
+    },
+    {
+      "label": "cap_on_liability",
+      "cuad_category": "Cap On Liability",
+      "question_tokens": 62,
+      "special_tokens": 3,
+      "context_budget": 447,
+      "at_risk": false
+    },
+    {
+      "label": "document_name",
+      "cuad_category": "Document Name",
+      "question_tokens": 31,
+      "special_tokens": 3,
+      "context_budget": 478,
+      "at_risk": false
+    }
+  ]
+}

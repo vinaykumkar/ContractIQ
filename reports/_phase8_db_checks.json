@@ -1,0 +1,22 @@
+{
+ "orphans": {
+  "analyses": 0,
+  "clause_results": 0,
+  "risk_findings": 0
+ },
+ "stats_consistent": true,
+ "db_counts": {
+  "contracts": 22,
+  "completed": 17,
+  "failed": 0
+ },
+ "risk_levels": {
+  "LOW": 12,
+  "MEDIUM": 5
+ },
+ "evidence_invariant": {
+  "checked": 115,
+  "mismatches": 0,
+  "bad": []
+ }
+}

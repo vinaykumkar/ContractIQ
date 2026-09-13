@@ -1,0 +1,260 @@
+{
+  "generated_at": "2026-08-30T14:29:02.480351+00:00",
+  "tokenizer": "distilbert-base-uncased",
+  "tokenizer_model_max_length": 512,
+  "window_config": {
+    "max_seq_len": 512,
+    "doc_stride": 128,
+    "max_answer_tokens": 64
+  },
+  "split": {
+    "seed": 42,
+    "val_fraction": 0.1,
+    "level": "contract",
+    "train_contracts": 367,
+    "val_contracts": 41,
+    "official_test_contracts": 102,
+    "leakage_report": {
+      "train_overlap_val": [],
+      "train_overlap_test": [],
+      "val_overlap_test": [],
+      "duplicates_within_train": 0,
+      "duplicates_within_val": 0,
+      "duplicates_within_test": 0,
+      "counts": {
+        "train": 367,
+        "val": 41,
+        "test": 102
+      }
+    }
+  },
+  "features": {
+    "train_rows": 183385,
+    "val_eval_rows": 22723,
+    "train_positive_windows": 5105,
+    "train_no_answer_windows": 178280,
+    "positive_share": 0.0278,
+    "windows_per_contract_clause": {
+      "max": 283,
+      "median": 22,
+      "mean": 33.7
+    },
+    "per_clause": {
+      "agreement_date": {
+        "cuad_category": "Agreement Date",
+        "windows": 13050,
+        "positive_windows": 360
+      },
+      "anti_assignment": {
+        "cuad_category": "Anti-Assignment",
+        "windows": 13577,
+        "positive_windows": 412
+      },
+      "audit_rights": {
+        "cuad_category": "Audit Rights",
+        "windows": 13905,
+        "positive_windows": 379
+      },
+      "cap_on_liability": {
+        "cuad_category": "Cap On Liability",
+        "windows": 14296,
+        "positive_windows": 424
+      },
+      "document_name": {
+        "cuad_category": "Document Name",
+        "windows": 13050,
+        "positive_windows": 392
+      },
+      "effective_date": {
+        "cuad_category": "Effective Date",
+        "windows": 13126,
+        "positive_windows": 352
+      },
+      "exclusivity": {
+        "cuad_category": "Exclusivity",
+        "windows": 16375,
+        "positive_windows": 292
+      },
+      "expiration_date": {
+        "cuad_category": "Expiration Date",
+        "windows": 13383,
+        "positive_windows": 394
+      },
+      "governing_law": {
+        "cuad_category": "Governing Law",
+        "windows": 13426,
+        "positive_windows": 399
+      },
+      "insurance": {
+        "cuad_category": "Insurance",
+        "windows": 13619,
+        "positive_windows": 224
+      },
+      "license_grant": {
+        "cuad_category": "License Grant",
+        "windows": 13426,
+        "positive_windows": 478
+      },
+      "non_compete": {
+        "cuad_category": "Non-Compete",
+        "windows": 13997,
+        "positive_windows": 167
+      },
+      "parties": {
+        "cuad_category": "Parties",
+        "windows": 13159,
+        "positive_windows": 473
+      },
+      "renewal_term": {
+        "cuad_category": "Renewal Term",
+        "windows": 13905,
+        "positive_windows": 168
+      },
+      "termination_for_convenience": {
+        "cuad_category": "Termination For Convenience",
+        "windows": 13814,
+        "positive_windows": 191
+      }
+    }
+  },
+  "data_anomalies": {
+    "gold_spans_cut_mid_token": 30,
+    "unique_gold_spans_seen_in_train_windows": 4473,
+    "mid_token_share": 0.0067,
+    "note": "Gold spans whose boundary falls inside a wordpiece token; training labels use the containing token (standard SQuAD)."
+  },
+  "question_budget": [
+    {
+      "label": "agreement_date",
+      "cuad_category": "Agreement Date",
+      "question_tokens": 31,
+      "special_tokens": 3,
+      "context_budget": 478,
+      "at_risk": false
+    },
+    {
+      "label": "anti_assignment",
+      "cuad_category": "Anti-Assignment",
+      "question_tokens": 45,
+      "special_tokens": 3,
+      "context_budget": 464,
+      "at_risk": false
+    },
+    {
+      "label": "audit_rights",
+      "cuad_category": "Audit Rights",
+      "question_tokens": 53,
+      "special_tokens": 3,
+      "context_budget": 456,
+      "at_risk": false
+    },
+    {
+      "label": "cap_on_liability",
+      "cuad_category": "Cap On Liability",
+      "question_tokens": 62,
+      "special_tokens": 3,
+      "context_budget": 447,
+      "at_risk": false
+    },
+    {
+      "label": "document_name",
+      "cuad_category": "Document Name",
+      "question_tokens": 31,
+      "special_tokens": 3,
+      "context_budget": 478,
+      "at_risk": false
+    },
+    {
+      "label": "effective_date",
+      "cuad_category": "Effective Date",
+      "question_tokens": 33,
+      "special_tokens": 3,
+      "context_budget": 476,
+      "at_risk": false
+    },
+    {
+      "label": "exclusivity",
+      "cuad_category": "Exclusivity",
+      "question_tokens": 103,
+      "special_tokens": 3,
+      "context_budget": 406,
+      "at_risk": false
+    },
+    {
+      "label": "expiration_date",
+      "cuad_category": "Expiration Date",
+      "question_tokens": 40,
+      "special_tokens": 3,
+      "context_budget": 469,
+      "at_risk": false
+    },
+    {
+      "label": "governing_law",
+      "cuad_category": "Governing Law",
+      "question_tokens": 41,
+      "special_tokens": 3,
+      "context_budget": 468,
+      "at_risk": false
+    },
+    {
+      "label": "insurance",
+      "cuad_category": "Insurance",
+      "question_tokens": 46,
+      "special_tokens": 3,
+      "context_budget": 463,
+      "at_risk": false
+    },
+    {
+      "label": "license_grant",
+      "cuad_category": "License Grant",
+      "question_tokens": 41,
+      "special_tokens": 3,
+      "context_budget": 468,
+      "at_risk": false
+    },
+    {
+      "label": "non_compete",
+      "cuad_category": "Non-Compete",
+      "question_tokens": 55,
+      "special_tokens": 3,
+      "context_budget": 454,
+      "at_risk": false
+    },
+    {
+      "label": "parties",
+      "cuad_category": "Parties",
+      "question_tokens": 34,
+      "special_tokens": 3,
+      "context_budget": 475,
+      "at_risk": false
+    },
+    {
+      "label": "renewal_term",
+      "cuad_category": "Renewal Term",
+      "question_tokens": 53,
+      "special_tokens": 3,
+      "context_budget": 456,
+      "at_risk": false
+    },
+    {
+      "label": "termination_for_convenience",
+      "cuad_category": "Termination For Convenience",
+      "question_tokens": 51,
+      "special_tokens": 3,
+      "context_budget": 458,
+      "at_risk": false
+    }
+  ],
+  "performance": {
+    "total_wall_seconds": 50.6,
+    "peak_ram_gb": 0.592338944,
+    "shard_rows": 10000,
+    "train_shard_files": 19,
+    "val_shard_files": 3
+  },
+  "outputs": {
+    "train_features_dir": "data\\processed\\train_features",
+    "val_eval_features_dir": "data\\processed\\val_eval_features",
+    "split_metadata": "data\\processed\\split_metadata.json"
+  }
+}

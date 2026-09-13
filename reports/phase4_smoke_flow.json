@@ -1,0 +1,55 @@
+{
+  "file_safety": {
+    "display_name": "demo msA.docx",
+    "internal_id": "2e915d3136744c2db87b6b6bfc0f67aa",
+    "stored": "storage\\uploads\\2e915d3136744c2db87b6b6bfc0f67aa.docx"
+  },
+  "parsing": {
+    "file_type": "docx",
+    "character_count": 706,
+    "page_count": null,
+    "warnings": []
+  },
+  "analysis": {
+    "model_state": "fine_tuned",
+    "model_version": "phase3-finetuned-minilm-squad2-1epoch",
+    "processing_ms": 88258.4,
+    "overall_risk_score": 45,
+    "overall_risk_level": "MEDIUM",
+    "clauses_found": [
+      "agreement_date",
+      "document_name",
+      "effective_date",
+      "expiration_date",
+      "governing_law",
+      "non_compete",
+      "parties",
+      "renewal_term",
+      "termination_for_convenience"
+    ],
+    "rule_ids": [
+      "AGREEMENT_DATE_IDENTIFIED",
+      "AUTO_RENEWAL_LANGUAGE",
+      "CAP_ON_LIABILITY_ABSENT",
+      "GOVERNING_LAW_PRESENT",
+      "NON_COMPETE_PRESENT",
+      "PARTIES_IDENTIFIED",
+      "RENEWAL_TERM_PRESENT"
+    ]
+  },
+  "persistence": {
+    "status": "COMPLETED",
+    "clause_rows": 15,
+    "finding_rows": 7,
+    "evidence_substring_check": true
+  },
+  "stats": {
+    "contracts": 1,
+    "analyses": 1,
+    "avg_processing_ms": 88258.4,
+    "risk_levels": {
+      "MEDIUM": 1
+    }
+  },
+  "total_seconds": 89.4
+}

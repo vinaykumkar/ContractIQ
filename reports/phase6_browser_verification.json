@@ -1,0 +1,40 @@
+{
+  "routes": {
+    "/": {
+      "title": "ContractIQ — AI Contract Intelligence & Risk Analysis",
+      "heading": "ContractIQ"
+    },
+    "/analyze": {
+      "title": "ContractIQ — AI Contract Intelligence & Risk Analysis",
+      "heading": "New Analysis"
+    },
+    "/contracts": {
+      "title": "ContractIQ — AI Contract Intelligence & Risk Analysis",
+      "heading": "Contracts"
+    },
+    "/intelligence": {
+      "title": "ContractIQ — AI Contract Intelligence & Risk Analysis",
+      "heading": "Intelligence"
+    }
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "flow": {
+    "uploaded": true,
+    "workspaceUrl": "http://localhost:5173/contracts/ebaa887238c04ad8adfb8471dc217791",
+    "riskOrb": "Overall risk score 30 of 100, level LOW, 2 findings",
+    "governingLawHighlight": true,
+    "governingLawText": "This agreement is governed by the laws of the State of\nOhio.",
+    "findingsCount": 3,
+    "historyCount": 4,
+    "reopened": true,
+    "consoleErrorCount": 0,
+    "pageErrorCount": 0
+  },
+  "screenshots": [
+    "shots/overview.png",
+    "shots/intelligence.png",
+    "shots/workspace.png",
+    "shots/evidence-highlight.png"
+  ]
+}

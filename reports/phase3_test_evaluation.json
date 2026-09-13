@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-08-30T17:23:48.602611+00:00",
+  "run_note": "Official test evaluation, run ONCE after settings were frozen (model, thresholds, retrieval, quantization).",
+  "model_state": "fine_tuned",
+  "model_source": "ml\\models\\final",
+  "model_version": "phase3-finetuned-minilm-squad2-1epoch",
+  "frozen_decoding": {
+    "no_answer_delta": 0.0,
+    "min_confidence": 0.0,
+    "note": "Calibrated on the validation split (41 contracts, fine_tuned); never tuned on the official test set."
+  },
+  "frozen_retrieval": {
+    "enabled": true,
+    "top_k": 15,
+    "max_block_chars": 1200,
+    "overlap_chars": 200,
+    "boost_first_blocks": 2,
+    "method": "tfidf_cosine_with_clause_keyword_lexicon",
+    "measured_recall_note": "Aggregate gold-answer recall 95.2% at K=15 on validation (reports/phase3_retrieval_recall.*).",
+    "full_document_clauses": [
+      "non_compete",
+      "exclusivity",
+      "cap_on_liability",
+      "license_grant"
+    ],
+    "full_document_reason": "TF-IDF gold-answer recall below the 95% acceptance bar for these clauses (62-93%); they fall back to full-document inference to avoid answer loss."
+  },
+  "test_contracts": 102,
+  "prediction_count": 1530,
+  "total_windows_processed": 23499,
+  "total_processing_seconds": 411.8,
+  "avg_windows_per_contract": 230.4,
+  "results": {
+    "overall": {
+      "em": 0.6078431372549019,
+      "f1": 0.6623652761650822,
+      "answerable_em": 0.5062857142857143,
+      "answerable_f1": 0.6016215686086579,
+      "answerable_precision": 0.6317970001603572,
+      "answerable_recall": 0.6122535987265514,
+      "answerable_pairs": 875,
+      "no_answer_accuracy": 0.7435114503816794,
+      "no_answer_pairs": 655,
+      "found_decision": {
+        "true_positive": 728,
+        "false_negative": 147,
+        "false_positive": 168,
+        "true_negative": 487,
+        "answerable_detection_recall": 0.832,
+        "found_precision": 0.8125,
+        "macro_f1": 0.8221
+      }
+    },
+    "per_clause": {
+      "agreement_date": {
+        "pairs": 102,
+        "answerable_pairs": 93,
+        "em": 0.7352941176470589,
+        "f1": 0.7792622818358111,
+        "answerable_f1": 0.8224166962070188,
+        "no_answer_accuracy": 0.3333333333333333
+      },
+      "anti_assignment": {
+        "pairs": 102,
+        "answerable_pairs": 72,
+        "em": 0.6568627450980392,
+        "f1": 0.727500968311966,
+        "answerable_f1": 0.6278485939975075,
+        "no_answer_accuracy": 0.9666666666666667
+      },
+      "audit_rights": {
+        "pairs": 102,
+        "answerable_pairs": 38,
+        "em": 0.6470588235294118,
+        "f1": 0.7030866438297987,
+        "answerable_f1": 0.43986414922735445,
+        "no_answer_accuracy": 0.859375
+      },
+      "cap_on_liability": {
+        "pairs": 102,
+        "answerable_pairs": 44,
+        "em": 0.5,
+        "f1": 0.5793002249949829,
+        "answerable_f1": 0.43383233976109686,
+        "no_answer_accuracy": 0.6896551724137931
+      },
+      "document_name": {
+        "pairs": 102,
+        "answerable_pairs": 102,
+        "em": 0.7745098039215687,
+        "f1": 0.889666977902272,
+        "answerable_f1": 0.889666977902272,
+        "no_answer_accuracy": null
+      },
+      "effective_date": {
+        "pairs": 102,
+        "answerable_pairs": 70,
+        "em": 0.4803921568627451,
+        "f1": 0.5286670486086071,
+        "answerable_f1": 0.6846291279725419,
+        "no_answer_accuracy": 0.1875
+      },
+      "exclusivity": {
+        "pairs": 102,
+        "answerable_pairs": 33,
+        "em": 0.5980392156862745,
+        "f1": 0.6451335857545321,
+        "answerable_f1": 0.4485947196049169,
+        "no_answer_accuracy": 0.7391304347826086
+      },
+      "expiration_date": {
+        "pairs": 102,
+        "answerable_pairs": 78,
+        "em": 0.7254901960784313,
+        "f1": 0.7751717452945406,
+        "answerable_f1": 0.7829168976928608,
+        "no_answer_accuracy": 0.75
+      },
+      "governing_law": {
+        "pairs": 102,
+        "answerable_pairs": 83,
+        "em": 0.7941176470588235,
+        "f1": 0.844818784035497,
+        "answerable_f1": 0.8333917586942252,
+        "no_answer_accuracy": 0.8947368421052632
+      },
+      "insurance": {
+        "pairs": 102,
+        "answerable_pairs": 32,
+        "em": 0.6862745098039216,
+        "f1": 0.7385115705636616,
+        "answerable_f1": 0.3852556311716711,
+        "no_answer_accuracy": 0.9
+      },
+      "license_grant": {
+        "pairs": 102,
+        "answerable_pairs": 50,
+        "em": 0.47058823529411764,
+        "f1": 0.5606268344849246,
+        "answerable_f1": 0.32367874234924604,
+        "no_answer_accuracy": 0.7884615384615384
+      },
+      "non_compete": {
+        "pairs": 102,
+        "answerable_pairs": 23,
+        "em": 0.7352941176470589,
+        "f1": 0.760981020464096,
+        "answerable_f1": 0.2878288733625132,
+        "no_answer_accuracy": 0.8987341772151899
+      },
+      "parties": {
+        "pairs": 102,
+        "answerable_pairs": 102,
+        "em": 0.08823529411764706,
+        "f1": 0.13693304772889547,
+        "answerable_f1": 0.13693304772889547,
+        "no_answer_accuracy": null
+      },
+      "renewal_term": {
+        "pairs": 102,
+        "answerable_pairs": 26,
+        "em": 0.5294117647058824,
+        "f1": 0.5550000385770022,
+        "answerable_f1": 0.5619232282636244,
+        "no_answer_accuracy": 0.5526315789473685
+      },
+      "termination_for_convenience": {
+        "pairs": 102,
+        "answerable_pairs": 29,
+        "em": 0.696078431372549,
+        "f1": 0.7108183700896454,
+        "answerable_f1": 0.7414990947980639,
+        "no_answer_accuracy": 0.6986301369863014
+      }
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+ "overall": {
+  "em": 0.35121951219512193,
+  "f1": 0.35380438742363723,
+  "answerable_em": 0.0,
+  "answerable_f1": 0.004118389288955633,
+  "answerable_precision": 0.009715940817658844,
+  "answerable_recall": 0.00563540519975839,
+  "answerable_pairs": 386,
+  "no_answer_accuracy": 0.9432314410480349,
+  "no_answer_pairs": 229,
+  "found_decision": {
+   "true_positive": 33,
+   "false_negative": 353,
+   "false_positive": 13,
+   "true_negative": 216,
+   "answerable_detection_recall": 0.0855,
+   "found_precision": 0.7174,
+   "macro_f1": 0.1528
+  }
+ },
+ "per_clause": {
+  "agreement_date": {
+   "pairs": 41,
+   "answerable_pairs": 36,
+   "em": 0.12195121951219512,
+   "f1": 0.12195121951219512,
+   "answerable_f1": 0.0,
+   "no_answer_accuracy": 1.0
+  },
+  "anti_assignment": {
+   "pairs": 41,
+   "answerable_pairs": 32,
+   "em": 0.21951219512195122,
+   "f1": 0.21951219512195122,
+   "answerable_f1": 0.0,
+   "no_answer_accuracy": 1.0
+  },
+  "audit_rights": {
+   "pairs": 41,
+   "answerable_pairs": 16,
+   "em": 0.5609756097560976,
+   "f1": 0.5693099783289853,
+   "answerable_f1": 0.0213568194680249,
+   "no_answer_accuracy": 0.92
+  },
+  "cap_on_liability": {
+   "pairs": 41,
+   "answerable_pairs": 19,
+   "em": 0.4878048780487805,
+   "f1": 0.48945845390657294,
+   "answerable_f1": 0.003568242640499554,
+   "no_answer_accuracy": 0.9090909090909091
+  },
+  "document_name": {
+   "pairs": 41,
+   "answerable_pairs": 41,
+   "em": 0.0,
+   "f1": 0.0,
+   "answerable_f1": 0.0,
+   "no_answer_accuracy": null
+  },
+  "effective_date": {
+   "pairs": 41,
+   "answerable_pairs": 33,
+   "em": 0.1951219512195122,
+   "f1": 0.1951219512195122,
+   "answerable_f1": 0.0,
+   "no_answer_accuracy": 1.0
+  },
+  "exclusivity": {
+   "pairs": 41,
+   "answerable_pairs": 13,
+   "em": 0.6829268292682927,
+   "f1": 0.6829268292682927,
+   "answerable_f1": 0.0,
+   "no_answer_accuracy": 1.0
+  },
+  "expiration_date": {
+   "pairs": 41,
+   "answerable_pairs": 36,
+   "em": 0.12195121951219512,
+   "f1": 0.12495380635624538,
+   "answerable_f1": 0.0034196127946127947,
+   "no_answer_accuracy": 1.0
+  },
+  "governing_law": {
+   "pairs": 41,
+   "answerable_pairs": 39,
+   "em": 0.04878048780487805,
+   "f1": 0.049477351916376304,
+   "answerable_f1": 0.0007326007326007327,
+   "no_answer_accuracy": 1.0
+  },
+  "insurance": {
+   "pairs": 41,
+   "answerable_pairs": 15,
+   "em": 0.5853658536585366,
+   "f1": 0.5895434646654159,
+   "answerable_f1": 0.011418803418803419,
+   "no_answer_accuracy": 0.9230769230769231
+  },
+  "license_grant": {
+   "pairs": 41,
+   "answerable_pairs": 16,
+   "em": 0.5121951219512195,
+   "f1": 0.5130219098801158,
+   "answerable_f1": 0.00211864406779661,
+   "no_answer_accuracy": 0.84
+  },
+  "non_compete": {
+   "pairs": 41,
+   "answerable_pairs": 11,
+   "em": 0.7073170731707317,
+   "f1": 0.7073170731707317,
+   "answerable_f1": 0.0,
+   "no_answer_accuracy": 0.9666666666666667
+  },
+  "parties": {
+   "pairs": 41,
+   "answerable_pairs": 41,
+   "em": 0.0,
+   "f1": 0.013888888888888888,
+   "answerable_f1": 0.013888888888888888,
+   "no_answer_accuracy": null
+  },
+  "renewal_term": {
+   "pairs": 41,
+   "answerable_pairs": 21,
+   "em": 0.4634146341463415,
+   "f1": 0.46784922394678496,
+   "answerable_f1": 0.008658008658008656,
+   "no_answer_accuracy": 0.95
+  },
+  "termination_for_convenience": {
+   "pairs": 41,
+   "answerable_pairs": 17,
+   "em": 0.5609756097560976,
+   "f1": 0.5627334651724896,
+   "answerable_f1": 0.004239533651298358,
+   "no_answer_accuracy": 0.9583333333333334
+  }
+ }
+}

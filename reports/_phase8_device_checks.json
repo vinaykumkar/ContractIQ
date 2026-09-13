@@ -1,0 +1,28 @@
+{
+ "cuda": {
+  "available": true,
+  "torch": "2.13.0+cu130",
+  "cuda_runtime": "13.0",
+  "gpu": "NVIDIA GeForce RTX 2050",
+  "vram_gb": 4.3
+ },
+ "vram": {
+  "before_load_gb": 0.0,
+  "after_analysis_gb": 0.141
+ },
+ "model_state": "fine_tuned",
+ "device": "cuda",
+ "first_analysis_s": 1.5,
+ "second_analysis_s": 0.7,
+ "model_singleton_same_instance": true,
+ "cpu_fallback": {
+  "device": "cpu",
+  "smoke_ok": true,
+  "seconds": 0.6
+ },
+ "leak_smoke": {
+  "rss_start_mb": 1233.3,
+  "rss_end_mb": 1233.3,
+  "growth_mb": 0.0
+ }
+}

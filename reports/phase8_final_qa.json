@@ -1,0 +1,140 @@
+{
+  "phase": 8,
+  "generated": "2026-09-05",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 2050",
+    "vram_gb": 4.3,
+    "torch": "2.13.0+cu130",
+    "cuda_runtime": "13.0",
+    "model_device": "cuda",
+    "model_state": "fine_tuned"
+  },
+  "clean_start": {
+    "seconds_to_both_services": 16,
+    "method": "run_contractiq.bat from stopped state"
+  },
+  "main_journey": {
+    "upload": true,
+    "metadata": {
+      "chars": 720,
+      "type": "txt",
+      "status": "READY"
+    },
+    "risk_orb": "Overall risk score 60 of 100, level MEDIUM, 5 findings",
+    "clause_map": false,
+    "entities": true,
+    "clause_cards": true,
+    "risk_findings_panel": true,
+    "highlight_1": "exact",
+    "highlight_2_moved": "moved correctly",
+    "refresh_restores": true,
+    "delete_updates_stats": true
+  },
+  "file_matrix": {
+    "note": "DOCX generated programmatically; PDF bytes handcrafted.",
+    "txt_upload": true,
+    "txt_analysis_ms": 3635,
+    "txt_evidence_ok": true,
+    "txt_reopen": true,
+    "pdf_upload": true,
+    "pdf_analysis_ms": 3666,
+    "pdf_evidence_ok": true,
+    "pdf_text_extracted": true
+  },
+  "edge_cases": {
+    "empty_file": true,
+    "unsupported": true,
+    "traversal": true,
+    "corrupt_pdf": true,
+    "duplicate_flagged": true,
+    "oversized": "covered by backend unit tests (413 FILE_TOO_LARGE)",
+    "unicode_txt": true
+  },
+  "large_contract": {
+    "chars": 197160,
+    "analysis_ms": 16878,
+    "scroll_responsive_ms": 384,
+    "highlight_deep": "exact",
+    "dom_mark_nodes": 3
+  },
+  "evidence_invariant": {
+    "browser_checked": {
+      "checked": 14,
+      "mismatches": []
+    },
+    "all_demo_analyses": {
+      "checked": 115,
+      "mismatches": 0,
+      "bad": []
+    },
+    "zero_mismatches_required": true
+  },
+  "risk_bands": "0/30/31/60/61 boundaries verified; max reachable 89; clamp <=100 holds (test_phase8_qa)",
+  "confidence_aware": "low-confidence finding -> uncertain, weight 0, severity separate (test_phase8_qa)",
+  "idempotency_concurrency": "COMPLETED re-analyze returns same analysis; ANALYZING -> 409 ANALYSIS_IN_PROGRESS (test_phase8_qa)",
+  "cuda_oom": "mocked OOM -> FAILED with GPU message, torch.cuda.empty_cache called, server survives (test_phase8_qa)",
+  "cpu_fallback": {
+    "device": "cpu",
+    "smoke_ok": true,
+    "seconds": 0.6
+  },
+  "model_load": {
+    "singleton": true,
+    "first_s": 1.5,
+    "second_s": 0.7,
+    "no_reload_on_second": true
+  },
+  "vram": {
+    "before_load_gb": 0.0,
+    "after_analysis_gb": 0.141
+  },
+  "leak_smoke": {
+    "rss_start_mb": 1233.3,
+    "rss_end_mb": 1233.3,
+    "growth_mb": 0.0
+  },
+  "db_integrity": {
+    "orphans": {
+      "analyses": 0,
+      "clause_results": 0,
+      "risk_findings": 0
+    },
+    "stats_consistent": true
+  },
+  "delete_fk_regression": "duplicate_of_id reference cleared before delete (found by QA, fixed, regression test added)",
+  "security": {
+    "secret_scan": "clean",
+    "log_privacy": "no contract text in logs",
+    "portability_scan": "clean",
+    "traversal/oversize/bad-ext": "handled (edge cases + unit tests)"
+  },
+  "responsive": {
+    "1920x1080": "ok",
+    "1440x900": "ok",
+    "1366x768": "ok",
+    "1024x768": "ok",
+    "768x1024": "ok",
+    "390x844": "ok"
+  },
+  "a11y": {
+    "dropzone_keyboard": true,
+    "nav_labels": true
+  },
+  "browser": {
+    "console_errors_successful_flow": 0,
+    "page_errors": 0
+  },
+  "routes": {
+    "/": "renders",
+    "/analyze": "renders",
+    "/contracts": "renders",
+    "/intelligence": "renders",
+    "/no-such-route": "renders"
+  },
+  "test_totals": {
+    "backend_ml": 186,
+    "frontend": 13,
+    "phase8_qa_included": true
+  },
+  "artifacts_cleaned": true
+}

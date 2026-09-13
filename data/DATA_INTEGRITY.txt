@@ -1,0 +1,15 @@
+# ContractIQ — immutable source data checksum
+# This file records the SHA-256 of the original data.zip at project start.
+# data.zip must NEVER be modified, overwritten, moved, or deleted.
+# Verify with:
+#   python scripts/verify_data_integrity.py
+
+file: data.zip
+sha256: f8161d18bea4e9c05e78fa6dda61c19c846fb8087ea969c172753bc2f45b999a
+size_bytes: 18309308
+recorded_at: 2026-08-30
+
+contents (never extracted anywhere except data/raw/):
+  CUADv1.json                     40,128,638 bytes uncompressed
+  test.json                        7,378,232 bytes uncompressed
+  train_separate_questions.json   35,065,844 bytes uncompressed
