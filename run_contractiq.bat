@@ -1,33 +1,63 @@
 @echo off
-rem ============================================================
-rem  ContractIQ - combined launcher: backend + frontend + browser
-rem ============================================================
-setlocal
-set "PROJECT_DIR=%~dp0"
+setlocal EnableExtensions
 
-if not exist "%PROJECT_DIR%.venv\Scripts\python.exe" (
-    echo ContractIQ is not installed on this machine.
+rem ============================================================
+rem ContractIQ - Local Application Launcher
+rem Starts Backend + Frontend and opens the browser
+rem ============================================================
+
+set "ROOT=%~dp0"
+
+echo.
+echo ============================================================
+echo                  ContractIQ Launcher
+echo ============================================================
+echo.
+
+rem Check Python virtual environment
+if not exist "%ROOT%.venv\Scripts\python.exe" (
+    echo [ERROR] Python virtual environment not found.
     echo Please run setup_windows.bat first.
+    echo.
     pause
     exit /b 1
 )
-if not exist "%PROJECT_DIR%frontend\node_modules" (
-    echo Frontend dependencies are missing.
+
+rem Check frontend dependencies
+if not exist "%ROOT%frontend\node_modules" (
+    echo [ERROR] Frontend dependencies not found.
     echo Please run setup_windows.bat first.
+    echo.
     pause
     exit /b 1
 )
 
-start "ContractIQ Backend" cmd /k ""%PROJECT_DIR%run_backend.bat""
+echo [1/3] Starting ContractIQ Backend...
+start "ContractIQ Backend" cmd /k "%ROOT%run_backend.bat"
+
 timeout /t 2 /nobreak >nul
-start "ContractIQ Frontend" cmd /k ""%PROJECT_DIR%run_frontend.bat""
 
-echo ContractIQ is starting:
-echo   Backend : http://127.0.0.1:8000  (docs at /docs)
-echo   Frontend: http://localhost:5173
-echo Opening the browser shortly...
+echo [2/3] Starting ContractIQ Frontend...
+start "ContractIQ Frontend" cmd /k "%ROOT%run_frontend.bat"
+
+echo.
+echo Backend  : http://127.0.0.1:8000
+echo API Docs : http://127.0.0.1:8000/docs
+echo Frontend : http://localhost:5173
+echo.
+
+echo [3/3] Waiting for services to start...
 timeout /t 8 /nobreak >nul
-start "" http://localhost:5173
-echo (Close the two ContractIQ windows to stop the app.)
+
+echo Opening ContractIQ in your browser...
+start "" "http://localhost:5173"
+
+echo.
+echo ============================================================
+echo ContractIQ has been launched successfully.
+echo Close the Backend and Frontend windows to stop the app.
+echo ============================================================
+echo.
+
 timeout /t 5 /nobreak >nul
 endlocal
