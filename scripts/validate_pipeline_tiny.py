@@ -1,18 +1,28 @@
+```python
 #!/usr/bin/env python
-"""Phase 2 tiny pipeline validation on real CUAD data.
+"""Validate the Phase 2 tiny pipeline using real CUAD data.
 
-Chain under test:
-  raw CUAD -> ContractRecord -> clause QA -> tokenizer -> sliding windows
-  -> training features -> decode gold span back to original contract text
+Validation flow:
+    CUAD data
+        -> ContractRecord
+        -> clause QA
+        -> tokenization
+        -> sliding windows
+        -> training features
+        -> gold-span reconstruction
 
-Selection is deterministic and deliberately includes:
-  - at least one positive example
-  - at least one no-answer example
-  - at least one contract requiring multiple sliding windows
-  - at least one clause with multiple gold spans
+The deterministic sample includes:
+    - a positive example
+    - a no-answer example
+    - a contract requiring multiple windows
+    - a clause containing multiple gold spans
 
-Writes reports/phase2_tiny_validation.json. No training happens here.
+The validation does not perform model training.
+
+Output:
+    reports/phase2_tiny_validation.json
 """
+
 from __future__ import annotations
 
 import json
@@ -37,200 +47,467 @@ from ml.src.qa_features import (  # noqa: E402
 )
 from ml.src.preprocessing import question_budget  # noqa: E402
 
-N_CANDIDATE_CONTRACTS = 40
-N_CLAUSES = 5
-N_CONTRACTS_TO_SELECT = 4
+
+CANDIDATE_LIMIT = 40
+CLAUSE_LIMIT = 5
+TARGET_CONTRACTS = 4
+MODEL_NAME = "distilbert-base-uncased"
 
 
-def main() -> int:
-    from transformers import AutoTokenizer
+def select_contract(
+    selected: list,
+    reasons: list[str],
+    record,
+    reason: str,
+) -> None:
+    """Add a contract once, while respecting the selection limit."""
+    if len(selected) >= TARGET_CONTRACTS:
+        return
 
-    clauses = load_enabled_clauses()[:N_CLAUSES]
-    config = load_window_config()
-    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased", use_fast=True)
-    config.check_tokenizer_compat(tokenizer.model_max_length)
-    cls_id, sep_id = tokenizer.cls_token_id, tokenizer.sep_token_id
+    existing_ids = {item.contract_id for item in selected}
 
-    print(f"Loading {N_CANDIDATE_CONTRACTS} candidate contracts (strict validation)...")
-    candidates = load_train_contracts(
-        load_enabled_clauses(), limit=N_CANDIDATE_CONTRACTS, strict=True
-    )
-    print(f"Loaded {len(candidates)} contracts with strict answer validation: OK")
+    if record.contract_id not in existing_ids:
+        selected.append(record)
+        reasons.append(reason)
 
-    selected: list = []
-    reasons: list[str] = []
 
-    def try_select(rec, reason):
-        if len(selected) < N_CONTRACTS_TO_SELECT and rec.contract_id not in {
-            r.contract_id for r in selected
-        }:
-            selected.append(rec)
-            reasons.append(reason)
+def find_required_contracts(candidates, clauses, tokenizer, config, cls_id, sep_id):
+    """Deterministically select contracts covering all required scenarios."""
+    selected = []
+    reasons = []
 
-    # deterministic selection covering the required cases
-    for rec in candidates:
+    # Look for a contract containing multiple gold answer instances.
+    for record in candidates:
+        if len(selected) >= TARGET_CONTRACTS:
+            break
+
         for clause in clauses:
-            qas = rec.qas_for(clause.label)
-            if len(qas) > 1:
-                try_select(rec, "clause with multiple gold instances (exploded spans)")
+            if len(record.qas_for(clause.label)) > 1:
+                select_contract(
+                    selected,
+                    reasons,
+                    record,
+                    "clause with multiple gold instances (exploded spans)",
+                )
                 break
 
-    tokenized_cache = {}
-    for rec in candidates:
-        tok = tokenize_context(tokenizer, rec)
-        tokenized_cache[rec.contract_id] = tok
-        clause = clauses[0]
-        q_ids = tokenizer(clause.question, add_special_tokens=False)["input_ids"]
-        windows = build_windows_for_clause(tok, q_ids, clause.label, config, cls_id, sep_id)
+    # Cache tokenized contracts while searching for multi-window examples.
+    tokenized = {}
+
+    for record in candidates:
+        tokenized[record.contract_id] = tokenize_context(tokenizer, record)
+
+        first_clause = clauses[0]
+        question_ids = tokenizer(
+            first_clause.question,
+            add_special_tokens=False,
+        )["input_ids"]
+
+        windows = build_windows_for_clause(
+            tokenized[record.contract_id],
+            question_ids,
+            first_clause.label,
+            config,
+            cls_id,
+            sep_id,
+        )
+
         if len(windows) > 1:
-            try_select(rec, "contract requires multiple sliding windows")
+            select_contract(
+                selected,
+                reasons,
+                record,
+                "contract requires multiple sliding windows",
+            )
 
-    for rec in candidates:  # positive (any enabled clause has a span)
-        if any(not qa.is_impossible and qa.answers for qa in rec.qas):
-            try_select(rec, "contract with positive gold span")
+    # Find a positive contract.
+    for record in candidates:
+        has_positive = any(
+            not qa.is_impossible and qa.answers
+            for qa in record.qas
+        )
+
+        if has_positive:
+            select_contract(
+                selected,
+                reasons,
+                record,
+                "contract with positive gold span",
+            )
             break
 
-    for rec in candidates:  # no-answer
-        if any(qa.is_impossible for qa in rec.qas):
-            try_select(rec, "contract with a no-answer clause instance")
+    # Find a no-answer contract.
+    for record in candidates:
+        has_no_answer = any(
+            qa.is_impossible
+            for qa in record.qas
+        )
+
+        if has_no_answer:
+            select_contract(
+                selected,
+                reasons,
+                record,
+                "contract with a no-answer clause instance",
+            )
             break
 
-    while len(selected) < N_CONTRACTS_TO_SELECT and candidates:
-        try_select(candidates[len(selected) * 7 % len(candidates)], "additional deterministic pick")
-        if len(selected) < N_CONTRACTS_TO_SELECT and all(
-            candidates[0].contract_id == r.contract_id for r in selected
-        ):
-            break
+    # Fill remaining slots deterministically if necessary.
+    index = 0
 
-    print(f"Selected {len(selected)} contracts: {[(r.contract_id, why) for r, why in zip(selected, reasons)]}")
+    while len(selected) < TARGET_CONTRACTS and candidates:
+        candidate = candidates[
+            (len(selected) * 7) % len(candidates)
+        ]
 
-    stats = {
+        previous_count = len(selected)
+
+        select_contract(
+            selected,
+            reasons,
+            candidate,
+            "additional deterministic pick",
+        )
+
+        if len(selected) == previous_count:
+            index += 1
+
+            if index >= len(candidates):
+                break
+
+    return selected, reasons, tokenized
+
+
+def build_validation_report(clauses, selected, reasons):
+    """Create the initial validation report structure."""
+    return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "clauses": [c.label for c in clauses],
+        "clauses": [clause.label for clause in clauses],
         "selected_contracts": [
-            {"contract_id": r.contract_id, "reason": why} for r, why in zip(selected, reasons)
+            {
+                "contract_id": record.contract_id,
+                "reason": reason,
+            }
+            for record, reason in zip(selected, reasons)
         ],
         "checks": {},
         "per_contract": [],
     }
 
-    # ---- run the full chain and verify reconstruction ----
+
+def validate_selected_contracts(
+    selected,
+    clauses,
+    tokenized_cache,
+    tokenizer,
+    config,
+    cls_id,
+    sep_id,
+    stats,
+):
+    """Run feature generation and gold-span reconstruction checks."""
+
     total_windows = 0
     positive_windows = 0
     no_answer_windows = 0
-    max_windows_any = 0
-    reconstructed = 0
-    boundary_extended = 0  # gold cut mid-token; decoded span extends to token boundary
-    multi_span_seen = False
+    max_windows_per_contract = 0
+    reconstructed_spans = 0
+    boundary_extended_spans = 0
+    multi_span_detected = False
 
-    for rec in selected:
-        tokenized = tokenized_cache[rec.contract_id]
-        per_contract_windows = 0
+    for record in selected:
+        tokenized = tokenized_cache[record.contract_id]
+        contract_window_count = 0
+
         for clause in clauses:
-            q_ids = tokenizer(clause.question, add_special_tokens=False)["input_ids"]
-            windows = build_windows_for_clause(tokenized, q_ids, clause.label, config, cls_id, sep_id)
-            per_contract_windows += len(windows)
-            feats = build_train_features(windows, record_qa_for(rec, clause.label))
-            for f in feats:
-                total_windows += 1
-                if f.is_no_answer:
-                    no_answer_windows += 1
-                    assert f.start_position == cls_index() and f.end_position == cls_index()
-                else:
-                    positive_windows += 1
-                    # decode the token span back to the ORIGINAL text and verify
-                    # containment of the gold span within the boundary tokens
-                    w = windows[f.window_index]
-                    local_s = f.start_position - w.ctx_first_token_index_in_window
-                    local_e = f.end_position - w.ctx_first_token_index_in_window
-                    char_s = w.ctx_offsets[local_s][0]
-                    char_e = w.ctx_offsets[local_e][1]
-                    gold_s, gold_e = f.gold_char_span
-                    gold = rec.context[gold_s:gold_e]
-                    extracted = rec.context[char_s:char_e]
-                    if char_s <= gold_s and gold_e <= char_e:
-                        # token boundaries may extend a mid-token-cut gold span
-                        boundary_extended += char_s != gold_s or char_e != gold_e
-                    else:
-                        raise AssertionError(
-                            f"RECONSTRUCTION FAILURE for {rec.contract_id}/{clause.label}: "
-                            f"decoded {extracted!r} does not contain gold {gold!r}"
-                        )
-                    reconstructed += 1
-            if len(qas_for_label(rec, clause.label)) > 1:
-                multi_span_seen = True
-        max_windows_any = max(max_windows_any, per_contract_windows)
-        stats["per_contract"].append({
-            "contract_id": rec.contract_id,
-            "context_tokens": len(tokenized.token_ids),
-            "windows_total": per_contract_windows,
-        })
+            question_ids = tokenizer(
+                clause.question,
+                add_special_tokens=False,
+            )["input_ids"]
 
-    stats["checks"] = {
+            windows = build_windows_for_clause(
+                tokenized,
+                question_ids,
+                clause.label,
+                config,
+                cls_id,
+                sep_id,
+            )
+
+            contract_window_count += len(windows)
+
+            qa = record_qa_for(record, clause.label)
+            features = build_train_features(windows, qa)
+
+            for feature in features:
+                total_windows += 1
+
+                if feature.is_no_answer:
+                    no_answer_windows += 1
+
+                    assert (
+                        feature.start_position == cls_index()
+                        and feature.end_position == cls_index()
+                    )
+
+                    continue
+
+                positive_windows += 1
+
+                window = windows[feature.window_index]
+
+                local_start = (
+                    feature.start_position
+                    - window.ctx_first_token_index_in_window
+                )
+                local_end = (
+                    feature.end_position
+                    - window.ctx_first_token_index_in_window
+                )
+
+                char_start = window.ctx_offsets[local_start][0]
+                char_end = window.ctx_offsets[local_end][1]
+
+                gold_start, gold_end = feature.gold_char_span
+
+                gold_text = record.context[gold_start:gold_end]
+                decoded_text = record.context[char_start:char_end]
+
+                if char_start <= gold_start and gold_end <= char_end:
+                    if char_start != gold_start or char_end != gold_end:
+                        boundary_extended_spans += 1
+                else:
+                    raise AssertionError(
+                        f"RECONSTRUCTION FAILURE for "
+                        f"{record.contract_id}/{clause.label}: "
+                        f"decoded {decoded_text!r} does not contain "
+                        f"gold {gold_text!r}"
+                    )
+
+                reconstructed_spans += 1
+
+            if len(qas_for_label(record, clause.label)) > 1:
+                multi_span_detected = True
+
+        max_windows_per_contract = max(
+            max_windows_per_contract,
+            contract_window_count,
+        )
+
+        stats["per_contract"].append(
+            {
+                "contract_id": record.contract_id,
+                "context_tokens": len(tokenized.token_ids),
+                "windows_total": contract_window_count,
+            }
+        )
+
+    return {
+        "total_windows": total_windows,
+        "positive_windows": positive_windows,
+        "no_answer_windows": no_answer_windows,
+        "max_windows_per_contract": max_windows_per_contract,
+        "reconstructed_spans": reconstructed_spans,
+        "boundary_extended_spans": boundary_extended_spans,
+        "multi_span_detected": multi_span_detected,
+    }
+
+
+def main() -> int:
+    from transformers import AutoTokenizer
+
+    clauses = load_enabled_clauses()[:CLAUSE_LIMIT]
+    window_config = load_window_config()
+
+    tokenizer = AutoTokenizer.from_pretrained(
+        MODEL_NAME,
+        use_fast=True,
+    )
+
+    window_config.check_tokenizer_compat(
+        tokenizer.model_max_length
+    )
+
+    cls_id = tokenizer.cls_token_id
+    sep_id = tokenizer.sep_token_id
+
+    print(
+        f"Loading {CANDIDATE_LIMIT} candidate contracts "
+        "(strict validation)..."
+    )
+
+    candidates = load_train_contracts(
+        load_enabled_clauses(),
+        limit=CANDIDATE_LIMIT,
+        strict=True,
+    )
+
+    print(
+        f"Loaded {len(candidates)} contracts "
+        "with strict answer validation: OK"
+    )
+
+    selected, reasons, tokenized_cache = find_required_contracts(
+        candidates,
+        clauses,
+        tokenizer,
+        window_config,
+        cls_id,
+        sep_id,
+    )
+
+    print(
+        "Selected contracts:",
+        [
+            (record.contract_id, reason)
+            for record, reason in zip(selected, reasons)
+        ],
+    )
+
+    report = build_validation_report(
+        clauses,
+        selected,
+        reasons,
+    )
+
+    metrics = validate_selected_contracts(
+        selected=selected,
+        clauses=clauses,
+        tokenized_cache=tokenized_cache,
+        tokenizer=tokenizer,
+        config=window_config,
+        cls_id=cls_id,
+        sep_id=sep_id,
+        stats=report,
+    )
+
+    total_windows = metrics["total_windows"]
+    positive_windows = metrics["positive_windows"]
+    no_answer_windows = metrics["no_answer_windows"]
+    max_windows = metrics["max_windows_per_contract"]
+    reconstructed = metrics["reconstructed_spans"]
+    boundary_extended = metrics["boundary_extended_spans"]
+
+    report["checks"] = {
         "strict_answer_validation": True,
         "positive_example_present": positive_windows > 0,
         "no_answer_example_present": no_answer_windows > 0,
-        "multi_window_contract_present": max_windows_any > len(clauses),
-        "multi_gold_span_clause_present": multi_span_seen,
+        "multi_window_contract_present": max_windows > len(clauses),
+        "multi_gold_span_clause_present": metrics["multi_span_detected"],
         "all_positive_spans_reconstructed_with_containment": True,
         "reconstructed_spans": reconstructed,
         "boundary_extended_spans": boundary_extended,
-        "note": "Some CUAD gold spans cut mid-wordpiece-token; token-level decoding "
-                "extends those to the containing token boundary (standard SQuAD "
-                "behaviour). Precise char spans are preserved in feature metadata.",
+        "note": (
+            "Some CUAD gold spans cut mid-wordpiece-token; "
+            "token-level decoding extends them to the containing "
+            "token boundary (standard SQuAD behaviour). Precise "
+            "character spans are preserved in feature metadata."
+        ),
     }
-    stats["window_stats"] = {
+
+    report["window_stats"] = {
         "total": total_windows,
         "positive": positive_windows,
         "no_answer": no_answer_windows,
-        "max_windows_per_contract": max_windows_any,
+        "max_windows_per_contract": max_windows,
     }
-    stats["question_budget"] = question_budget(load_enabled_clauses(), config, tokenizer)[:N_CLAUSES]
 
-    # hard requirements
-    checks = stats["checks"]
-    assert checks["positive_example_present"], "no positive example selected"
-    assert checks["no_answer_example_present"], "no no-answer example selected"
-    assert checks["multi_window_contract_present"], "no multi-window contract selected"
-    assert reconstructed > 0
+    report["question_budget"] = question_budget(
+        load_enabled_clauses(),
+        window_config,
+        tokenizer,
+    )[:CLAUSE_LIMIT]
 
-    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
-    out = REPORTS_DIR / "phase2_tiny_validation.json"
-    out.write_text(json.dumps(stats, indent=2), encoding="utf-8")
-    print(f"\nAll tiny-pipeline checks passed. Report: {out}")
-    print(f"Windows: {total_windows} (positive {positive_windows}, no-answer {no_answer_windows})")
-    print(f"Gold spans reconstructed exactly: {reconstructed}")
+    # Required validation conditions.
+    checks = report["checks"]
+
+    assert checks["positive_example_present"], (
+        "No positive example selected."
+    )
+    assert checks["no_answer_example_present"], (
+        "No no-answer example selected."
+    )
+    assert checks["multi_window_contract_present"], (
+        "No multi-window contract selected."
+    )
+    assert reconstructed > 0, (
+        "No gold spans were reconstructed."
+    )
+
+    REPORTS_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    output_file = REPORTS_DIR / "phase2_tiny_validation.json"
+
+    output_file.write_text(
+        json.dumps(report, indent=2),
+        encoding="utf-8",
+    )
+
+    print(
+        f"\nAll tiny-pipeline checks passed. "
+        f"Report: {output_file}"
+    )
+    print(
+        f"Windows: {total_windows} "
+        f"(positive {positive_windows}, "
+        f"no-answer {no_answer_windows})"
+    )
+    print(
+        f"Gold spans reconstructed exactly: {reconstructed}"
+    )
+
     return 0
 
 
-def qas_for_label(rec, label):
-    return rec.qas_for(label)
+def qas_for_label(record, label):
+    """Return all QA instances belonging to a clause label."""
+    return record.qas_for(label)
 
 
-def record_qa_for(rec, label):
-    """Any QA instance for the label (features are label-level, not per instance)."""
-    qas = rec.qas_for(label)
-    if not qas:
-        dummy_q = clauses_question(label)
-        return _dummy_qa(label, dummy_q, True)
-    return qas[0]
+def record_qa_for(record, label):
+    """Return the first QA instance for a clause label."""
+    qas = record.qas_for(label)
+
+    if qas:
+        return qas[0]
+
+    question = get_clause_question(label)
+
+    return _create_dummy_qa(
+        label=label,
+        question=question,
+        impossible=True,
+    )
 
 
-def clauses_question(label):
+def get_clause_question(label):
+    """Find the configured question associated with a clause label."""
     from ml.src.config import load_enabled_clauses
 
-    for c in load_enabled_clauses():
-        if c.label == label:
-            return c.question
+    for clause in load_enabled_clauses():
+        if clause.label == label:
+            return clause.question
+
     return ""
 
 
-def _dummy_qa(label, question, impossible):
+def _create_dummy_qa(label, question, impossible):
+    """Create an empty QA record for clauses without available answers."""
     from ml.src.cuad_loader import ClauseQA
 
-    return ClauseQA(clause_label=label, cuad_category="", question=question,
-                    answers=[], is_impossible=impossible, qa_id="")
+    return ClauseQA(
+        clause_label=label,
+        cuad_category="",
+        question=question,
+        answers=[],
+        is_impossible=impossible,
+        qa_id="",
+    )
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())
+```
